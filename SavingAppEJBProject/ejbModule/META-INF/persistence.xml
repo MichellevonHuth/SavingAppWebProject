@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/persistence">
-  <persistence-unit name="LabEJBSql">
+  <persistence-unit name="ISProject">
 	<jta-data-source>java:jboss/datasources/jdbc/dsLabs</jta-data-source>
 	<non-jta-data-source>java:jboss/datasources/jdbc/dsLabs</non-jta-data-source>
 	<properties>
