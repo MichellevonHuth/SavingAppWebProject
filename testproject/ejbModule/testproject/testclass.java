@@ -20,6 +20,7 @@ public class testclass implements Serializable{
 	private double totalIncome;
 	private double fixedCost;
 	private double variableCost;
+	private String x;
 	
 	@Id
 	@Column(name="username")
