@@ -10,7 +10,7 @@ import org.ics.ejb.Account;
  * Session Bean implementation class AccountEAOImpl
  */
 @Stateless
-public class AccountEAOImpl implements AccountRemote, AccountLocal {
+public class AccountEAOImpl implements AccountEAORemote, AccountEAOLocal {
 
 	@PersistenceContext(unitName="ISProject")
 	private EntityManager em;
@@ -39,3 +39,5 @@ public class AccountEAOImpl implements AccountRemote, AccountLocal {
     }
 
 }
+
+
