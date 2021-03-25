@@ -17,7 +17,7 @@ public class AccountEAOImpl implements AccountEAORemote, AccountEAOLocal {
 	
     public AccountEAOImpl() {}
     
-    public Account findByAccountNbr(String username) {
+    public Account findByAccountUsername(String username) {
     	return em.find(Account.class, username);
     }
     
@@ -32,7 +32,7 @@ public class AccountEAOImpl implements AccountEAORemote, AccountEAOLocal {
     }
     
     public void deleteAccount(String username) {
-    	Account a = this.findByAccountNbr(username);
+    	Account a = this.findByAccountUsername(username);
     	if(a != null) {
     		em.remove(a);
     	}
