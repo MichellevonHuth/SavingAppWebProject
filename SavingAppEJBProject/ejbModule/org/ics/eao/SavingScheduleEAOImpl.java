@@ -1,8 +1,11 @@
 package org.ics.eao;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.ics.ejb.SavingSchedule;
 
@@ -36,6 +39,14 @@ public class SavingScheduleEAOImpl implements SavingScheduleEAORemote, SavingSch
     	if (s!= null) {
     		em.remove(s);
     	}
+    }
+    
+    public List<SavingSchedule> findByID(String username) {
+    	TypedQuery<SavingSchedule> query = em.createNamedQuery("SavingSchedule.findByID", SavingSchedule.class);
+    	query.setParameter("username", username);
+    	
+    	List<SavingSchedule> savings = query.getResultList();
+    	return savings;
     }
 
 }

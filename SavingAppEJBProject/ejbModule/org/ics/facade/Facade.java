@@ -1,5 +1,7 @@
 package org.ics.facade;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 // vi kör remote och local nu, kolla om detta behövs
@@ -15,10 +17,12 @@ import org.ics.ejb.SavingSchedule;
 public class Facade implements FacadeRemote, FacadeLocal {
 	
 	@EJB
-	private AccountEAOLocal accountEAOL;
-	private AccountEAORemote accountEAOR;
-	private SavingScheduleEAOLocal savingScheduleEAOL;
-	private SavingScheduleEAORemote savingScheduleEAOR;
+	AccountEAOLocal accountEAOL;
+	AccountEAORemote accountEAOR;
+	
+	@EJB
+	SavingScheduleEAOLocal savingScheduleEAOL;
+	SavingScheduleEAORemote savingScheduleEAOR;
 	
     public Facade() { }
     
@@ -53,5 +57,9 @@ public class Facade implements FacadeRemote, FacadeLocal {
     
     public void deleteSavingSchedule(String savingScheduleNbr) {
     	savingScheduleEAOL.deleteSavingSchedule(savingScheduleNbr);
+    }
+    
+    public List<SavingSchedule> findByID(String username) {
+    	return savingScheduleEAOL.findByID(username);
     }
 }

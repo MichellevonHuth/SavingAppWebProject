@@ -1,5 +1,7 @@
 package org.ics.facade;
 
+import java.util.List;
+
 import javax.ejb.Local;
 
 import org.ics.ejb.Account;
@@ -16,4 +18,6 @@ public interface FacadeLocal {
 	 public SavingSchedule createSavingSchedule(SavingSchedule savingSchedule);
 	 public SavingSchedule updateSavingSchedule(SavingSchedule savingSchedule);
 	 public void deleteSavingSchedule(String savingScheduleNbr);
+	 
+	 public List<SavingSchedule> findByID(String username);
 }
