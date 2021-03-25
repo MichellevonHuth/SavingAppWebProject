@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="SavingSchedule")
 public class SavingSchedule implements Serializable{
-	
+	//testing
 	private String savingScheduleNbr;
 	private double savingGoal;
 	private int savingDurationYear;
