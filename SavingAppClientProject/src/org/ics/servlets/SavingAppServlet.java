@@ -46,31 +46,46 @@ public class SavingAppServlet extends HttpServlet {
 		//out.println("** Create Customer **");
 		
 		Account a = new Account();
-		a.setUsername("123");
-		a.setFirstName("Ida");
+		a.setUsername("97");
+		a.setFirstName("Filippa");
 		a.setSurname("Carlsson");
 		a.setFixedCost(10000);
 		a.setVariableCost(10000);
 		a.setTotalIncome(10000);
+		facade.createAccount(a);
 		
-		//facade.createAccount(a);
+		SavingSchedule s = new SavingSchedule();
+		s.setAccount(a);
+		s.setSavingDurationMonth(123);
+		s.setSavingDurationYear(1);
+		s.setSavingGoal(10000);
+		s.setSavingScheduleNbr("33");
+		facade.createSavingSchedule(s);
+		
+		SavingSchedule s1 = new SavingSchedule();
+		s1.setAccount(a);
+		s1.setSavingDurationMonth(12);
+		s1.setSavingDurationYear(12);
+		s1.setSavingGoal(5000);
+		s1.setSavingScheduleNbr("44");
+		facade.createSavingSchedule(s1);
+		
+		if(a!= null) {
+			out.println("<br>"+"***Account found and changed***");
+			a.setFirstName("Filip");
+			s.setSavingGoal(1);
+			out.println("<br>" + "The name has changed to " + a.getFirstName());
+			
+		}
+		else {
+			out.println("<br>"+"***Account not found***");
+		}
+		
+		facade.updateAccount(a);
+		facade.updateSavingSchedule(s);
+		// check the database 
 		
 		out.println("<br>"+"***Show saving schedules***");
-
-		
-		if(a != null) {
-			facade.updateAccount(a);
-			a.setFirstName("Filippa");
-			out.println("<br>");
-			out.println("For customer: "+ a.getFirstName());
-			out.println("<br>");
-			
-			for(SavingSchedule tmp : a.getSavingschedules()) {
-				out.println(tmp.getSavingScheduleNbr());
-				out.println(tmp.getSavingGoal());
-				out.println("<br>");
-				}			
-			}
 		out.println("</body></html>");
 		
 	}
