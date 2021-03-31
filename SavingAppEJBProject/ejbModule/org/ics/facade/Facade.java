@@ -43,8 +43,8 @@ public class Facade implements FacadeRemote, FacadeLocal {
     	accountEAOL.deleteAccount(username);
     }
 
-    public SavingSchedule findBySavingScheduleNbr(String savingScheduleNbr) {
-    	return savingScheduleEAOL.findBySavingScheduleNbr(savingScheduleNbr);
+    public SavingSchedule findBySavingScheduleNbr(long SavingScheduleNbr) {
+    	return savingScheduleEAOL.findBySavingScheduleNbr(SavingScheduleNbr);
     }
     
     public SavingSchedule createSavingSchedule(SavingSchedule savingSchedule) {
@@ -55,8 +55,8 @@ public class Facade implements FacadeRemote, FacadeLocal {
     	return savingScheduleEAOL.updateSavingSchedule(savingSchedule);
     }
     
-    public void deleteSavingSchedule(String savingScheduleNbr) {
-    	savingScheduleEAOL.deleteSavingSchedule(savingScheduleNbr);
+    public void deleteSavingSchedule(long SavingScheduleNbr) {
+    	savingScheduleEAOL.deleteSavingSchedule(SavingScheduleNbr);
     }
     
     public List<SavingSchedule> findByID(String username) {

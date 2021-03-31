@@ -14,10 +14,10 @@ public interface FacadeLocal {
 	 public Account updateAccount(Account account);
 	 public void deleteAccount(String username);
 	 
-	 public SavingSchedule findBySavingScheduleNbr(String savingScheduleNbr);
+	 public SavingSchedule findBySavingScheduleNbr(long savingScheduleNbr);
 	 public SavingSchedule createSavingSchedule(SavingSchedule savingSchedule);
 	 public SavingSchedule updateSavingSchedule(SavingSchedule savingSchedule);
-	 public void deleteSavingSchedule(String savingScheduleNbr);
+	 public void deleteSavingSchedule(long savingScheduleNbr);
 	 
 	 public List<SavingSchedule> findByID(String username);
 }

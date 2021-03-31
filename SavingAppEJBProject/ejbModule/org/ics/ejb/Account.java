@@ -13,6 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Account")
 public class Account implements Serializable{
+	
 	// Testing
 	private String username;
 	private String firstName;

@@ -20,7 +20,7 @@ public class SavingScheduleEAOImpl implements SavingScheduleEAORemote, SavingSch
 	
     public SavingScheduleEAOImpl() { }
     
-    public SavingSchedule findBySavingScheduleNbr(String savingScheduleNbr) {
+    public SavingSchedule findBySavingScheduleNbr(long savingScheduleNbr) {
     	return em.find(SavingSchedule.class, savingScheduleNbr);
     }
     
@@ -34,7 +34,7 @@ public class SavingScheduleEAOImpl implements SavingScheduleEAORemote, SavingSch
     	return savingSchedule;
     }
     
-    public void deleteSavingSchedule(String savingScheduleNbr) {
+    public void deleteSavingSchedule(long savingScheduleNbr) {
     	SavingSchedule s = this.findBySavingScheduleNbr(savingScheduleNbr);
     	if (s!= null) {
     		em.remove(s);

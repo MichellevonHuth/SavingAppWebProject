@@ -4,30 +4,43 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="SavingSchedule")
+@SequenceGenerator(name="ID", allocationSize=1)
 public class SavingSchedule implements Serializable{
 	//testing
-	private String savingScheduleNbr;
+	private String savingScheduleName;
 	private double savingGoal;
 	private int savingDurationYear;
 	private int savingDurationMonth;
 	private Account account;
-	
+	private long savingScheduleNbr;
+
+
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="savingScheduleNbr")
-	public String getSavingScheduleNbr() {
+	public long getSavingScheduleNbr() {
 		return savingScheduleNbr;
 	}
-	public void setSavingScheduleNbr(String savingScheduleNbr) {
+	public void setSavingScheduleNbr(long savingScheduleNbr) {
 		this.savingScheduleNbr = savingScheduleNbr;
+	}
+	
+	@Column(name="savingScheduleName")
+	public String getSavingScheduleName() {
+		return savingScheduleName;
+	}
+	public void setSavingScheduleName(String savingScheduleName) {
+		this.savingScheduleName = savingScheduleName;
 	}
 	@Column(name="savingGoal")
 	public double getSavingGoal() {
@@ -50,7 +63,7 @@ public class SavingSchedule implements Serializable{
 	public void setSavingDurationMonth(int savingDurationMonth) {
 		this.savingDurationMonth = savingDurationMonth;
 	}
-	
+
 	@ManyToOne
 	@JoinColumn(name="username", referencedColumnName="username")
 	public Account getAccount() {
@@ -59,5 +72,5 @@ public class SavingSchedule implements Serializable{
 	public void setAccount(Account account) {
 		this.account = account;
 	}
-	
+
 }
