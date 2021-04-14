@@ -15,5 +15,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/SavingAppEJBProject"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/wildfly/wildfly-18.0.0.Final/modules/system/layers/base/org/glassfish/javax/json/main/javax.json-1.0.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
