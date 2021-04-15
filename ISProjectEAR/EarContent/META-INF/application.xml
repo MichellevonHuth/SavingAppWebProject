@@ -4,10 +4,4 @@
   <module>
     <ejb>SavingAppEJBProject.jar</ejb>
   </module>
-  <module>
-    <web>
-      <web-uri>SavingAppWebProject.war</web-uri>
-      <context-root>SavingAppWebProject</context-root>
-    </web>
-  </module>
 </application>
