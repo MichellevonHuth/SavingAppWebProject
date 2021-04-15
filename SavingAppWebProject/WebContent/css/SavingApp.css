@@ -1,0 +1,91 @@
+@charset "ISO-8859-1";
+
+@media screen and (max-width:600px) {
+	
+	.column {
+	width: 100%;
+	}
+}
+	* {
+	box-sizing: border-box;
+} 
+
+header{
+	padding: 10px;
+	text-align: center;
+	font-size: 35px;
+	background-color: #f1f1f1;
+
+}
+
+nav{
+	float: left;
+	width:20%;  
+	background-color: #f1f1f1;
+	padding: 0px 10px 0px 0px;
+}
+
+nav a {
+	display: block;
+	color: ffffff;
+	padding: 10px 10px;
+	text-decoration: none;
+}/* Change color on hover */
+
+nav1 a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav li:hover,
+nav li:focus {
+	color: #666;
+	background-color: #d6d6d6;
+}
+
+nav li.active {
+	background: #555;
+	color: #ffffff !important;
+}
+
+aside {
+	float: right;
+	width: 30%;
+	background-color: #f1f1f1;
+}
+
+#asideTable {
+	padding-top: 10px;
+	text-align: left;
+}
+
+#asideTable td {
+	text-align: left;
+	padding: 3px;
+}
+
+section#row{
+	padding: 10px 0px 10px 0px;
+	display:block;
+
+}
+
+section#row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+section#main {
+	float: left;
+	width: 50%px;
+	padding: 0px 10px 0px 15px;
+	background-color: #ffffff;
+	color: #000000;
+}
