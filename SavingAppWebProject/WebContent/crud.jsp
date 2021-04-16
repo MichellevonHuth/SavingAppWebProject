@@ -12,9 +12,7 @@
 	<header>
 		<p>Welcome to your saving app!</p>
 	</header>
-	
 	<section id="row">
-	
 	<nav>
 	<ul>
 	<li class="active">
@@ -53,6 +51,7 @@
 	<input type="button" name="submitBtn" value="Create" id="CreateBtn">
 	<input type="button" name="submitBtn" value="Delete" id="DeleteBtn">
 	<input type="button" name="submitBtn" value="Update" id="UpdateBtn">
+	<input type="button" name="submitBtn" value="Log in" id="LogInBtn">
 	
 	</fieldset>
 	</article>
@@ -62,35 +61,37 @@
 	<footer>
 	<p>&copy; Grupp12</p>
 	</footer>
-<script>
-document.getElementById("DeleteBtn").onclick = function() {console.log("Nu deletar en person");}
+ <script>
+ document.getElementById("DeleteBtn").onclick = function() {
+	console.log("Nu deletar en person");
+	}
 
-$(document).ready(function(){
+ $(document).ready(function(){
 	alert("hej");
 	
-	$("#DeleteBtn").click( function() { 
+	$("#LogInBtn").click( function() { 
 		var strValue = $("#username").val();
 		
 		if(strValue != "") {
 			$.ajax({method: "DELETE",
-				url: "http://localhost:8080/SavingAppClientProject/"+strValue, 
-				error: ajaxFindReturnError, 
-				success: ajaxFindReturnSuccess
+				url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet/", 
+				error: ajaxDelReturnError, 
+				success: ajaxDelReturnSuccess
 			})
 		
 			
-		function ajaxDeleteReturnSuccess(result, status, xhr) {
-				clearFields();
+		function ajaxDelReturnSuccess(result, status, xhr) {
 				$("#username").attr("placeholder", "Account has been deleted"); 
+				console.log(strValue);
 		}
 		
-		function ajaxDeleteReturnError(result, status, xhr) {
+		function ajaxDelReturnError(result, status, xhr) {
 			alert("Error");
 			console.log("Ajax-find account: "+status);
 		}	
 	  }
 	})	
-}); 
-</script>	
+ }); 
+ </script>	
 </body>
 </html>

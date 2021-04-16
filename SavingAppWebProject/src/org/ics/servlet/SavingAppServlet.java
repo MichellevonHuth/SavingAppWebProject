@@ -22,7 +22,7 @@ import org.ics.facade.FacadeLocal;
 /**
  * Servlet implementation class SavingAppServlet
  */
-@WebServlet("/SavingAppServlet/*")
+@WebServlet("/SavingAppServlet/")
 public class SavingAppServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   
@@ -41,27 +41,28 @@ public class SavingAppServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String pathInfo= request.getPathInfo();
-		
+
 		if(pathInfo== null|| pathInfo.equals("/")){
 			System.out.println("Alla");
 			System.out.println(pathInfo);
 						
-			Account account = facade.findByAccountUsername("ida");
-			sendAsJson(response, account); 
+			Account account = facade.findByAccountUsername("25");
+			sendAsJson2(response, account); 
 			
 			return;
 		}
 		
 		String[] splits = pathInfo.split("/");
-		
+
 		if(splits.length!= 2) {
 			System.out.println("Alla2");
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			return;
 		}
 		
+		//String username= splits
 		//Account account = facade.findByAccountUsername(username);
-		//sendAsJson(response, account);
+		//sendAsJson1(response, account);
 	}
 
 	/**
@@ -83,9 +84,10 @@ public class SavingAppServlet extends HttpServlet {
 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		System.out.println("Hej");
 		String pathInfo= request.getPathInfo();
-		
+		System.out.println(pathInfo);
+			
 		if(pathInfo== null|| pathInfo.equals("/")){
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			return;
@@ -105,10 +107,10 @@ public class SavingAppServlet extends HttpServlet {
 			facade.deleteAccount(username);
 		}
 		
-		sendAsJson(response, account);
+		sendAsJson1(response, account);
 	}
 	
-	private void sendAsJson(HttpServletResponse response, Account account) throws IOException {
+	private void sendAsJson1(HttpServletResponse response, Account account) throws IOException {
 		PrintWriter out= response.getWriter();
 		response.setContentType("application/json");
 		
@@ -124,8 +126,8 @@ public class SavingAppServlet extends HttpServlet {
 		out.flush();
 	}
 	
-	/*/
-	private void sendAsJson(HttpServletResponse response, Account account) throws IOException {
+	
+	private void sendAsJson2(HttpServletResponse response, Account account) throws IOException {
 		PrintWriter out= response.getWriter();
 		response.setContentType("application/json");
 		
@@ -146,8 +148,7 @@ public class SavingAppServlet extends HttpServlet {
 			} else{
 				out.print("[]");			
 			}
-		
-		out.flush();} /*/
+		out.flush();} 
 	
 }
 
