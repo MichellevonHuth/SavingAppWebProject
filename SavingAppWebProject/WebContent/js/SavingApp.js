@@ -1,5 +1,5 @@
-
 $(document).ready(function(){
+	alert("hej");
 	
 	$("#DeleteBtn").click( function() { 
 		var strValue = $("#username").val();

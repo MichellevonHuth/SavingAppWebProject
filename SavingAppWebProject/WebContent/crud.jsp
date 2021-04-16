@@ -2,9 +2,9 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <head>
 <link rel = "stylesheet" type="text/css" href="css/SavingApp.css">
-<script src="js/SavingApp.js"></script>
 <meta charset="ISO-8859-1">
 <title>SavingApp</title>
 </head>
@@ -61,6 +61,36 @@
 	</section>
 	<footer>
 	<p>&copy; Grupp12</p>
-	</footer>	
+	</footer>
+<script>
+document.getElementById("DeleteBtn").onclick = function() {console.log("Nu deletar en person");}
+
+$(document).ready(function(){
+	alert("hej");
+	
+	$("#DeleteBtn").click( function() { 
+		var strValue = $("#username").val();
+		
+		if(strValue != "") {
+			$.ajax({method: "DELETE",
+				url: "http://localhost:8080/SavingAppClientProject/"+strValue, 
+				error: ajaxFindReturnError, 
+				success: ajaxFindReturnSuccess
+			})
+		
+			
+		function ajaxDeleteReturnSuccess(result, status, xhr) {
+				clearFields();
+				$("#username").attr("placeholder", "Account has been deleted"); 
+		}
+		
+		function ajaxDeleteReturnError(result, status, xhr) {
+			alert("Error");
+			console.log("Ajax-find account: "+status);
+		}	
+	  }
+	})	
+}); 
+</script>	
 </body>
 </html>
