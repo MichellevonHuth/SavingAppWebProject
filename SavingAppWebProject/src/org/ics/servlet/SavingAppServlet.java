@@ -319,15 +319,14 @@ public class SavingAppServlet extends HttpServlet {
 		System.out.println("JsonRoot: "+jsonRoot);
 		
 		SavingSchedule savingSchedule = new SavingSchedule();
-		savingSchedule.setAccount(savingSchedule.getAccount());
+		Account account = savingSchedule.getAccount();
 		savingSchedule.setSavingScheduleName(jsonRoot.getString("name"));
 		savingSchedule.setSavingGoal(Double.parseDouble(jsonRoot.getString("goal")));
 		savingSchedule.setSavingDurationYear(Integer.parseInt(jsonRoot.getString("year")));
 		savingSchedule.setSavingDurationYear(Integer.parseInt(jsonRoot.getString("month")));
+		savingSchedule.setAccount(account);
 
 		return savingSchedule;
 
 	}
-
-
 }

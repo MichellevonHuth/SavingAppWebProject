@@ -104,6 +104,8 @@
 
 						<legend>SavingSchedule:</legend>
 						
+						Nbr:<br> <input type="text" name="Nbr" id="nbr" value=""><br>
+						
 						Username:<br> <input type="text" name="username" id="username" value=""><br>
 
 						Name:<br> <input type="text" name="name" id="name" value=""><br>
@@ -356,13 +358,14 @@ console.log("Ajax-find account: "+status);
 $("#UpdateBtnSavingSchedule").click( function() {
 
 	var strId = $("#username").val();
+	var strNbr = $("#nbr").val();
 	var strName = $("#name").val();
 	var strGoal = $("#goal").val();
 	var strYear = $("#year").val();
 	var strMonth = $("#month").val();
 
 	
-	var obj = {username: strId, name: strName, goal: strGoal, year: strYear, month: strMonth};
+	var obj = {nbr: strNbr, username: strId, name: strName, goal: strGoal, year: strYear, month: strMonth};
 	var jsonString = JSON.stringify(obj);
 
 	if (strId != "") {
