@@ -20,7 +20,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/SavingApp.css">
 
-<!--<script src="js/movie1.js"></script>  -->
+<!--  <script src="js/SavingApp.js"></script>   -->
 
 <title>SavingApp</title>
 
@@ -33,8 +33,8 @@
 		<p>Welcome to your SavingApp :)</p>
 
 	</header>
-
-	<section id="row">
+	
+		<section id="row">
 
 		<nav>
 
@@ -93,6 +93,38 @@
 			</table>
 
 		</aside>
+		
+		<section id="main">
+		
+		<section id="content">
+
+				<article>
+
+					<fieldset id="PersonalFS">
+
+						<legend>SavingSchedule:</legend>
+						
+						Nbr:<br> <input type="text" name="Nbr" id="nbr" value=""><br>
+						
+						Username:<br> <input type="text" name="username" id="username" value=""><br>
+
+						Name:<br> <input type="text" name="name" id="name" value=""><br>
+
+					 	Goal:<br> <input type="text" name="goal" id="goal" value=""> <br> 
+							
+						Saving duration year:<br> <input type="text" name="year" id="year" value=""> 
+						<br> 
+						Saving duration month :<br> <input type="text" name="month" id="month" value=""> <br>
+						
+						<br> 
+						<input type="button" name="submitBtn" value="Add" id="AddBtnSavingSchedule">
+						<input type="button" name="submitBtn" value="Delete" id="DeleteBtnSavingSchedule"> 
+						<input type="button" name="submitBtn" value="Update" id="UpdateBtnSavingSchedule">
+
+					</fieldset>
+
+				</article>
+		
 
 		<section id="main">
 
@@ -119,7 +151,7 @@
 						<br> 
 						<input
 
-							type="button" name="submitBtn" value="Find" id="FindBtn">
+							type="button" name="submitBtn" value="Log in" id="FindBtn">
 
 						<input type="button" name="submitBtn" value="Add" id="AddBtn">
 
@@ -138,6 +170,8 @@
 		</section>
 
 	</section>
+	
+	</section>
 
 	<footer>
 
@@ -152,13 +186,9 @@
 $(document).ready(function(){
 
 	$.ajax({
-
 	 method: "GET",
-
 	 url: "http://api.ipstack.com/check?access_key=f0d0b90bbdec884d69ecc77b49fc274c",
-
 	 error: ajaxReturn_Error,
-
 	 success: ajaxReturn_Success
 
 })
@@ -166,15 +196,12 @@ $(document).ready(function(){
 
 
 function ajaxReturn_Success(result, status, xhr) {
-
 	ParseJsonFile(result);
-
 }
 
 
 
 function ajaxReturn_Error(result, status, xhr) {
-
 	console.log("Ajax-find movie: "+status);
 
 }
@@ -184,22 +211,14 @@ function ajaxReturn_Error(result, status, xhr) {
 $("#FindBtn").click(function() {
 
   var strValue = $("#id").val();
-
   if (strValue != "") {
-
 	$.ajax({
-
-	  method: "GET",
-
-url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet/"+strValue,
-
-	  error: ajaxFindReturnError,
-
-	  success: ajaxFindReturnSuccess
+	 method: "GET",
+	 url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet/"+strValue,
+	 error: ajaxFindReturnError,
+	 success: ajaxFindReturnSuccess
 
 })
-
-
 
 function ajaxFindReturnSuccess(result, status, xhr) {
 
@@ -207,153 +226,185 @@ function ajaxFindReturnSuccess(result, status, xhr) {
 
 }
 
-
-
 function ajaxFindReturnError(result, status, xhr) {
 
 	alert("Error");
-
-	console.log("Ajax-find movie: "+status);
+	console.log("Ajax-find account: "+status);
 
  	}
 
  }
 
-})//btnclick
-
-
-
-
+})//btn find accounts savingschedules
 
 $("#AddBtn").click( function() {
 
 	var strId = $("#id").val();
-
 	var strFirstName = $("#firstName").val();
-
 	var strSurname = $("#surname").val();
-	
 	var strFixedCost = $("#fixedCost").val();
-	
 	var strTotalIncome = $("#totalIncome").val();
-	
 	var strVariableCost = $("#variableCost").val();
-	
 	var obj = { id: strId, firstName: strFirstName, surname: strSurname, fixedCost: strFixedCost, totalIncome: strTotalIncome, variableCost: strVariableCost};
 
 	var jsonString = JSON.stringify(obj);
-
 	if (strId != "") {
-
 		$.ajax({
 
-		method: "POST",
-
-url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet//",
-
-		data: jsonString,
-
-		dataType:'json',
-
-		error: ajaxAddReturnError,
-
-		success: ajaxAddReturnSuccess
+			method: "POST",
+			url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet//",
+			data: jsonString,
+			dataType:'json',
+			error: ajaxAddReturnError,
+			success: ajaxAddReturnSuccess
 
 })
-
-
 
 function ajaxAddReturnSuccess(result, status, xhr) {
 
 	clearFields();
-
-	$("#title").attr("placeholder","Movie added" );
+	$("#id").attr("placeholder","Account added" );
 
 }
 
 function ajaxAddReturnError(result, status, xhr) {
-
 alert("Error Add");
+console.log("Ajax-find account: "+status);
 
-console.log("Ajax-find movie: "+status);
+}
+
+}
+
+})//btn add account
+
+
+$("#AddBtnSavingSchedule").click( function() {
+	var strId = $("#username").val();
+	var strName = $("#name").val();
+	var strGoal = $("#goal").val();
+	var strYear = $("#year").val();
+	var strMonth = $("#month").val();
+	
+	var obj = {username: strId, name: strName, goal: strGoal, year: strYear, month: strMonth};
+	var jsonString = JSON.stringify(obj);
+
+	if (strId != "") {
+		$.ajax({
+
+			method: "POST",
+			url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet//",
+			data: jsonString,
+			dataType:'json',
+			error: ajaxAddReturnError,
+			success: ajaxAddReturnSuccess
+
+})
+
+function ajaxAddReturnSuccess(result, status, xhr) {
+	clearFields();
+	$("#id").attr("placeholder","Account added" );
+
+}
+
+function ajaxAddReturnError(result, status, xhr) {
+alert("Error Add");
+console.log("Ajax-find account: "+status);
 
 }
 
 }
 
-})//btnclick
-
-
+})//btn add Savingschedule
 
 $("#UpdateBtn").click( function() {
 
 	var strId = $("#id").val();
-
 	var strFirstName = $("#firstName").val();
-
 	var strSurname = $("#surname").val();
-	
 	var strFixedCost = $("#fixedCost").val();
-	
 	var strTotalIncome = $("#totalIncome").val();
-	
 	var strVariableCost = $("#variableCost").val();
 	
 	var obj = { id: strId, firstName: strFirstName, surname: strSurname, fixedCost: strFixedCost, totalIncome: strTotalIncome, variableCost: strVariableCost};
-	
 	var jsonString = JSON.stringify(obj);
 
 	if (strId != "") {
-
 		$.ajax({
 
-method: "PUT",
-
-url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet/"+strId,
-
-data: jsonString,
-
-dataType:'json',
-
-error: ajaxUpdateReturnError,
-
-success: ajaxUpdateReturnSuccess
+			method: "PUT",
+			url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet/"+strId,
+			data: jsonString,
+			dataType:'json',
+			error: ajaxUpdateReturnError,
+			success: ajaxUpdateReturnSuccess
 
 })
 
 function ajaxUpdateReturnSuccess(result, status, xhr) {
-
 clearFields();
-
-$("#title").attr("placeholder","Movie updated" );
-
+$("#id").attr("placeholder","Account updated" );
 }
 
 function ajaxUpdateReturnError(result, status, xhr) {
-
 alert("Error Update");
+console.log("Ajax-find account: "+status);
 
-console.log("Ajax-find movie: "+status);
+}
+
+}
+
+})//Update button Account 
+
+$("#UpdateBtnSavingSchedule").click( function() {
+
+	var strId = $("#username").val();
+	var strNbr = $("#nbr").val();
+	var strName = $("#name").val();
+	var strGoal = $("#goal").val();
+	var strYear = $("#year").val();
+	var strMonth = $("#month").val();
+
+	
+	var obj = {nbr: strNbr, username: strId, name: strName, goal: strGoal, year: strYear, month: strMonth};
+	var jsonString = JSON.stringify(obj);
+
+	if (strId != "") {
+		$.ajax({
+			method: "PUT",
+			url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet/"+strId,
+			data: jsonString,
+			dataType:'json',
+			error: ajaxUpdateReturnError,
+			success: ajaxUpdateReturnSuccess
+
+})
+
+function ajaxUpdateReturnSuccess(result, status, xhr) {
+clearFields();
+$("#id").attr("placeholder","SavingSchedule updated" );
+}
+
+function ajaxUpdateReturnError(result, status, xhr) {
+alert("Error Update");
+console.log("Ajax-find savingSchedule: "+status);
 
 }
 
 }
 
-})//btnclick
+})//Update button Savingschedule 
+
+
+
 $("#DeleteBtn").click( function() {
 
 	var strValue = $("#id").val();
-
 	if (strValue != "") {
-
+		
 	$.ajax({
-
 		method: "DELETE",
-
 		url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet/"+strValue,
-
 		error: ajaxDelReturnError,
-
 		success: ajaxDelReturnSuccess
 
 })
@@ -361,57 +412,65 @@ $("#DeleteBtn").click( function() {
 
 
 function ajaxDelReturnSuccess(result, status, xhr) {
-
 	clearFields();
-
-	$("#title").attr("placeholder","Movie deleted" );
+	$("#id").attr("placeholder","Account deleted" );
 
 }
-
-
 
 function ajaxDelReturnError(result, status, xhr) {
-
 	alert("Error");
+	console.log("Ajax-find account: "+status);
 
-	console.log("Ajax-find movie: "+status);
+}
+
+}
+
+})//Delete button account 
+
+$("#DeleteBtnSavingSchedule").click( function() {
+	var strValue = $("#username").val();
+	if (strValue != "") {
+		
+	$.ajax({
+		method: "DELETE",
+		url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet/"+strValue,
+		error: ajaxDelReturnError,
+		success: ajaxDelReturnSuccess
+
+})
+
+function ajaxDelReturnSuccess(result, status, xhr) {
+	clearFields();
+	$("#username").attr("placeholder","SavingSchedule deleted" );
+
+}
+
+function ajaxDelReturnError(result, status, xhr) {
+	alert("Error");
+	console.log("Ajax-find savingSchedule: "+status);
 
 }
 
 }
 
-})//btnclick
-
-
-
+})// Delete button savingschedule
 });//End ready function
-
-
 
 function ParseJsonFile(result) {
 
   var lat = result.latitude;
-
   var long = result.longitude;
-
   var city = result.city;
-
   var ipNbr = result.ip
 
   $("#city").text(city);
-
   $("#ipNbr").text(ipNbr);
-
+  
   $.ajax({
-
-  method: "GET",
-
-  url: "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&units=metric"+ "&APPID=0aebca8155519cd776fe771d32a41872",
-
-  error: ajaxWeatherReturn_Error,
-
-  success: ajaxWeatherReturn_Success
-
+ 		method: "GET",
+ 		url: "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+ long +"&units=metric"+ "&APPID=0aebca8155519cd776fe771d32a41872",
+  		error: ajaxWeatherReturn_Error,
+  		success: ajaxWeatherReturn_Success
 })
 
 
@@ -419,23 +478,15 @@ function ParseJsonFile(result) {
 function ajaxWeatherReturn_Success(result, status, xhr) {
 
   var sunrise = result.sys.sunrise;
-
   var sunset = result.sys.sunset;
-
   var sunriseDate = new Date(sunrise*1000);
-
   var timeStrSunrise = sunriseDate.toLocaleTimeString();
-
   var sunsetDate = new Date(sunset*1000);
-
   var timeStrSunset = sunsetDate.toLocaleTimeString();
 
   $("#sunrise").text("Sunrise: "+timeStrSunrise);
-
   $("#sunset").text("Sunset: "+timeStrSunset);
-
   $("#weather").text(result.weather[0].main);
-
   $("#degree").text(result.main.temp+" \u2103");
 
 }//ajaxWeatherReturn_Success
@@ -443,60 +494,22 @@ function ajaxWeatherReturn_Success(result, status, xhr) {
 
 
 function ajaxWeatherReturn_Error(result, status, xhr) {
-
 	alert("Error i OpenWeaterMap Ajax");
-
 	console.log("Ajax-find movie: "+status);
-
 	}
 
-	
+}//End of document ready
 
 function clearFields() {
 
 	$("#id").val("");
-
-	$("#title").val("");
-
-	$("#price").val("");
-
-}
-
-
-
-}//End of document ready
-
-
-
-function ParseJsonFileMovie(result) {
-
-	$("#id").val(result.id);
-
-	$("#title").val(result.title);
-
-	$("#price").val(result.price);
+	$("#firstName").val("");
+	$("#surname").val("");
+	$("#fixedCost").val("");
+	$("#totalIncome").val("");
+	$("#variableCost").val("");
 
 }
-
-
-
-function clearFields() {
-
-$("#id").val("");
-
-$("#firstName").val("");
-
-$("#surname").val("");
-
-$("#fixedCost").val("");
-
-$("#totalIncome").val("");
-
-$("#variableCost").val("");
-
-
-}
-
-</script>
-</body>
+ </script>
+ </body>
 </html>

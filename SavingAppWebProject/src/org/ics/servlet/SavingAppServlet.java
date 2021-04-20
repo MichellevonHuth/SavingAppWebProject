@@ -2,7 +2,8 @@ package org.ics.servlet;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
+import java.util.Set;
+
 import javax.ejb.EJB;
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -35,7 +36,6 @@ public class SavingAppServlet extends HttpServlet {
 
 
 	@EJB
-
 	FacadeLocal facade;
 
 	/**
@@ -69,10 +69,10 @@ public class SavingAppServlet extends HttpServlet {
 		//response.getWriter().append("Movies ");
 
 
-/*/
+
 		String pathInfo = request.getPathInfo();
 
-		if(pathInfo == null || pathInfo.equals("/")){
+		/*/if(pathInfo == null || pathInfo.equals("/")){
 
 			System.out.println("Alla");
 
@@ -80,15 +80,13 @@ public class SavingAppServlet extends HttpServlet {
 
 
 
-			List<examples.ejb.ics.Movie> allMovies = facade.findAllMovies();
+			List<.ejb.ics.Movie> allMovies = facade.findAllMovies();
 
 			sendAsJson(response, allMovies);
 
-
-
 			return;
 
-		}
+		}/*/
 
 		String[] splits = pathInfo.split("/");
 
@@ -103,10 +101,8 @@ public class SavingAppServlet extends HttpServlet {
 		}
 
 		String id = splits[1];
-
-		Movie movie = facade.findByMovieId(Integer.parseInt(id));
-
-		sendAsJson(response, movie); /*/
+		Account account = facade.findByAccountUsername(id);
+		sendAsJson(response, account.getSavingschedules()); 
 
 	}
 
@@ -124,19 +120,19 @@ public class SavingAppServlet extends HttpServlet {
 
 		//doGet(request, response);
 
-
-
 		String pathInfo = request.getPathInfo();
 
 		if(pathInfo == null || pathInfo.equals("/")){
 
 			BufferedReader reader = request.getReader();//Läs data Json
-
+			
+			SavingSchedule s = parseJsonSavingSchedule(reader);
 			Account a = parseJsonAccount(reader);
 
 			try {
 
 				a = facade.createAccount(a);
+				s = facade.createSavingSchedule(s);
 
 			}catch(Exception e) {
 
@@ -163,7 +159,6 @@ public class SavingAppServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		String pathInfo = request.getPathInfo();
-
 		if(pathInfo == null || pathInfo.equals("/")){
 
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
@@ -173,19 +168,15 @@ public class SavingAppServlet extends HttpServlet {
 		}
 
 		String[] splits = pathInfo.split("/");
-
 		if(splits.length != 2) {
-
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-
 			return;
 
 		}
 
 		String id = splits[1];
-
 		BufferedReader reader = request.getReader();
-
+		SavingSchedule s = parseJsonSavingSchedule(reader);
 		Account a = parseJsonAccount(reader);
 
 		//Uppdatera i db
@@ -193,6 +184,7 @@ public class SavingAppServlet extends HttpServlet {
 		try {
 
 			a = facade.updateAccount(a);
+			s = facade.updateSavingSchedule(s);
 
 		}catch(Exception e) {
 
@@ -203,13 +195,8 @@ public class SavingAppServlet extends HttpServlet {
 		sendAsJson(response, a);
 
 	}
-
-
-
 	/**
-
 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
-
 	 */
 
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -217,39 +204,28 @@ public class SavingAppServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		String pathInfo = request.getPathInfo();
-
 		if(pathInfo == null || pathInfo.equals("/")){
-
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-
 			return;
-
 		}
 
 		String[] splits = pathInfo.split("/");
-
 		if(splits.length != 2) {
-
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-
 			return;
 
 		}
 
 		String id = splits[1];
-
 		Account account = facade.findByAccountUsername(id);
-
+	
 		if (account != null) {
-
+			for(SavingSchedule s : account.getSavingschedules()) {
+				facade.deleteSavingSchedule(s.getSavingScheduleNbr());
+			}
 			facade.deleteAccount(id);
-
 		}
-
 		sendAsJson(response, account);
-
-
-
 	}
 
 
@@ -263,66 +239,45 @@ public class SavingAppServlet extends HttpServlet {
 		if (account != null) {
 
 			out.print("{\"title\":");
-
 			out.print("\"" + account.getUsername() + "\"");
-
 			out.print(",\"id\":");
-
 			out.print("\"" +account.getSurname()+"\"");
-
 			out.print(",\"price\":");
-
 			out.print("\"" +account.getFirstName()+"\"}");
 
 		} else {
-
 			out.print("{ }");
-
 		}
-
 		out.flush();
 
 	}
 
 
 
-	private void sendAsJson(HttpServletResponse response, List<Account> Account) throws IOException {
+	private void sendAsJson(HttpServletResponse response, Set<SavingSchedule> accounts) throws IOException {
 
-		/*/PrintWriter out = response.getWriter();
-
+		PrintWriter out = response.getWriter();
 		response.setContentType("application/json");
 
-		if (movies != null) {
+			if (accounts != null) {
+				JsonArrayBuilder array = Json.createArrayBuilder();
 
-			JsonArrayBuilder array = Json.createArrayBuilder();
-
-			for (examples.ejb.ics.Movie m : movies) {
-
-				JsonObjectBuilder o = Json.createObjectBuilder();
-
-				o.add("id", String.valueOf(m.getIdMovie()));
-
-				o.add("title", m.getTitle());
-
-				o.add("price", String.valueOf(m.getPrice()));
-
-				array.add(o);
-
+				for (org.ics.ejb.SavingSchedule s : accounts) {
+					JsonObjectBuilder o = Json.createObjectBuilder();
+					o.add("id", s.getSavingScheduleName());
+					o.add("title",String.valueOf(s.getSavingGoal()));
+					array.add(o);
 			}
 
 			JsonArray jsonArray = array.build();
-
-			System.out.println("Movie Rest: "+jsonArray);
-
+			System.out.println("Accounts rest: "+jsonArray);
 			out.print(jsonArray);
 
 		} else {
-
 			out.print("[]");
 
 		}
-
-		out.flush(); /*/
+			out.flush(); 
 
 	}
 
@@ -333,32 +288,45 @@ public class SavingAppServlet extends HttpServlet {
 		//javax.json-1.0.4.jar
 
 		JsonReader jsonReader = null;
-
 		JsonObject jsonRoot = null;
-
-		
-
 		jsonReader = Json.createReader(br);
-
 		jsonRoot = jsonReader.readObject();
-
-		
 
 		System.out.println("JsonRoot: "+jsonRoot);
 
 		Account account = new Account();
-
-		
-
 		account.setUsername(jsonRoot.getString("id"));
 		account.setFirstName(jsonRoot.getString("firstName"));
 		account.setSurname(jsonRoot.getString("surname"));
 		account.setTotalIncome(Integer.parseInt(jsonRoot.getString("totalIncome")));
 		account.setVariableCost(Integer.parseInt(jsonRoot.getString("variableCost")));
 		account.setFixedCost(Integer.parseInt(jsonRoot.getString("fixedCost")));
-
+		
 		return account;
 
 	}
+	
+	private SavingSchedule parseJsonSavingSchedule(BufferedReader br) {
 
+		//javax.json-1.0.4.jar
+
+		JsonReader jsonReader = null;
+		JsonObject jsonRoot = null;
+
+		jsonReader = Json.createReader(br);
+		jsonRoot = jsonReader.readObject();
+
+		System.out.println("JsonRoot: "+jsonRoot);
+		
+		SavingSchedule savingSchedule = new SavingSchedule();
+		Account account = savingSchedule.getAccount();
+		savingSchedule.setSavingScheduleName(jsonRoot.getString("name"));
+		savingSchedule.setSavingGoal(Double.parseDouble(jsonRoot.getString("goal")));
+		savingSchedule.setSavingDurationYear(Integer.parseInt(jsonRoot.getString("year")));
+		savingSchedule.setSavingDurationYear(Integer.parseInt(jsonRoot.getString("month")));
+		savingSchedule.setAccount(account);
+
+		return savingSchedule;
+
+	}
 }
