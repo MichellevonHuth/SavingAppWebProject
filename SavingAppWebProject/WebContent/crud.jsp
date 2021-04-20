@@ -149,17 +149,10 @@
 						Variable cost:<br> <input type="text" name="variableCost" id="variableCost" value=""> <br>
 						
 						<br> 
-						<input
-
-							type="button" name="submitBtn" value="Log in" id="FindBtn">
-
+						<input type="button" name="submitBtn" value="Log in" id="FindBtn">
 						<input type="button" name="submitBtn" value="Add" id="AddBtn">
-
-						<input type="button" name="submitBtn" value="Delete"
-
-							id="DeleteBtn"> <input type="button" name="submitBtn"
-
-							value="Update" id="UpdateBtn">
+						<input type="button" name="submitBtn" value="Delete" id="DeleteBtn"> 
+						<input type="button" name="submitBtn" value="Update" id="UpdateBtn">
 
 					</fieldset>
 
@@ -171,6 +164,7 @@
 
 	</section>
 	
+	</section>
 	</section>
 
 	<footer>
@@ -193,23 +187,17 @@ $(document).ready(function(){
 
 })
 
-
-
 function ajaxReturn_Success(result, status, xhr) {
 	ParseJsonFile(result);
 }
 
-
-
 function ajaxReturn_Error(result, status, xhr) {
-	console.log("Ajax-find movie: "+status);
+	console.log("Ajax-find weather: "+status);
 
 }
 
-
-
 $("#FindBtn").click(function() {
-
+alert("hej");
   var strValue = $("#id").val();
   if (strValue != "") {
 	$.ajax({
@@ -221,13 +209,10 @@ $("#FindBtn").click(function() {
 })
 
 function ajaxFindReturnSuccess(result, status, xhr) {
-
-	ParseJsonFileMovie(result);
-
+	ParseJsonFileAccount(result);
 }
 
 function ajaxFindReturnError(result, status, xhr) {
-
 	alert("Error");
 	console.log("Ajax-find account: "+status);
 
@@ -252,7 +237,7 @@ $("#AddBtn").click( function() {
 		$.ajax({
 
 			method: "POST",
-			url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet//",
+			url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet/",
 			data: jsonString,
 			dataType:'json',
 			error: ajaxAddReturnError,
@@ -261,7 +246,6 @@ $("#AddBtn").click( function() {
 })
 
 function ajaxAddReturnSuccess(result, status, xhr) {
-
 	clearFields();
 	$("#id").attr("placeholder","Account added" );
 
@@ -276,7 +260,6 @@ console.log("Ajax-find account: "+status);
 }
 
 })//btn add account
-
 
 $("#AddBtnSavingSchedule").click( function() {
 	var strId = $("#username").val();
@@ -357,15 +340,15 @@ console.log("Ajax-find account: "+status);
 
 $("#UpdateBtnSavingSchedule").click( function() {
 
-	var strId = $("#username").val();
-	var strNbr = $("#nbr").val();
+	var strId = $("#nbr").val();
+	var strUsername = $("#username").val();
 	var strName = $("#name").val();
 	var strGoal = $("#goal").val();
 	var strYear = $("#year").val();
 	var strMonth = $("#month").val();
 
 	
-	var obj = {nbr: strNbr, username: strId, name: strName, goal: strGoal, year: strYear, month: strMonth};
+	var obj = {nbr: strId, username: strUsername, name: strName, goal: strGoal, year: strYear, month: strMonth};
 	var jsonString = JSON.stringify(obj);
 
 	if (strId != "") {
@@ -455,6 +438,19 @@ function ajaxDelReturnError(result, status, xhr) {
 
 })// Delete button savingschedule
 });//End ready function
+
+
+function ParseJsonFileAccount(result) {
+
+	$("#id").val(result.id);
+	$("#firstName").val(result.title);
+	$("#surname").val(result.price);
+	
+	$.ajax({
+		
+	})
+
+}
 
 function ParseJsonFile(result) {
 

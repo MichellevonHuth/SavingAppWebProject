@@ -14,7 +14,6 @@ import javax.persistence.Table;
 @Table(name="Account")
 public class Account implements Serializable{
 	
-	// Testing
 	private String username;
 	private String firstName;
 	private String surname;
