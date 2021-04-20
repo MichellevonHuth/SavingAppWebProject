@@ -11,11 +11,9 @@
 </head>
 <body>
 	<section id="body">
-
 			<h1>
 				<p>Welcome to MySavingApp</p>
 			</h1>
-			
 		<section id = "underHeader">
 			<h2>
 				<p>Achieve your dreams</p>
@@ -38,9 +36,7 @@
 				</div>
 			</aside>
 		</section>	
-		
-	</section>
-			
+	</section>	
     <footer> 
         <section id = "footer">
         	<div class="leftdiv">
@@ -124,6 +120,7 @@ $(document).ready(function(){
 
 		function ajaxFindReturnSuccess(result, status, xhr) {
 			ParseJsonFileAccount(result);
+			clearFields();
 		}
 
 		function ajaxFindReturnError(result, status, xhr) {
@@ -137,12 +134,6 @@ $(document).ready(function(){
 function ParseJsonFileAccount(result) {
 
 	$("#id").val(result.id);
-	$("#firstName").val(result.title);
-	$("#surname").val(result.price);
-	
-	$.ajax({
-		
-	})
 
 }
 
@@ -183,6 +174,10 @@ function ParseJsonFile(result) {
 		alert("Error i OpenWeaterMap Ajax");
 		console.log("Ajax-find movie: "+status);
 		}
+	
+	function clearFields() {
+		$("#id").val("");
+	}
 
 }//End of document ready
 

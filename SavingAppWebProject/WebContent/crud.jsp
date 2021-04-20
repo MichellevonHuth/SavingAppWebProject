@@ -275,7 +275,7 @@ $("#AddBtnSavingSchedule").click( function() {
 		$.ajax({
 
 			method: "POST",
-			url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet//",
+			url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet",
 			data: jsonString,
 			dataType:'json',
 			error: ajaxAddReturnError,
@@ -285,7 +285,7 @@ $("#AddBtnSavingSchedule").click( function() {
 
 function ajaxAddReturnSuccess(result, status, xhr) {
 	clearFields();
-	$("#id").attr("placeholder","Account added" );
+	$("#id").attr("placeholder","Savingschedule added" );
 
 }
 
@@ -376,7 +376,6 @@ console.log("Ajax-find savingSchedule: "+status);
 }
 
 })//Update button Savingschedule 
-
 
 
 $("#DeleteBtn").click( function() {

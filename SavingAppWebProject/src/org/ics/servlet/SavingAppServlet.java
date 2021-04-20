@@ -60,7 +60,23 @@ public class SavingAppServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String pathInfo = request.getPathInfo();
+		System.out.println(request.getPathInfo());
 
+		if(pathInfo == null || pathInfo.equals("")){
+
+			BufferedReader reader = request.getReader();//Läs data Json
+			SavingSchedule s = parseJsonSavingSchedule(reader);
+			
+			try {
+				s = facade.createSavingSchedule(s);
+			}
+			catch(Exception e) {
+				System.out.println("duplicate key");
+			}
+
+			sendAsJson(response, s);
+		}
+		
 		if(pathInfo == null || pathInfo.equals("/")){
 
 			BufferedReader reader = request.getReader();//Läs data Json
@@ -84,7 +100,6 @@ public class SavingAppServlet extends HttpServlet {
 		if(pathInfo == null || pathInfo.equals("/")){
 
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-
 			return;
 
 		}
@@ -95,9 +110,10 @@ public class SavingAppServlet extends HttpServlet {
 			return;
 
 		}
+		
+		
 		BufferedReader reader = request.getReader();
 		Account a = parseJsonAccount(reader);
-
 		//Uppdatera i db
 
 		try {
@@ -137,9 +153,8 @@ public class SavingAppServlet extends HttpServlet {
 				facade.deleteSavingSchedule(s.getSavingScheduleNbr());
 			}
 			facade.deleteAccount(id);
-		}
-		
-		sendAsJson(response, account);
+		}	
+		sendAsJson(response, account);	
 	}
 
 	private void sendAsJson(HttpServletResponse response, Account account) throws IOException {
@@ -154,6 +169,26 @@ public class SavingAppServlet extends HttpServlet {
 			out.print("\"" +account.getSurname()+"\"");
 			out.print(",\"price\":");
 			out.print("\"" +account.getFirstName()+"\"}");
+
+		} else {
+			out.print("{ }");
+		}
+		out.flush();
+
+	}
+	
+	private void sendAsJson(HttpServletResponse response, SavingSchedule savingschedule) throws IOException {
+		
+		PrintWriter out = response.getWriter();
+		response.setContentType("application/json"); 
+
+		if (savingschedule != null) {
+			out.print("{\"title\":");
+			out.print("\"" +savingschedule.getSavingScheduleName()+ "\"");
+			out.print(",\"id\":");
+			out.print("\"" +savingschedule.getSavingGoal()+"\"");
+			out.print(",\"price\":");
+			out.print("\"" +savingschedule.getAccount()+"\"}");
 
 		} else {
 			out.print("{ }");
@@ -222,13 +257,13 @@ public class SavingAppServlet extends HttpServlet {
 		System.out.println("JsonRoot: "+jsonRoot);
 		
 		SavingSchedule savingSchedule = new SavingSchedule();
-		Account account = savingSchedule.getAccount();
-		savingSchedule.setAccount(account);
+		Account a = facade.findByAccountUsername(jsonRoot.getString("username"));
+		savingSchedule.setAccount(a);
 		savingSchedule.setSavingScheduleName(jsonRoot.getString("name"));
 		savingSchedule.setSavingGoal(Double.parseDouble(jsonRoot.getString("goal")));
 		savingSchedule.setSavingDurationYear(Integer.parseInt(jsonRoot.getString("year")));
 		savingSchedule.setSavingDurationYear(Integer.parseInt(jsonRoot.getString("month")));
-		savingSchedule.setAccount(account);
+
 
 		return savingSchedule;
 
