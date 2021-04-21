@@ -9,13 +9,10 @@
 	box-sizing: border-box;
 }
 
- body {
+ body{
 	background-image: url('https://i.postimg.cc/wjFRDSpq/Stars-3.jpg');
 }
 
-section#footer{
-	border-top: 1px solid #383939;
-}
 
 .login{
 	border-bottom: 2px solid #white;
@@ -31,21 +28,34 @@ section#footer{
 #FindBtn{
 	background-color: #222122;
 	color: white;
-	border: none;
-	width: 90%;
-	font: bold;
+	border: #222122;
+	font-style: bold;
 	font-family: Arial;
+	border-radius: 10px;
+	width: 80%;
 }
 
 #CreateBtn{
 	background-color: #71F69A;
 	color: #171717;
-	border: none;
-	width: 90%;
-	font: bold;
+	border: #71F69A;
+	font-style: bold;
 	font-family: Arial;
+	border-radius: 10px;
+	width: 80%;
 }
 
+<<<<<<< Updated upstream
+=======
+#usernameTextField{
+	width: 80%;
+}
+
+section#footer{
+	border-top: 1px solid #383939;
+}
+
+>>>>>>> Stashed changes
 .leftdiv{
 	float: left;
 	width: 55%;
@@ -95,9 +105,9 @@ h2{
 	color: #fff;
 	font-family: Arial; 
 	font-size: 20px;
-
 }
 
+<<<<<<< Updated upstream
 input[type=text] {
   border: 20px 
   border-radius: 4px;
@@ -107,6 +117,8 @@ button#FindBtn {
   border: 4000px 
   border-radius: 4px;
 }
+=======
+>>>>>>> Stashed changes
 
 section#underHeader{
 	padding: 0px 200px 0px 0px;
@@ -116,12 +128,15 @@ section#underHeader{
 
 section#body{
 	padding: 0px 0px 400px 0px;
+<<<<<<< Updated upstream
 }
+=======
+}	
+>>>>>>> Stashed changes
 
 section#logInBox{
 	padding: 30px 250px 100px 0px;
-	float: left;
-		
+	float: left;		
 }	
 
 aside#logInBox {
