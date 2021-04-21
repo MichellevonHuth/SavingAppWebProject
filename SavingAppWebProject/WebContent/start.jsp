@@ -134,7 +134,6 @@ $(document).ready(function(){
 function ParseJsonFileAccount(result) {
 	$("#id").val(result.id);
 	console.log(result);
-	result.
 	$("<p>" + result + "</p>").insertAfter("#id");
 	
 	
@@ -156,7 +155,7 @@ function ParseJsonFile(result) {
 	  
 	  $.ajax({
 	 		method: "GET",
-	 		url: "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&units=metric"+ "&APPID=0aebca8155519cd776fe771d32a41872",
+	 		url: "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+ long+"&units=metric"+ "&APPID=0aebca8155519cd776fe771d32a41872",
 	  		error: ajaxWeatherReturn_Error,
 	  		success: ajaxWeatherReturn_Success
 	})
