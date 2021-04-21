@@ -20,8 +20,7 @@
 
 	<section id="body">
         <section id = "meny">
-			<div class="leftblock">
-			</div>
+
         	<div class="home">
         	<a href="http://localhost:8080/SavingAppWebProject/home.jsp" id="home"><img src="https://i.postimg.cc/QC7MrG23/Sk-rmavbild-2021-04-20-kl-23-00-10.jpg" ></a>
         	</div>
@@ -37,10 +36,9 @@
       	</section>
       	
 		<section id = "mainbody">>
-			<div class="leftside">
-			</div>
-			<div class="rightside">
-			blablablablablablablablablablablablablabla
+
+			<div class="welcomeText">
+			blablablablablablablabablabblablablablablabablablablablablablablablalablablablablablablablablalablablablablablablalablablablablablablablablablablablabablablablablablablablablalablablablablablablablabla
 			</div>
 		</section>
 
