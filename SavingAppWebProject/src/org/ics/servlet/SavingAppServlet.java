@@ -215,8 +215,8 @@ public class SavingAppServlet extends HttpServlet {
 			}
 
 			JsonArray jsonArray = array.build();
-			out.print(jsonArray);
-			System.out.println("Accounts rest: "+jsonArray);
+			out.print(jsonArray.toString());
+			System.out.println("Accounts rest: "+jsonArray.toString());
 
 		} else {
 			out.print("[]");
