@@ -18,9 +18,8 @@
 </head>
 <body>
 
-
 	<section id="body">
-        <section id = "meny">
+		<section id = "meny">
 
         	<div class="home">
         	<a href="http://localhost:8080/SavingAppWebProject/home.jsp" id="home"><img src="https://i.postimg.cc/QC7MrG23/Sk-rmavbild-2021-04-20-kl-23-00-10.jpg" ></a>
@@ -35,59 +34,45 @@
 			<a href="http://localhost:8080/SavingAppWebProject/settings.jsp" id="settings"><img src="https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg" ></a>
         	</div>
       	</section>
-      	  	
-      	    <div class="header">
-     		<p>User settings</p>
-     		</div>
-     	
-		<section id = "mainbodySettings">
-     	
-			<div class="settingsBox">
+      	
+      	<div class="header">
+     		<p>What do you dream about?</p>
+     	</div>
+     	<section id="underheader">
+     		<p>Make a saving schedule to achieve your dreams</p>
+     	</section>
+     		
+     	<section id = "mainbodyNew">
+			<div class="newBox">
+			
 			<br>
 			<div class="textBoxStyle">
-			<p>Username</p>
-			<input type="text" name="usernameTextBox" id="usernameTextBox" value="">
+			<p>Saving schedule name</p>
+			<input type="text" name="savingScheduleNameTextBox" id="savingScheduleNameTextBox" value="">
 			</div>
 			<br>
 			<div class="textBoxStyle">
-			<p>First name</p>
-			<input type="text" name="firstnameTextBox" id="firstnameTextBox" value="">
+			<p>Saving goal</p>
+			<input type="text" name="savingGoalTextBox" id="savingGoalTextBox" value="">
 			</div>
 			<br>
 			<div class="textBoxStyle">
-			<p>Surname</p>
-			<input type="text" name="surnameTextBox" id="surnameTextBox" value="">
-			</div>
-			<br>
-			<div class="textBoxStyle">
-			<p>Income</p>
-			<input type="text" name="incomeTextBox" id="incomeTextBox" value="">
-			</div>
-			<br>
-			<div class="textBoxStyle">
-			<p>Fixed cost</p>
-			<input type="text" name="fixedCostTextBox" id="fixedCostTextBox" value="">
-			</div>
-			<br>
-			<div class="textBoxStyle">
-			<p>Variable cost</p>
-			<input type="text" name="variableCostTextBox" id="variableCostTextBox" value="">
+			<p>Saving duration</p>
+			<input type="text" name="savingDurationTextBox" id="savingDurationTextBox" value="">
 			</div>
 			<br><br><br>
 			<section id="buttonSettings">
-			<input type="button" name="submitBtn" value="Save settings" id="saveUserSettings">
-			<input type="button" name="submitBtn" value="Delete user" id="deleteUser">
+			<input type="button" name="submitBtn" value="Make a saving schedule" id="saveSavingSchedule">
 			</section>
+			
+			
 			</div>
-			
-			
-			
 		</section>
-	
-
-
 			
-    <footer> 
+	</section>
+
+
+	<footer> 
         <section id = "footer">
         	<div class="leftdiv">
         	<br>
@@ -117,6 +102,6 @@
         	</div>
       	</section> 
 	</footer>   
-
+	
 </body>
 </html>
