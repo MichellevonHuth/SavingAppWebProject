@@ -5,7 +5,7 @@ body{
 
 }
 section#meny{
-	height: 200px;
+	height: 130px;
 	display: flex;
 	justify-content: space-around;
     margin-left: 110px;
@@ -41,6 +41,11 @@ section#mainbody{
 	display: flex;
 	justify-content: center;
 }
+section#mainbodySettings{
+	height:600px;
+	display: flex;
+	justify-content: center;
+}
 
 
 .welcomeText{
@@ -52,6 +57,51 @@ section#mainbody{
     background-color: grey;
     float: left;
     word-wrap: break-word;
+}
+
+.header{
+	padding: 0px 0px 0px 200px;
+	color: #fff;
+    font-family: Arial; 
+    font-size: 40px;
+    font-style: bold;
+}
+
+.settingsBox{
+	height: 500px;
+    width: 55%;
+    color: white;
+    font-family: Arial;
+    font-size: 14px;
+    background-color: #383939;
+    float: left;
+    word-wrap: break-word;
+    border-radius: 40px;
+}
+
+.username{
+	margin-left: 40px;
+	line-height: 0.5%;
+}
+.firstname{
+	margin-left: 40px;
+	line-height: 0.5%;
+}
+.surname{
+	margin-left: 40px;
+	line-height: 0.5%;
+}
+.income{
+	margin-left: 40px;
+	line-height: 0.5%;
+}
+.fixedcost{
+	margin-left: 40px;
+	line-height: 0.5%;
+}
+.variablecost{
+	margin-left: 40px;
+	line-height: 0.5%;
 }
 
 
