@@ -208,14 +208,15 @@ public class SavingAppServlet extends HttpServlet {
 
 				for (org.ics.ejb.SavingSchedule s : accounts) {
 					JsonObjectBuilder o = Json.createObjectBuilder();
-					o.add("id", s.getSavingScheduleName());
-					o.add("title",String.valueOf(s.getSavingGoal()));
+					o.add("Savingschedule number", s.getSavingScheduleNbr());
+					o.add("Name:", s.getSavingScheduleName());
+					o.add("Saving goal:",String.valueOf(s.getSavingGoal()));
 					array.add(o);
 			}
 
 			JsonArray jsonArray = array.build();
-			System.out.println("Accounts rest: "+jsonArray);
 			out.print(jsonArray);
+			System.out.println("Accounts rest: "+jsonArray);
 
 		} else {
 			out.print("[]");

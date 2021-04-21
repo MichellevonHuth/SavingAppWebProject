@@ -132,9 +132,16 @@ $(document).ready(function(){
 	});
 	
 function ParseJsonFileAccount(result) {
-
 	$("#id").val(result.id);
+	console.log(result);
+	result.
+	$("<p>" + result + "</p>").insertAfter("#id");
+	
+	
+}
 
+function clearFields() {
+	$("#id").val("");
 }
 
 function ParseJsonFile(result) {
@@ -174,10 +181,6 @@ function ParseJsonFile(result) {
 		alert("Error i OpenWeaterMap Ajax");
 		console.log("Ajax-find movie: "+status);
 		}
-	
-	function clearFields() {
-		$("#id").val("");
-	}
 
 }//End of document ready
 
