@@ -40,7 +40,7 @@
 			<div class="leftside">
 			</div>
 			<div class="rightside">
-			blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla
+			blablablablablablablablablablablablablabla
 			</div>
 		</section>
 
