@@ -1,117 +1,147 @@
 @charset "ISO-8859-1";
 @media screen and (max-width:1000px) {
-	.column {
-		width: 100%;
-	}
+    .column {
+        width: 100%;
+    }
 }
+
+ 
 
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
+ 
+
  body{
-	background-image: url('https://i.postimg.cc/wjFRDSpq/Stars-3.jpg');
+    background-image: url('https://i.postimg.cc/wjFRDSpq/Stars-3.jpg');
 }
+
+ 
 
 
 .login{
-	border-bottom: 2px solid #white;
+    border-bottom: 2px solid #white;
 }
 .create {
-	height: 20px;
+    height: 20px;
 }
+
+ 
 
 #Username {
-	width: 90%;
+    width: 90%;
 }
+
+ 
 
 #FindBtn{
-	background-color: #222122;
-	color: white;
-	border: #222122;
-	font-style: bold;
-	font-family: Arial;
-	border-radius: 10px;
-	width: 80%;
+    background-color: #222122;
+    color: white;
+    border: #222122;
+    font-style: bold;
+    font-family: Arial;
+    border-radius: 10px;
+    width: 80%;
 }
 
+ 
+
 #CreateBtn{
-	background-color: #71F69A;
-	color: #171717;
-	border: #71F69A;
-	font-style: bold;
-	font-family: Arial;
-	border-radius: 10px;
-	width: 80%;
+    background-color: #71F69A;
+    color: #171717;
+    border: #71F69A;
+    font-style: bold;
+    font-family: Arial;
+    border-radius: 10px;
+    width: 80%;
 }
+
+ 
 
 <<<<<<< Updated upstream
 =======
 #usernameTextField{
-	width: 80%;
+    width: 80%;
 }
 
+ 
+
 section#footer{
-	border-top: 1px solid #383939;
+    border-top: 1px solid #383939;
 }
+
+ 
 
 >>>>>>> Stashed changes
 .leftdiv{
-	float: left;
-	width: 55%;
-	color: #fff;
-	font-family: Arial; 
-	font-size: 11px;
+    float: left;
+    width: 55%;
+    color: #fff;
+    font-family: Arial; 
+    font-size: 11px;
 }
+
+ 
 
 .leftcenterdiv{
-	float: left;
-	width: 20%;
-	color: #fff;
-	font-family: Arial; 
-	font-size: 11px;
-	
+    float: left;
+    width: 20%;
+    color: #fff;
+    font-family: Arial; 
+    font-size: 11px;
+    
 }
+
+ 
 
 .rightcenterdiv{
-	float: left;
-	width: 15%;
-	color: #fff;
-	font-family: Arial; 
-	font-size: 11px;
-	
+    float: left;
+    width: 15%;
+    color: #fff;
+    font-family: Arial; 
+    font-size: 11px;
+    
 }
 .rightdiv{
-	float: left;
-	width: 10%;
-	color: #fff;
-	font-family: Arial; 
-	font-size: 11px;
-	
+    float: left;
+    width: 10%;
+    color: #fff;
+    font-family: Arial; 
+    font-size: 11px;
+    
 }
 
+ 
+
 h1{
-	padding: 100px 0px 0px 130px;
-	text-align: left;
-	height: 180px;
-	color: #fff;
-	font-family: Arial; 
-	font-size: 60px;
+    padding: 100px 0px 0px 130px;
+    text-align: left;
+    height: 180px;
+    color: #fff;
+    font-family: Arial; 
+    font-size: 60px;
+
+ 
 
 }
 h2{
-	padding: 0px 0px 0px 130px;
-	text-align: left;
-	color: #fff;
-	font-family: Arial; 
-	font-size: 20px;
+    padding: 0px 0px 0px 130px;
+    text-align: left;
+    color: #fff;
+    font-family: Arial; 
+    font-size: 20px;
 }
+
+ 
 
 <<<<<<< Updated upstream
 input[type=text] {
   border: 20px 
   border-radius: 4px;
 }
+
+ 
 
 button#FindBtn {
   border: 4000px 
@@ -120,31 +150,42 @@ button#FindBtn {
 =======
 >>>>>>> Stashed changes
 
+ 
+
 section#underHeader{
-	padding: 0px 200px 0px 0px;
-	float: left;
+    padding: 0px 200px 0px 0px;
+    float: left;
+
+ 
 
 }
 
+ 
+
 section#body{
-	padding: 0px 0px 400px 0px;
+    padding: 0px 0px 400px 0px;
 <<<<<<< Updated upstream
 }
 =======
-}	
+}    
 >>>>>>> Stashed changes
 
+ 
+
 section#logInBox{
-	padding: 30px 250px 100px 0px;
-	float: left;		
-}	
+    padding: 30px 250px 100px 0px;
+    float: left;        
+}    
+
+ 
 
 aside#logInBox {
-	padding: 20px 20px 180px 20px;
-	width: 150%;
-	background-color: #383939;
-	color: #FFFFFF;
-	border-radius: 20px;
+    padding: 20px 20px 180px 20px;
+    width: 150%;
+    background-color: #383939;
+    color: #FFFFFF;
+    border-radius: 20px;
+
+ 
 
 }
-
