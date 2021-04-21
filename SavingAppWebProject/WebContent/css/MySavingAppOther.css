@@ -6,53 +6,52 @@ body{
 }
 section#meny{
 	height: 200px;
+	display: flex;
+	justify-content: space-around;
+    margin-left: 110px;
+    margin-right: 130px;
 }
 
-.leftblock{
-	width: 150px;
-	height: 200px;
-	float: left;
-}
+
 .home{
-	width: 170px;
-  	height: 200px;
+	width: 120px;
+  	height: 130px;
   	float: left;
 }
 .savingschedules{
-	width: 170px;
-  	height: 200px;
+	width: 120px;
+  	height: 130px;
   	float: left;
 }
 .new{
-	width: 170px;
-  	height: 200px;
+	width: 120px;
+  	height: 130px;
   	float: left;
 	
 }
 .settings{
-	width: 100px;
-  	height: 200px;
+	width: 120px;
+  	height: 130px;
   	float: left;
 	
 }
 
 section#mainbody{
 	height:500px;
+	display: flex;
+	justify-content: center;
 }
 
-.leftside{
-	height: 400px;
-	width: 27%;
-	float: left;
-}
-.rightside{
-	height: 400px;
-	width: 40%;
-	color: #fff;
-	font-family: Arial; 
-	font-size: 17px;
-	background-color: grey;
-	float: left;
+
+.welcomeText{
+    height: 400px;
+    width: 40%;
+    color: #fff;
+    font-family: Arial;
+    font-size: 17px;
+    background-color: grey;
+    float: left;
+    word-wrap: break-word;
 }
 
 
