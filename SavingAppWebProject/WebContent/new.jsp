@@ -57,8 +57,13 @@
 			</div>
 			<br>
 			<div class="textBoxStyle">
-			<p>Saving duration</p>
-			<input type="text" name="savingDurationTextBox" id="savingDurationTextBox" value="">
+			<p>Saving duration year</p>
+			<input type="text" name="savingDurationYearTextBox" id="savingDurationYearTextBox" value="">
+			</div>
+			<br>
+			<div class="textBoxStyle">
+			<p>Saving duration month</p>
+			<input type="text" name="savingDurationMonthTextBox" id="savingDurationMonthTextBox" value="">
 			</div>
 			<br><br><br>
 			<section id="buttonSettings">
