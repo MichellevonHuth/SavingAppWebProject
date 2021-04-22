@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="org.ics.ejb.Account" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,42 +42,49 @@
      		</div>
      	
 		<section id = "mainbodySettings">
-     	
+			<%String s = (String)request.getAttribute("getUsername");%>
 			<div class="settingsBox">
 			<br>
 			<div class="textBoxStyle">
-			<p>Username</p>
-			<input type="text" name="usernameTextBox" id="usernameTextBox" value="">
+				<p>Username</p>
+				<label><%=s%> </label>
 			</div>
 			<br>
 			<div class="textBoxStyle">
-			<p>First name</p>
-			<input type="text" name="firstnameTextBox" id="firstnameTextBox" value="">
+				<p>First name</p>
+				<input type="text" name="firstnameTextBox" id="firstnameTextBox" value="">
 			</div>
 			<br>
 			<div class="textBoxStyle">
-			<p>Surname</p>
-			<input type="text" name="surnameTextBox" id="surnameTextBox" value="">
+				<p>Surname</p>
+				<input type="text" name="surnameTextBox" id="surnameTextBox" value="">
 			</div>
 			<br>
 			<div class="textBoxStyle">
-			<p>Income</p>
-			<input type="text" name="incomeTextBox" id="incomeTextBox" value="">
+				<p>Income</p>
+				<input type="text" name="incomeTextBox" id="incomeTextBox" value="">
 			</div>
 			<br>
 			<div class="textBoxStyle">
-			<p>Fixed cost</p>
-			<input type="text" name="fixedCostTextBox" id="fixedCostTextBox" value="">
+				<p>Fixed cost</p>
+				<input type="text" name="fixedCostTextBox" id="fixedCostTextBox" value="">
 			</div>
 			<br>
-			<div class="textBoxStyle">
-			<p>Variable cost</p>
+				<div class="textBoxStyle">
+				<p>Variable cost</p>
 			<input type="text" name="variableCostTextBox" id="variableCostTextBox" value="">
-			</div>
+				</div>
 			<br><br><br>
 			<section id="buttonSettings">
+			 
+				<input type="submit" name="submit" value="Add"> 
+						<input name="operation"  value="addAccount"  type="hidden">
+				
 			<input type="button" name="submitBtn" value="Save settings" id="saveUserSettings">
-			<input type="button" name="submitBtn" value="Delete user" id="deleteUser">
+			<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8> 
+			<input type="submit" name="submit" value="Delete user"> 
+						<input name="operation"  value="deleteAccount"  type="hidden">
+			
 			</section>
 			</div>
 			

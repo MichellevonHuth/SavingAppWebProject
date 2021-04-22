@@ -22,10 +22,15 @@
 		<section id="logInBox">
 			<aside id="logInBox">
 				<div class="login">
-				Username: <input type="text" name="userNameTextField" id="id" value=""><br>
+				
+				<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8> 
+				Username: <input type="text" name="userNameTextField" id="userNameTextField" value=""><br>
 				<p></p>
-				<p></p>
-				<input type="button" name="submitBtn" value="Log in" id="FindBtn">
+				<p></p> 
+				<input type="submit" name="submit" value="Log in"> 
+						<input name="operation"  value="findAccount"  type="hidden">
+				</form>
+				
 					<p></p>
 				<p></p>
 					<p></p>
@@ -107,7 +112,7 @@ $(document).ready(function(){
 
 	}
 	
-	$("#FindBtn").click(function() {
+	$("#FindBtnn").click(function() {
 		  var strValue = $("#id").val();
 		  if (strValue != "") {
 			$.ajax({

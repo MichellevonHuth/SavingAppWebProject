@@ -3,6 +3,7 @@ package org.ics.servlet;
 import java.io.IOException;
 
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,13 +27,32 @@ public class SavingAppControllerServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		String url = null;
+		String operation = request.getParameter("operation");
+		if(operation.equals("findAccount")) {
+			
+			String username = request.getParameter("userNameTextField");
+			Account a = facade.findByAccountUsername(username);
+				if(a !=null) {
+					String name = a.getFirstName();
+					String user = a.getUsername();
+					url ="/home.jsp";
+					request.setAttribute("getName", name);
+					request.setAttribute("getUsername", user);
+				}
+				else {			
+					url ="/start.jsp";
+					
+				}
+		}
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+		dispatcher.forward(request, response);
 	}
 
 	/**
@@ -42,52 +62,59 @@ public class SavingAppControllerServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
-		String operation = request.getParameter("operation");
-		
-		if(operation.equals("addAccount")){
-			
-			String username = request.getParameter("usernameTextBox");
-			String firstName = request.getParameter("firstnameTextBox");
-			String surname = request.getParameter("surnameTextBox");
-			double totalIncome = Double.parseDouble(request.getParameter("incomeTextBox"));
-			double fixedCost = Double.parseDouble(request.getParameter("fixedCostTextBox"));
-			double variableCost = Double.parseDouble(request.getParameter("variableCostTextBox"));
-			
-			Account a = new Account();
-			
-			a.setUsername(username);
-			a.setFirstName(firstName);
-			a.setSurname(surname);
-			a.setTotalIncome(totalIncome);
-			a.setFixedCost(fixedCost);
-			a.setVariableCost(variableCost);
-			
-			facade.createAccount(a);
-			
-		}
-		
-		if(operation.equals("addSaving")) {
-			String savingScheduleName = request.getParameter("savingScheduleNameTextBox");
-			double savingGoal = Double.parseDouble(request.getParameter(("savingGoalTextBox")));
-			int savingDurationYear = Integer.parseInt(request.getParameter("savingDurationYearTextBox"));
-			int savingDurationMonth = Integer.parseInt(request.getParameter("savingDurationMonthTextBox"));
-			String username = request.getParameter("savingScheduleUsernameTextBox");
-			
-			Account a = facade.findByAccountUsername(username);
-			SavingSchedule s = new SavingSchedule();
-			
-			s.setSavingScheduleName(savingScheduleName);
-			s.setSavingGoal(savingGoal);
-			s.setSavingDurationYear(savingDurationYear);
-			s.setSavingDurationMonth(savingDurationMonth);
-			s.setAccount(a);
-			
-			facade.createSavingSchedule(s);
-			
-			String value = "tillagd";
-			request.setAttribute("savingScheduleUsernameTextBox", value);
-			}
-	}
+		 // TODO Auto-generated method stub
+        //doGet(request, response);
+        
+        String operation = request.getParameter("operation");
+        String url = null;
+        
+        if(operation.equals("addAccount")){
+            
+            String username = request.getParameter("usernameTextBox");
+            String firstName = request.getParameter("firstnameTextBox");
+            String surname = request.getParameter("surnameTextBox");
+            double totalIncome = Double.parseDouble(request.getParameter("incomeTextBox"));
+            double fixedCost = Double.parseDouble(request.getParameter("fixedCostTextBox"));
+            double variableCost = Double.parseDouble(request.getParameter("variableCostTextBox"));
+            
+            Account a = new Account();
+            
+            a.setUsername(username);
+            a.setFirstName(firstName);
+            a.setSurname(surname);
+            a.setTotalIncome(totalIncome);
+            a.setFixedCost(fixedCost);
+            a.setVariableCost(variableCost);
+            
+            facade.createAccount(a);
+            url="/settings.jsp";
+            
+        }
+        
+        if(operation.equals("addSaving")) {
+
+            String savingScheduleName = request.getParameter("savingScheduleNameTextBox");
+            double savingGoal = Double.parseDouble(request.getParameter("savingGoalTextBox"));
+            int savingDurationYear = Integer.parseInt(request.getParameter("savingDurationYearTextBox"));
+            int savingDurationMonth = Integer.parseInt(request.getParameter("savingDurationMonthTextBox"));
+            String username = request.getParameter("savingScheduleUsernameTextBox");
+
+            Account a = facade.findByAccountUsername(username);
+            SavingSchedule s = new SavingSchedule();
+            
+            s.setSavingScheduleName(savingScheduleName);
+            s.setSavingGoal(savingGoal);
+            s.setSavingDurationYear(savingDurationYear);
+            s.setSavingDurationMonth(savingDurationMonth);
+            s.setAccount(a);
+            
+            facade.createSavingSchedule(s);
+            url="/new.jsp";
+            }
+        
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);
+    }
 
 	/**
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
@@ -101,7 +128,27 @@ public class SavingAppControllerServlet extends HttpServlet {
 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		 
+		String operation = request.getParameter("operation");
+	    String url = null;
+	    
+	    if(operation.equals("deleteUser")) {
+	    	 String username = request.getParameter("usernameTextBox");
+	    	 Account a = facade.findByAccountUsername(username);
+	    	 
+	    	 if(a!= null) {
+	    		 facade.deleteAccount(username);
+	    		 url="/start.jsp";
+	    	 }
+	    	 
+	    	 else {
+	    		 url="/settings.jsp";
+	    	 }
+	    	
+	    }
+	    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);
+		
 	}
 
 }

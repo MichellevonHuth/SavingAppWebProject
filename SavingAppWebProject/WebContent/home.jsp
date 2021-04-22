@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="org.ics.ejb.Account" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,9 +35,9 @@
 			<a href="http://localhost:8080/SavingAppWebProject/settings.jsp" id="settings"><img src="https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg" ></a>
         	</div>
       	</section>
-      	
+      	<%String s = (String)request.getAttribute("getName");%>
       	<div class="header">
-			<p>Welcome Ida</p>
+			<p>Welcome </p> <label><%=s%> </label>
 		</div>
 		
 		<section id = "mainbody">

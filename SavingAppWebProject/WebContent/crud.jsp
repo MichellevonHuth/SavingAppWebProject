@@ -88,7 +88,7 @@
 		<section id="main">
 		
 		<section id="content">
- 			<form action ="SavingAppWebProject/SavingAppController" method="post"> 
+ 			
 				<article>
  		                      
 					<fieldset id="PersonalFS">
@@ -108,16 +108,13 @@
 						Saving duration month :<br> <input type="text" name="month" id="month" value=""> <br>
 						
 						<br> 
-						<!--   <input type="button" name="submitBtn" value="add" id="AddBtnSavingSchedule">
+						 <input type="button" name="submitBtn" value="add" id="AddBtnSavingSchedule">
 						 <input type="button" name="submitBtn" value="Delete" id="DeleteBtnSavingSchedule"> 
 						<input type="button" name="submitBtn" value="Update" id="UpdateBtnSavingSchedule"> 
-						-->
-						<input type="submit" name="submit" value="add"> 
-						<input name="operation"  value="addSaving"  type="hidden">
 					</fieldset>
 
 				</article>
-			</form>
+		
 		<section id="main">
 			
 			<section id="content">
@@ -126,7 +123,7 @@
 
 					<fieldset id="PersonalFS">
 						<legend>Account:</legend>
-							<form action ="SavingAppWebProject/SavingAppController" method="post"> 
+							
 						Username:<br> <input type="text" name="id" id="id" value=""><br>
 
 						First name:<br> <input type="text" name="firstName" id="firstName" value=""> <br> 
@@ -144,10 +141,6 @@
 						<input type="button" name="submitBtn" value="Add" id="AddBtn">
 						<input type="button" name="submitBtn" value="Delete" id="DeleteBtn"> 
 						<input type="button" name="submitBtn" value="Update" id="UpdateBtn">
-						
-						<input type="submit" name="submit" value="add"> 
-						<input name="operation"  value="addAccount"  type="hidden">
-	</form>
 					</fieldset>
 					
 				</article>
@@ -165,5 +158,335 @@
 	<footer>
 		<p>&copy; Grupp12</p>
 	</footer>
+	
+	<script>
+	$(document).ready(function(){
+
+		$.ajax({
+		 method: "GET",
+		 url: "http://api.ipstack.com/check?access_key=f0d0b90bbdec884d69ecc77b49fc274c",
+		 error: ajaxReturn_Error,
+		 success: ajaxReturn_Success
+
+	})
+
+	function ajaxReturn_Success(result, status, xhr) {
+		ParseJsonFile(result);
+	}
+
+	function ajaxReturn_Error(result, status, xhr) {
+		console.log("Ajax-find weather: "+status);
+
+	}
+
+	$("#FindBtn").click(function() {
+	  var strValue = $("#id").val();
+	  if (strValue != "") {
+		$.ajax({
+		 method: "GET",
+		 url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet/"+strValue,
+		 error: ajaxFindReturnError,
+		 success: ajaxFindReturnSuccess
+
+	})
+
+	function ajaxFindReturnSuccess(result, status, xhr) {
+		ParseJsonFileAccount(result);
+	}
+
+	function ajaxFindReturnError(result, status, xhr) {
+		alert("Error");
+		console.log("Ajax-find account: "+status);
+
+	 	}
+
+	 }
+
+	})//btn find accounts savingschedules
+
+	$("#AddBtn").click( function() {
+
+		var strId = $("#id").val();
+		var strFirstName = $("#firstName").val();
+		var strSurname = $("#surname").val();
+		var strFixedCost = $("#fixedCost").val();
+		var strTotalIncome = $("#totalIncome").val();
+		var strVariableCost = $("#variableCost").val();
+		var obj = { id: strId, firstName: strFirstName, surname: strSurname, fixedCost: strFixedCost, totalIncome: strTotalIncome, variableCost: strVariableCost};
+
+		var jsonString = JSON.stringify(obj);
+		if (strId != "") {
+			$.ajax({
+
+				method: "POST",
+				url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet/",
+				data: jsonString,
+				dataType:'json',
+				error: ajaxAddReturnError,
+				success: ajaxAddReturnSuccess
+
+	})
+
+	function ajaxAddReturnSuccess(result, status, xhr) {
+		clearFields();
+		$("#id").attr("placeholder","Account added" );
+
+	}
+
+	function ajaxAddReturnError(result, status, xhr) {
+	alert("Error Add");
+	console.log("Ajax-find account: "+status);
+
+	}
+
+	}
+
+	})//btn add account 
+
+	$("#AddBtnSavingSchedule").click( function() {
+		var strId = $("#username").val();
+		var strName = $("#name").val();
+		var strGoal = $("#goal").val();
+		var strYear = $("#year").val();
+		var strMonth = $("#month").val();
+		
+		var obj = {username: strId, name: strName, goal: strGoal, year: strYear, month: strMonth};
+		var jsonString = JSON.stringify(obj);
+
+		if (strId != "") {
+			$.ajax({
+
+				method: "POST",
+				url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet",
+				data: jsonString,
+				dataType:'json',
+				error: ajaxAddReturnError,
+				success: ajaxAddReturnSuccess
+
+	})
+
+	function ajaxAddReturnSuccess(result, status, xhr) {
+		clearFields();
+		$("#id").attr("placeholder","Savingschedule added" );
+
+	}
+
+	function ajaxAddReturnError(result, status, xhr) {
+	alert("Error Add");
+	console.log("Ajax-find account: "+status);
+
+	}
+
+	}
+
+	})//btn add Savingschedule
+
+	$("#UpdateBtn").click( function() {
+
+		var strId = $("#id").val();
+		var strFirstName = $("#firstName").val();
+		var strSurname = $("#surname").val();
+		var strFixedCost = $("#fixedCost").val();
+		var strTotalIncome = $("#totalIncome").val();
+		var strVariableCost = $("#variableCost").val();
+		
+		var obj = { id: strId, firstName: strFirstName, surname: strSurname, fixedCost: strFixedCost, totalIncome: strTotalIncome, variableCost: strVariableCost};
+		var jsonString = JSON.stringify(obj);
+
+		if (strId != "") {
+			$.ajax({
+
+				method: "PUT",
+				url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet/"+strId,
+				data: jsonString,
+				dataType:'json',
+				error: ajaxUpdateReturnError,
+				success: ajaxUpdateReturnSuccess
+
+	})
+
+	function ajaxUpdateReturnSuccess(result, status, xhr) {
+	clearFields();
+	$("#id").attr("placeholder","Account updated" );
+	}
+
+	function ajaxUpdateReturnError(result, status, xhr) {
+	alert("Error Update");
+	console.log("Ajax-find account: "+status);
+
+	}
+
+	}
+
+	})//Update button Account 
+
+	$("#UpdateBtnSavingSchedule").click( function() {
+
+		var strId = $("#nbr").val();
+		var strUsername = $("#username").val();
+		var strName = $("#name").val();
+		var strGoal = $("#goal").val();
+		var strYear = $("#year").val();
+		var strMonth = $("#month").val();
+
+		
+		var obj = {nbr: strId, username: strUsername, name: strName, goal: strGoal, year: strYear, month: strMonth};
+		var jsonString = JSON.stringify(obj);
+
+		if (strId != "") {
+			$.ajax({
+				method: "PUT",
+				url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet/"+strId,
+				data: jsonString,
+				dataType:'json',
+				error: ajaxUpdateReturnError,
+				success: ajaxUpdateReturnSuccess
+
+	})
+
+	function ajaxUpdateReturnSuccess(result, status, xhr) {
+	clearFields();
+	$("#id").attr("placeholder","SavingSchedule updated" );
+	}
+
+	function ajaxUpdateReturnError(result, status, xhr) {
+	alert("Error Update");
+	console.log("Ajax-find savingSchedule: "+status);
+
+	}
+
+	}
+
+	})//Update button Savingschedule 
+
+
+	$("#DeleteBtn").click( function() {
+
+		var strValue = $("#id").val();
+		if (strValue != "") {
+			
+		$.ajax({
+			method: "DELETE",
+			url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet/"+strValue,
+			error: ajaxDelReturnError,
+			success: ajaxDelReturnSuccess
+
+	})
+
+
+
+	function ajaxDelReturnSuccess(result, status, xhr) {
+		clearFields();
+		$("#id").attr("placeholder","Account deleted" );
+
+	}
+
+	function ajaxDelReturnError(result, status, xhr) {
+		alert("Error");
+		console.log("Ajax-find account: "+status);
+
+	}
+
+	}
+
+	})//Delete button account 
+
+	$("#DeleteBtnSavingSchedule").click( function() {
+		var strValue = $("#username").val();
+		if (strValue != "") {
+			
+		$.ajax({
+			method: "DELETE",
+			url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet/"+strValue,
+			error: ajaxDelReturnError,
+			success: ajaxDelReturnSuccess
+
+	})
+
+	function ajaxDelReturnSuccess(result, status, xhr) {
+		clearFields();
+		$("#username").attr("placeholder","SavingSchedule deleted" );
+
+	}
+
+	function ajaxDelReturnError(result, status, xhr) {
+		alert("Error");
+		console.log("Ajax-find savingSchedule: "+status);
+
+	}
+
+	}
+
+	})// Delete button savingschedule
+	});//End ready function
+
+
+	function ParseJsonFileAccount(result) {
+
+		var number = result.number;
+		var name = result.name;
+		$("#id").val(result.id);
+		console.log(result);
+		var res = JSON.stringify(result);
+		$("<br>" + res + "</br>").insertAfter("#id");
+
+	}
+
+	function ParseJsonFile(result) {
+
+	  var lat = result.latitude;
+	  var long = result.longitude;
+	  var city = result.city;
+	  var ipNbr = result.ip
+
+	  $("#city").text(city);
+	  $("#ipNbr").text(ipNbr);
+	  
+	  $.ajax({
+	 		method: "GET",
+	 		url: "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long +"&units=metric"+ "&APPID=0aebca8155519cd776fe771d32a41872",
+	  		error: ajaxWeatherReturn_Error,
+	  		success: ajaxWeatherReturn_Success
+	})
+
+
+
+	function ajaxWeatherReturn_Success(result, status, xhr) {
+
+	  var sunrise = result.sys.sunrise;
+	  var sunset = result.sys.sunset;
+	  var sunriseDate = new Date(sunrise*1000);
+	  var timeStrSunrise = sunriseDate.toLocaleTimeString();
+	  var sunsetDate = new Date(sunset*1000);
+	  var timeStrSunset = sunsetDate.toLocaleTimeString();
+
+	  $("#sunrise").text("Sunrise: "+timeStrSunrise);
+	  $("#sunset").text("Sunset: "+timeStrSunset);
+	  $("#weather").text(result.weather[0].main);
+	  $("#degree").text(result.main.temp+" \u2103");
+
+	}//ajaxWeatherReturn_Success
+
+
+
+	function ajaxWeatherReturn_Error(result, status, xhr) {
+		alert("Error i OpenWeaterMap Ajax");
+		console.log("Ajax-find movie: "+status);
+		}
+
+	}//End of document ready
+
+	function clearFields() {
+
+		$("#id").val("");
+		$("#firstName").val("");
+		$("#surname").val("");
+		$("#fixedCost").val("");
+		$("#totalIncome").val("");
+		$("#variableCost").val("");
+
+	}
+
+	</script>
  </body>
 </html>
