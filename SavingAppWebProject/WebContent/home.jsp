@@ -35,9 +35,13 @@
         	</div>
       	</section>
       	
-		<section id = "mainbody">>
-
-			<div class="welcomeText">
+      	<div class="header">
+			<p>Welcome Ida</p>
+		</div>
+		
+		<section id = "mainbody">
+			<div class="newBox">
+			<br><br>
 			blablablablablablablabablabblablablablablabablablablablablablablablalablablablablablablablablalablablablablablablalablablablablablablablablablablablabablablablablablablablablalablablablablablablablabla
 			</div>
 		</section>
