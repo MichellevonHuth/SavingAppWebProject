@@ -40,7 +40,8 @@
      		</div>
      	
 		<section id = "mainbodySettings">
-		<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8>
+		 <form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8>
+		  <form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8>
 			<%String s = (String)request.getAttribute("getUsername");%>
 			<div class="settingsBox">
 			<br>
@@ -76,14 +77,15 @@
 				</div>
 			<br><br><br>
 			<section id="buttonSettings">
-				<input type="submit" name="submit" value="Save changes"> 
+				 <input type="submit" name="submit" value="Save changes"> 
 						<input name="operation"  value="updateAccount"  type="hidden">
-			 
+			
 			<input type="submit" name="submit" value="Delete user"> 
 						<input name="operation"  value="deleteAccount"  type="hidden">
 			</section>
 			</div>
-		</form>
+			 </form>
+			 </form>
 		</section>
 	
 
