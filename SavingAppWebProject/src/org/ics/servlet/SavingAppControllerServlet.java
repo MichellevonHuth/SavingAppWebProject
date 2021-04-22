@@ -67,11 +67,11 @@ public class SavingAppControllerServlet extends HttpServlet {
 		}
 		
 		if(operation.equals("addSaving")) {
-			String savingScheduleName = request.getParameter("name");
-			double savingGoal = Double.parseDouble(request.getParameter(("goal")));
-			int savingDurationYear = Integer.parseInt(request.getParameter("year"));
-			int savingDurationMonth = Integer.parseInt(request.getParameter("month"));
-			String username = request.getParameter("username");
+			String savingScheduleName = request.getParameter("savingScheduleNameTextBox");
+			double savingGoal = Double.parseDouble(request.getParameter(("savingGoalTextBox")));
+			int savingDurationYear = Integer.parseInt(request.getParameter("savingDurationYearTextBox"));
+			int savingDurationMonth = Integer.parseInt(request.getParameter("savingDurationMonthTextBox"));
+			String username = request.getParameter("savingScheduleUsernameTextBox");
 			
 			Account a = facade.findByAccountUsername(username);
 			SavingSchedule s = new SavingSchedule();
@@ -85,7 +85,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 			facade.createSavingSchedule(s);
 			
 			String value = "tillagd";
-			request.setAttribute("Nbr", value);
+			request.setAttribute("savingScheduleUsernameTextBox", value);
 			}
 	}
 
