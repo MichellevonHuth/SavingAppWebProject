@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script
@@ -41,10 +41,15 @@
      	<section id="underheader">
      		<p>Make a saving schedule to achieve your dreams</p>
      	</section>
-     		
+     
      	<section id = "mainbodyNew">
+     	
+     	
 			<div class="newBox">
-			
+			<div class="textBoxStyle">
+			<p>Saving schedule name</p>
+			<input type="text" name="savingScheduleUsernameTextBox" id="savingScheduleUsernameTextBox" value="">
+			</div>
 			<br>
 			<div class="textBoxStyle">
 			<p>Saving schedule name</p>
@@ -67,14 +72,21 @@
 			</div>
 			<br><br><br>
 			<section id="buttonSettings">
-			<input type="button" name="submitBtn" value="Make a saving schedule" id="saveSavingSchedule">
+			
+			     		
+     	<form action ="/SavingAppWebProject/SavingAppController" method="post"> 	
+			<input type="submit" name="submit" value="Make a saving schedule"> 
+						<input name="operation"  value="addSaving"  type="hidden">
+		
+			</form>
 			</section>
 			
-			
 			</div>
+					
 		</section>
 			
 	</section>
+
 
 
 	<footer> 
