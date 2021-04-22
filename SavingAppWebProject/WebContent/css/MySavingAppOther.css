@@ -12,6 +12,24 @@ section#meny{
     margin-right: 130px;
 }
 
+.content{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	align-content: flex-start;
+}
+
+.savingschedulecontainer{
+	margin-top: 50px;
+	margin-bottom: 60px;
+	color: white;
+	padding: 100px 100px;
+	border-radius: 50% !important;
+	background-image: url('https://i.postimg.cc/0jTddLbd/Stars-1.jpg');
+	font-family: Arial;
+	word-wrap: break-word;
+}
 
 .home{
 	width: 120px;
@@ -115,6 +133,7 @@ section#mainbodyNew{
 	height: 100px;
 	width: 100px;
 	border-radius: 30px;
+	box-shadow: 0 0 120px #063352;
 }
 
 .textBoxStyle{
@@ -196,6 +215,19 @@ section#mainbodyNew{
     border-radius: 10px;
     font-weight: bold;
 }
+
+#showInformation{
+	background-color: #71F69A;
+	margin-top: 100px;
+	margin-left: -37px;
+	padding: 3px 25px;
+	height: 20px;
+    color: #171717;
+    font-family: Arial;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
 section#buttonSettings{
 	display: flex;
 	justify-content: space-around;

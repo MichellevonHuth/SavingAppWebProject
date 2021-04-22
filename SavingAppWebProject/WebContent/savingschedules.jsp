@@ -7,20 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" type="text/css" href="css/MySavingAppOther.css">
-<style>
-#content{
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	align-items: center;
-}
-.savingschedulecontainer{
-	color: white;
-	height: 100px;
-	width: 100px;
-	border-radius: 30px;
-}
-</style>
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
 </script>
@@ -50,12 +37,15 @@
         	</div>
       	</section>
       	
-      	<div class="content" id="content">
+      	<div class="content">
+
       	
       	<%for(int i = 0 ; i < 5 ; i++) { %>
+
       		<div class="savingschedulecontainer">
-      		
-      			<%=i%>
+      		<%=i%> 
+      		iushföiDJFOÖIJFSÖZSNF.DZJ.KNDKDSFJFSK
+      		<input type="button" name="submitBtn" value="Show information" id="showInformation">
       		
       		</div>
       	<%} %>
