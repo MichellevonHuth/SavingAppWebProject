@@ -187,6 +187,15 @@ section#mainbodyNew{
     border-radius: 10px;
     font-weight: bold;	
 }
+
+#registerUser{
+	background-color: #71F69A;
+	padding: 3px 45px;
+    color: #171717;
+    font-family: Arial;
+    border-radius: 10px;
+    font-weight: bold;
+}
 section#buttonSettings{
 	display: flex;
 	justify-content: space-around;
