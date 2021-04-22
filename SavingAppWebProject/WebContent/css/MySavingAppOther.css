@@ -46,6 +46,11 @@ section#mainbodySettings{
 	display: flex;
 	justify-content: center;
 }
+section#mainbodyNew{
+	height:450px;
+	display: flex;
+	justify-content: center;
+}
 
 
 .welcomeText{
@@ -60,15 +65,36 @@ section#mainbodySettings{
 }
 
 .header{
-	padding: 0px 0px 0px 200px;
+	padding: 30px 0px 0px 200px;
 	color: #fff;
     font-family: Arial; 
-    font-size: 40px;
+    font-size: 35px;
     font-style: bold;
+    line-height: 0.5%;
 }
 
+#underheader{
+    padding: 0px 0px 30px 210px;
+    text-align: left;
+    color: #fff;
+    font-family: Arial; 
+    font-size: 14px;
+    line-height: 0.5%;
+}    
+
 .settingsBox{
-	height: 500px;
+	height: 550px;
+    width: 55%;
+    color: white;
+    font-family: Arial;
+    font-size: 14px;
+    background-color: #383939;
+    float: left;
+    word-wrap: break-word;
+    border-radius: 40px;
+}
+.newBox{
+	height: 350px;
     width: 55%;
     color: white;
     font-family: Arial;
@@ -79,29 +105,75 @@ section#mainbodySettings{
     border-radius: 40px;
 }
 
-.username{
+.textBoxStyle{
 	margin-left: 40px;
 	line-height: 0.5%;
 }
-.firstname{
-	margin-left: 40px;
-	line-height: 0.5%;
+#usernameTextBox{
+	padding: 3px 160px;
+	border-radius: 10px;
 }
-.surname{
-	margin-left: 40px;
-	line-height: 0.5%;
+#firstnameTextBox{
+	padding: 3px 160px;
+	border-radius: 10px;
 }
-.income{
-	margin-left: 40px;
-	line-height: 0.5%;
+#surnameTextBox{
+	padding: 3px 160px;
+	border-radius: 10px;
 }
-.fixedcost{
-	margin-left: 40px;
-	line-height: 0.5%;
+#incomeTextBox{
+	padding: 3px 160px;
+	border-radius: 10px;
 }
-.variablecost{
-	margin-left: 40px;
-	line-height: 0.5%;
+#variableCostTextBox{
+	padding: 3px 160px;
+	border-radius: 10px;
+}
+#fixedCostTextBox{
+	padding: 3px 160px;
+	border-radius: 10px;
+}
+#savingScheduleNameTextBox{
+	padding: 3px 160px;
+	border-radius: 10px;
+}
+#savingGoalTextBox{
+	padding: 3px 160px;
+	border-radius: 10px
+}
+#savingDurationTextBox{
+	padding: 3px 160px;
+	border-radius: 10px
+}
+
+#saveUserSettings{
+	background-color: #71F69A;
+	padding: 3px 35px;
+    color: #171717;
+    font-family: Arial;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+#deleteUser{
+	background-color: #222122;
+	padding: 6px 40px;
+    color: white;
+    font-family: Arial;
+    border-radius: 10px;
+    font-weight: bold;
+}
+#saveSavingSchedule{
+	background-color: #71F69A;
+	padding: 3px 45px;
+    color: #171717;
+    font-family: Arial;
+    border-radius: 10px;
+    font-weight: bold;	
+}
+section#buttonSettings{
+	display: flex;
+	justify-content: space-around;
 }
 
 

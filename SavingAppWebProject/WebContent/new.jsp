@@ -19,31 +19,59 @@
 <body>
 
 	<section id="body">
-        <section id = "meny">
+		<section id = "meny">
 
         	<div class="home">
-        	<a href="http://localhost:8080/SavingAppWebProject/home.jsp" id="home"><img src="https://i.postimg.cc/BQxwqDjF/Sk-rmavbild-2021-04-20-kl-23-00-10-4.jpg" ></a>
+        	<a href="http://localhost:8080/SavingAppWebProject/home.jsp" id="home"><img src="https://i.postimg.cc/QC7MrG23/Sk-rmavbild-2021-04-20-kl-23-00-10.jpg" ></a>
         	</div>
         	<div class="savingschedules">
         	<a href="http://localhost:8080/SavingAppWebProject/savingschedules.jsp" id="savingschedules"><img src="https://i.postimg.cc/SQf5Dt22/Sk-rmavbild-2021-04-20-kl-23-00-10-1.jpg" ></a>
         	</div>
         	<div class="new">
-			<a href="http://localhost:8080/SavingAppWebProject/new.jsp" id="new"><img src="https://i.postimg.cc/Prf7czY6/Sk-rmavbild-2021-04-20-kl-23-00-10-2.jpg" ></a>
+			<a href="http://localhost:8080/SavingAppWebProject/new.jsp" id="new"><img src="https://i.postimg.cc/B6VBgZX4/Sk-rmavbild-2021-04-20-kl-23-00-10-2-1.jpg" ></a>
         	</div>
         	<div class="settings">
 			<a href="http://localhost:8080/SavingAppWebProject/settings.jsp" id="settings"><img src="https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg" ></a>
         	</div>
       	</section>
       	
-		<section id = "mainbody">>
-
-			<div class="welcomeText">
-			blablablablablablablabablabblablablablablabablablablablablablablablalablablablablablablablablalablablablablablablalablablablablablablablablablablablabablablablablablablablablalablablablablablablablabla
+      	<div class="header">
+     		<p>What do you dream about?</p>
+     	</div>
+     	<section id="underheader">
+     		<p>Make a saving schedule to achieve your dreams</p>
+     	</section>
+     		
+     	<section id = "mainbodyNew">
+			<div class="newBox">
+			
+			<br>
+			<div class="textBoxStyle">
+			<p>Saving schedule name</p>
+			<input type="text" name="savingScheduleNameTextBox" id="savingScheduleNameTextBox" value="">
+			</div>
+			<br>
+			<div class="textBoxStyle">
+			<p>Saving goal</p>
+			<input type="text" name="savingGoalTextBox" id="savingGoalTextBox" value="">
+			</div>
+			<br>
+			<div class="textBoxStyle">
+			<p>Saving duration</p>
+			<input type="text" name="savingDurationTextBox" id="savingDurationTextBox" value="">
+			</div>
+			<br><br><br>
+			<section id="buttonSettings">
+			<input type="button" name="submitBtn" value="Make a saving schedule" id="saveSavingSchedule">
+			</section>
+			
+			
 			</div>
 		</section>
-
-
 			
+	</section>
+
+
 	<footer> 
         <section id = "footer">
         	<div class="leftdiv">
@@ -73,10 +101,7 @@
         	<p>Our story</p>
         	</div>
       	</section> 
-	</footer>  
-
-           
- 
-
+	</footer>   
+	
 </body>
 </html>
