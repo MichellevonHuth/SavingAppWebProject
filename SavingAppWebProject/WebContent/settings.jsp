@@ -18,8 +18,6 @@
 <title>MySavingApp</title>
 </head>
 <body>
-
-
 	<section id="body">
         <section id = "meny">
 
@@ -36,18 +34,20 @@
 			<a href="http://localhost:8080/SavingAppWebProject/settings.jsp" id="settings"><img src="https://i.postimg.cc/QMc2wPc2/Sk-rmavbild-2021-04-20-kl-23-00-10-5.jpg" ></a>
         	</div>
       	</section>
-      	  	
+     	  	
       	    <div class="header">
      		<p>User settings</p>
      		</div>
      	
 		<section id = "mainbodySettings">
+		<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8>
 			<%String s = (String)request.getAttribute("getUsername");%>
 			<div class="settingsBox">
 			<br>
 			<div class="textBoxStyle">
 				<p>Username</p>
 				<label><%=s%> </label>
+				<input type="text" name="usernameTextBox" id="usernameTextBox" value="">
 			</div>
 			<br>
 			<div class="textBoxStyle">
@@ -76,20 +76,14 @@
 				</div>
 			<br><br><br>
 			<section id="buttonSettings">
+				<input type="submit" name="submit" value="Save changes"> 
+						<input name="operation"  value="updateAccount"  type="hidden">
 			 
-				<input type="submit" name="submit" value="Add"> 
-						<input name="operation"  value="addAccount"  type="hidden">
-				
-			<input type="button" name="submitBtn" value="Save settings" id="saveUserSettings">
-			<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8> 
 			<input type="submit" name="submit" value="Delete user"> 
 						<input name="operation"  value="deleteAccount"  type="hidden">
-			
 			</section>
 			</div>
-			
-			
-			
+		</form>
 		</section>
 	
 

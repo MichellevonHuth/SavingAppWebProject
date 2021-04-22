@@ -33,20 +33,19 @@ public class SavingAppControllerServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 		String url = null;
 		String operation = request.getParameter("operation");
 		
 		if(operation.equals("getSavingSchedules")) {
-			Account a = facade.findByAccountUsername("ida");
 			
+			Account a = facade.findByAccountUsername("ida");
 			if(a!= null) {
 				for(SavingSchedule s : a.getSavingschedules()) {
-					
 					System.out.println(s.getSavingScheduleName());
 					System.out.println(s.getSavingGoal());
 					
 					url = "/savingschedules.jsp";
-				
 				}
 			}
 		}
