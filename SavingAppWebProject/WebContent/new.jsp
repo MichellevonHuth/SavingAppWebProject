@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/MySavingAppOther.css">
 
-<meta charset="ISO-8859-1">
+<meta charset=ISO-8859-1>
 
 <title>MySavingApp</title>
 </head>
@@ -46,8 +46,10 @@
      	
      	
 			<div class="newBox">
+			<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="POST" accept-charset=utf-8>
+			
 			<div class="textBoxStyle">
-			<p>Saving schedule name</p>
+			<p>Username</p>
 			<input type="text" name="savingScheduleUsernameTextBox" id="savingScheduleUsernameTextBox" value="">
 			</div>
 			<br>
@@ -72,15 +74,11 @@
 			</div>
 			<br><br><br>
 			<section id="buttonSettings">
-			
-			     		
-     	<form action ="/SavingAppWebProject/SavingAppController" method="post"> 	
 			<input type="submit" name="submit" value="Make a saving schedule"> 
-						<input name="operation"  value="addSaving"  type="hidden">
-		
-			</form>
+			<input name="operation"  value="addSaving"  type="hidden">		
 			</section>
 			
+			</form>		
 			</div>
 					
 		</section>
@@ -93,7 +91,7 @@
         <section id = "footer">
         	<div class="leftdiv">
         	<br>
-        	© 2021 MySavingApp Company
+        	Â© 2021 MySavingApp Company
         	</div>
         	<div class="leftcenterdiv">
         	<br>

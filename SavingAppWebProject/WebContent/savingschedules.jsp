@@ -6,11 +6,26 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link rel="stylesheet" type="text/css" href="css/MySavingAppOther.css">
+<style>
+#content{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+.savingschedulecontainer{
+	color: white;
+	height: 100px;
+	width: 100px;
+	border-radius: 30px;
+}
+</style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
 </script>
 
-<link rel="stylesheet" type="text/css" href="css/MySavingAppOther.css">
+
 
 <meta charset="ISO-8859-1">
 
@@ -34,7 +49,29 @@
 			<a href="http://localhost:8080/SavingAppWebProject/settings.jsp" id="settings"><img src="https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg" ></a>
         	</div>
       	</section>
+      	
+      	<div class="content" id="content">
+      	
+      	<%for(int i = 0 ; i < 5 ; i++) { %>
+      		<div class="savingschedulecontainer">
+      		
+      			<%=i%>
+      		
+      		</div>
+      	<%} %>
+      	
+      	
+      	</div>
+      	
+            	
+      	
 </section>
+
+
+
+
+
+
 
 	<footer> 
         <section id = "footer">
