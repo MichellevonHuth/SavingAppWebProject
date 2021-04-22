@@ -132,6 +132,8 @@ $(document).ready(function(){
 	});
 	
 function ParseJsonFileAccount(result) {
+	var number = result.number;
+	var name = result.name;
 	$("#id").val(result.id);
 	console.log(result);
 	var res = JSON.stringify(result);
@@ -147,7 +149,7 @@ function ParseJsonFile(result) {
 	  var lat = result.latitude;
 	  var long = result.longitude;
 	  var city = result.city;
-	  var ipNbr = result.ip
+	  var ipNbr = result.ip;
 
 	  $("#city").text(city);
 	  $("#ipNbr").text(ipNbr);
