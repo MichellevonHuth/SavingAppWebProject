@@ -19,12 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.ics.ejb.*;
 import org.ics.facade.*;
 
-
-
 /**
-
  * Servlet implementation class Movies
-
  */
 
 @WebServlet("/SavingAppServlet/*")
@@ -111,9 +107,9 @@ public class SavingAppServlet extends HttpServlet {
 
 		}
 		
-		
 		BufferedReader reader = request.getReader();
 		Account a = parseJsonAccount(reader);
+		
 		//Uppdatera i db
 
 		try {
@@ -265,8 +261,7 @@ public class SavingAppServlet extends HttpServlet {
 		savingSchedule.setSavingDurationYear(Integer.parseInt(jsonRoot.getString("year")));
 		savingSchedule.setSavingDurationYear(Integer.parseInt(jsonRoot.getString("month")));
 
-
 		return savingSchedule;
 
+		}
 	}
-}

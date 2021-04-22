@@ -26,10 +26,11 @@
      		</div>
      	
 		<section id = "mainbodySettings">
-     	
+     	<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="post" accept-charset=utf-8> 
 			<div class="settingsBox">
 			<br>
 			<div class="textBoxStyle">
+			
 			<p>Username</p>
 			<input type="text" name="usernameTextBox" id="usernameTextBox" value="">
 			</div>
@@ -60,17 +61,12 @@
 			</div>
 			<br><br><br>
 			<section id="buttonSettings">
-			<input type="button" name="submitBtn" value="Register" id="registerUser">
+			<input type="submit" name="submit" value="Register"> 
+						<input name="operation"  value="addAccount"  type="hidden">
 			</section>
-			</div>
-			
-			
-			
-		</section>
-	
-
-
-			
+			</div>	
+			</form>		
+		</section>	
     <footer> 
         <section id = "footer">
         	<div class="leftdiv">

@@ -35,22 +35,54 @@ public class SavingAppControllerServlet extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		String url = null;
 		String operation = request.getParameter("operation");
+		
+		if(operation.equals("getSavingSchedules")) {
+			Account a = facade.findByAccountUsername("ida");
+			
+			if(a!= null) {
+				for(SavingSchedule s : a.getSavingschedules()) {
+					
+					System.out.println(s.getSavingScheduleName());
+					System.out.println(s.getSavingGoal());
+					
+					url = "/savingschedules.jsp";
+				
+				}
+			}
+		}
+		
+		if(operation.equals("updateAccount")) {
+			doPut(request,response);
+
+		}
+		
+		if(operation.equals("deleteAccount")) {
+			doDelete(request,response);
+		}
+		
+		if(operation.equals("getUsername")) {
+			
+			String username = request.getParameter("submit");
+			url="/settings.jsp";
+			request.setAttribute("getUsername",username);
+			
+		}
+		
 		if(operation.equals("findAccount")) {
 			
 			String username = request.getParameter("userNameTextField");
 			Account a = facade.findByAccountUsername(username);
 				if(a !=null) {
 					String name = a.getFirstName();
-					String user = a.getUsername();
 					url ="/home.jsp";
 					request.setAttribute("getName", name);
-					request.setAttribute("getUsername", user);
 				}
 				else {			
 					url ="/start.jsp";
 					
 				}
 		}
+		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}
@@ -87,7 +119,9 @@ public class SavingAppControllerServlet extends HttpServlet {
             a.setVariableCost(variableCost);
             
             facade.createAccount(a);
-            url="/settings.jsp";
+            String name = a.getFirstName();
+			url ="/home.jsp";
+			request.setAttribute("getName", name);
             
         }
         
@@ -120,8 +154,25 @@ public class SavingAppControllerServlet extends HttpServlet {
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
+		 String username = request.getParameter("usernameTextBox");
+         String firstName = request.getParameter("firstnameTextBox");
+         String surname = request.getParameter("surnameTextBox");
+         double totalIncome = Double.parseDouble(request.getParameter("incomeTextBox"));
+         double fixedCost = Double.parseDouble(request.getParameter("fixedCostTextBox"));
+         double variableCost = Double.parseDouble(request.getParameter("variableCostTextBox"));
+         
+ 
+         Account a = facade.findByAccountUsername(username);
+         
+         a.setUsername(username);
+         a.setFirstName(firstName);
+         a.setSurname(surname);
+         a.setTotalIncome(totalIncome);
+         a.setFixedCost(fixedCost);
+         a.setVariableCost(variableCost);         
+         facade.updateAccount(a);
+ 
 	}
 
 	/**
@@ -129,14 +180,14 @@ public class SavingAppControllerServlet extends HttpServlet {
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 
-		String operation = request.getParameter("operation");
-	    String url = null;
-	    
-	    if(operation.equals("deleteUser")) {
 	    	 String username = request.getParameter("usernameTextBox");
 	    	 Account a = facade.findByAccountUsername(username);
+	    	 String url="";
 	    	 
 	    	 if(a!= null) {
+	    		 for(SavingSchedule s : a.getSavingschedules()) {
+	    			 facade.deleteSavingSchedule(s.getSavingScheduleNbr());
+	    		 }
 	    		 facade.deleteAccount(username);
 	    		 url="/start.jsp";
 	    	 }
@@ -145,7 +196,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 	    		 url="/settings.jsp";
 	    	 }
 	    	
-	    }
+	  
 	    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
 		
