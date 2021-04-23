@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.ics.ejb.Account;
 import org.ics.ejb.SavingSchedule;
 
 /**
@@ -25,11 +26,23 @@ public class SavingScheduleEAOImpl implements SavingScheduleEAORemote, SavingSch
     }
     
     public SavingSchedule createSavingSchedule(SavingSchedule savingSchedule) {
+    	
+    	Account a = savingSchedule.getAccount();
+    	
+    	double goal = savingSchedule.getSavingGoal();
+    	double income = a.getTotalIncome();
+    	double fixedCost = a.getFixedCost();
+    	double variableCost = a.getVariableCost();
+    	int year = savingSchedule.getSavingDurationYear();
+    	
+    	
+    	
     	em.persist(savingSchedule);
     	return savingSchedule;
     }
     
     public SavingSchedule updateSavingSchedule(SavingSchedule savingSchedule) {
+    
     	em.merge(savingSchedule);
     	return savingSchedule;
     }

@@ -18,6 +18,7 @@
 <title>MySavingApp</title>
 </head>
 <body>
+<input name="username" id="username" value="" type = "hidden">
 	<section id="body">
         <section id = "meny">
 
@@ -25,7 +26,7 @@
         	<a href="http://localhost:8080/SavingAppWebProject/home.jsp" id="home"><img src="https://i.postimg.cc/QC7MrG23/Sk-rmavbild-2021-04-20-kl-23-00-10.jpg" onmouseover="this.src='https://i.postimg.cc/0jxzf6tc/Sk-rmavbild-2021-04-20-kl-23-00-10-7.jpg'" onmouseout="this.src='https://i.postimg.cc/QC7MrG23/Sk-rmavbild-2021-04-20-kl-23-00-10.jpg'"/></a>
         	</div>
         	<div class="savingschedules">
-        	<a href="http://localhost:8080/SavingAppWebProject/savingschedules.jsp" id="savingschedules"><img src="https://i.postimg.cc/SQf5Dt22/Sk-rmavbild-2021-04-20-kl-23-00-10-1.jpg" onmouseover="this.src='https://i.postimg.cc/bvXzcSSN/Sk-rmavbild-2021-04-20-kl-23-00-10-1-6.jpg'" onmouseout="this.src='https://i.postimg.cc/SQf5Dt22/Sk-rmavbild-2021-04-20-kl-23-00-10-1.jpg'"/></a>
+        	<a href="SavingAppControllerServlet?operation=getSavingSchedules" id="savingschedules"><img src="https://i.postimg.cc/SQf5Dt22/Sk-rmavbild-2021-04-20-kl-23-00-10-1.jpg" onmouseover="this.src='https://i.postimg.cc/bvXzcSSN/Sk-rmavbild-2021-04-20-kl-23-00-10-1-6.jpg'" onmouseout="this.src='https://i.postimg.cc/SQf5Dt22/Sk-rmavbild-2021-04-20-kl-23-00-10-1.jpg'"/></a>
         	</div>
         	<div class="new">
 			<a href="http://localhost:8080/SavingAppWebProject/new.jsp" id="new"><img src="https://i.postimg.cc/Prf7czY6/Sk-rmavbild-2021-04-20-kl-23-00-10-2.jpg" onmouseover="this.src='https://i.postimg.cc/pTmcn7nX/Namnl-s-7.jpg'" onmouseout="this.src='https://i.postimg.cc/Prf7czY6/Sk-rmavbild-2021-04-20-kl-23-00-10-2.jpg'"/></a>
@@ -38,16 +39,15 @@
       	    <div class="header">
      		<p>User settings</p>
      		</div>
-     	
 		<section id = "mainbodySettings">
 		 <form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8>
 		  
-			<%String s = (String)request.getAttribute("getUsername");%>
+			
 			<div class="settingsBox">
 			<br>
 			<div class="textBoxStyle">
 				<p>Username</p>
-				<label><%=s%> </label>
+				<label> </label>
 				<input type="text" name="usernameTextBox" id="usernameTextBox" value="">
 			</div>
 			<br>
@@ -122,6 +122,13 @@
         	</div>
       	</section> 
 	</footer>   
+<script>
 
+$(function () {
+	var x = document.getElementById("username").value;
+	console.log(x);
+	
+});
+</script>
 </body>
 </html>

@@ -20,12 +20,12 @@
 
 	<section id="body">
 		<section id = "meny">
-
+<input name="username" id="username" value="" type = "hidden">
         	<div class="home">
         	<a href="http://localhost:8080/SavingAppWebProject/home.jsp" id="home"><img src="https://i.postimg.cc/QC7MrG23/Sk-rmavbild-2021-04-20-kl-23-00-10.jpg" onmouseover="this.src='https://i.postimg.cc/0jxzf6tc/Sk-rmavbild-2021-04-20-kl-23-00-10-7.jpg'" onmouseout="this.src='https://i.postimg.cc/QC7MrG23/Sk-rmavbild-2021-04-20-kl-23-00-10.jpg'"/></a>
         	</div>
         	<div class="savingschedules">
-        	<a href="http://localhost:8080/SavingAppWebProject/savingschedules.jsp" id="savingschedules"><img src="https://i.postimg.cc/SQf5Dt22/Sk-rmavbild-2021-04-20-kl-23-00-10-1.jpg" onmouseover="this.src='https://i.postimg.cc/bvXzcSSN/Sk-rmavbild-2021-04-20-kl-23-00-10-1-6.jpg'" onmouseout="this.src='https://i.postimg.cc/SQf5Dt22/Sk-rmavbild-2021-04-20-kl-23-00-10-1.jpg'"/></a>
+        	<a href="SavingAppControllerServlet?operation=getSavingSchedules" id="savingschedules"><img src="https://i.postimg.cc/SQf5Dt22/Sk-rmavbild-2021-04-20-kl-23-00-10-1.jpg" onmouseover="this.src='https://i.postimg.cc/bvXzcSSN/Sk-rmavbild-2021-04-20-kl-23-00-10-1-6.jpg'" onmouseout="this.src='https://i.postimg.cc/SQf5Dt22/Sk-rmavbild-2021-04-20-kl-23-00-10-1.jpg'"/></a>
         	</div>
         	<div class="new">
 			<a href="http://localhost:8080/SavingAppWebProject/new.jsp" id="new"><img src="https://i.postimg.cc/B6VBgZX4/Sk-rmavbild-2021-04-20-kl-23-00-10-2-1.jpg" ></a>
@@ -46,7 +46,7 @@
      	
      	
 			<div class="newBox">
-			<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="POST" accept-charset=utf-8>
+			<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8>
 			
 			<div class="textBoxStyle">
 			<p>Username</p>
@@ -75,7 +75,7 @@
 			<br><br><br>
 			<section id="buttonSettings">
 			<input type="submit" name="submit" value="Make a saving schedule"> 
-			<input name="operation"  value="addSaving"  type="hidden">		
+			<input name="operation"  value="createAnSavingSchedule"  type="hidden">		
 			</section>
 			
 			</form>		

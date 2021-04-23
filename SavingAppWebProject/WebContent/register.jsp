@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<input name="username" id="username" value="" type = "hidden">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script

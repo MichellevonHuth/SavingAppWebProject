@@ -21,8 +21,9 @@ public class SavingSchedule implements Serializable{
 	private double savingGoal;
 	private int savingDurationYear;
 	private int savingDurationMonth;
-	private Account account;
+	private double budget;
 	private long savingScheduleNbr;
+	private Account account;
 
 
 	@Id
@@ -63,7 +64,14 @@ public class SavingSchedule implements Serializable{
 	public void setSavingDurationMonth(int savingDurationMonth) {
 		this.savingDurationMonth = savingDurationMonth;
 	}
-
+	@Column(name="budget")
+	public double getBudget() {
+		return budget;
+	}
+	public void setBudget(double budget) {
+		this.budget = budget;
+	}
+	
 	@ManyToOne
 	@JoinColumn(name="username", referencedColumnName="username")
 	public Account getAccount() {

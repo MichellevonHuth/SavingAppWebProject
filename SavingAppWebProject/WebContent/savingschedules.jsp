@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="org.ics.ejb.SavingSchedule" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,15 +38,19 @@
 			<a href="http://localhost:8080/SavingAppWebProject/settings.jsp" id="settings"><img src="https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg" onmouseover="this.src='https://i.postimg.cc/Hkdk9N9j/Sk-rmavbild-2021-04-20-kl-23-00-10-3-1.jpg'" onmouseout="this.src='https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg'"/></a>
         	</div>
       	</section>
-      	
+      	<%ArrayList<SavingSchedule> s = (ArrayList<SavingSchedule>) request.getAttribute("getSavingSchedules"); %>
       	<div class="content">
 
       	
-      	<%for(int i = 0 ; i < 5 ; i++) { %>
+      	<%for(int i = 0 ; i < s.size() ; i+=1) { %>
 
       		<div class="savingschedulecontainer">
-      		<%=i%> 
-      		iushföiDJFOÖIJFSÖZSNF.DZJ.KNDKDSFJFSK
+      		Name : <%=s.get(i).getSavingScheduleName()%>
+      		<br>
+      		Goal: <%=s.get(i).getSavingGoal()%> 
+      		<br>
+      		Budget: <%=s.get(i).getBudget()%> / each month
+ 
       		<input type="button" name="submitBtn" value="Show information" id="showInformation">
       		
       		</div>
