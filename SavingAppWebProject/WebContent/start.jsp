@@ -48,7 +48,7 @@
 				<input type="button" name="submitBtn" value="Register" id="CreateBtn">
 				</div>
 			</aside>
-		</section>	
+		</section>
 		
 	</section>
 			
@@ -58,29 +58,31 @@
         	© 2021 MySavingApp Company
         	</div>
         	<div class="leftcenterdiv">
-        	<b>Contact</b>
-        	<p> </p>
-        	<p></p>
-        	<p>contact@mySavingApp.com</p>
-        	<p>Stora Tomegatan 32B</p>
-        	<p>223 51, Lund</p>
+	        	<b>Contact</b>
+	        	<p> </p>
+	        	<p></p>
+	        	<p>contact@mySavingApp.com</p>
+	        	<p>Stora Tomegatan 32B</p>
+	        	<p>223 51, Lund</p>
         	</div>
         	<div class="rightcenterdiv">
-        	<b>Social</b>
-        	<p> </p>
-        	<p></p>
-        	<p>Facebook</p>
-        	<p>LinkedIn</p>
-        	<p>Instagram</p>
+	        	<b>Social</b>
+	        	<p> </p>
+	        	<p></p>
+	        	<p>Facebook</p>
+	        	<p>LinkedIn</p>
+	        	<p>Instagram</p>
         	</div>
         	<div class="rightdiv">
-        	<b>About</b>
-        	<p></p>
-        	<p></p>
-        	<p>Our story</p>
+	        	<b>About</b>
+	        	<p></p>
+	        	<p></p>
+	        	<p>Our story</p>
         	</div>
       	</section> 
 	</footer>	
+<script>
 
+</script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 package org.ics.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -38,33 +40,38 @@ public class SavingAppControllerServlet extends HttpServlet {
 		String operation = request.getParameter("operation");
 		
 		if(operation.equals("getSavingSchedules")) {
-			
-			Account a = facade.findByAccountUsername("ida");
-			if(a!= null) {
-				for(SavingSchedule s : a.getSavingschedules()) {
-					System.out.println(s.getSavingScheduleName());
-					System.out.println(s.getSavingGoal());
-					
-					url = "/savingschedules.jsp";
+			ArrayList<String> savings = new ArrayList<String>();
+				Account a = facade.findByAccountUsername("ida");
+					if(a!= null) {
+						for(SavingSchedule s : a.getSavingschedules()) {
+								String name = s.getSavingScheduleName();
+								String goal = Double.toString(s.getSavingGoal());
+								
+								savings.add(name);
+								savings.add(goal);
+								
+								url = "/savingschedules.jsp";		
+								request.setAttribute("getSavingSchedules", savings);
+	
 				}
 			}
 		}
 		
-		if(operation.equals("updateAccount")) {
+
+		if(operation.equals("Save changes")) {
+			
 			doPut(request,response);
 
 		}
 		
-		if(operation.equals("deleteAccount")) {
+		if(operation.equals("Delete user")) {
 			doDelete(request,response);
 		}
 		
 		if(operation.equals("getUsername")) {
-			
 			String username = request.getParameter("submit");
 			url="/settings.jsp";
-			request.setAttribute("getUsername",username);
-			
+			request.setAttribute("getUsername",username);	
 		}
 		
 		if(operation.equals("findAccount")) {
@@ -154,6 +161,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+			System.out.println("I am in doPut");
 		 String username = request.getParameter("usernameTextBox");
          String firstName = request.getParameter("firstnameTextBox");
          String surname = request.getParameter("surnameTextBox");
@@ -164,7 +172,6 @@ public class SavingAppControllerServlet extends HttpServlet {
  
          Account a = facade.findByAccountUsername(username);
          
-         a.setUsername(username);
          a.setFirstName(firstName);
          a.setSurname(surname);
          a.setTotalIncome(totalIncome);
@@ -178,7 +185,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 
+		System.out.println("I am in doDelete");
 	    	 String username = request.getParameter("usernameTextBox");
 	    	 Account a = facade.findByAccountUsername(username);
 	    	 String url="";
