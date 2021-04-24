@@ -91,38 +91,7 @@ public class SavingAppServlet extends HttpServlet {
 	}
 
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String pathInfo = request.getPathInfo();
-		if(pathInfo == null || pathInfo.equals("/")){
-
-			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-			return;
-
-		}
-
-		String[] splits = pathInfo.split("/");
-		if(splits.length != 2) {
-			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-			return;
-
-		}
 		
-		BufferedReader reader = request.getReader();
-		Account a = parseJsonAccount(reader);
-		
-		//Uppdatera i db
-
-		try {
-
-			a = facade.updateAccount(a);
-
-		}catch(Exception e) {
-
-			System.out.println("facade Update Error");
-
-		}
-
-		sendAsJson(response, a);
 
 	}
 
@@ -149,12 +118,11 @@ public class SavingAppServlet extends HttpServlet {
 				facade.deleteSavingSchedule(s.getSavingScheduleNbr());
 			}
 			facade.deleteAccount(id);
-		}	
-		sendAsJson(response, account);	
+		}		
 	}
 
 	private void sendAsJson(HttpServletResponse response, Account account) throws IOException {
-			
+		
 		PrintWriter out = response.getWriter();
 		response.setContentType("application/json"); 
 
@@ -192,8 +160,6 @@ public class SavingAppServlet extends HttpServlet {
 		out.flush();
 
 	}
-
-
 	private void sendAsJson(HttpServletResponse response, Set<SavingSchedule> accounts) throws IOException {
 		
 		PrintWriter out = response.getWriter();
