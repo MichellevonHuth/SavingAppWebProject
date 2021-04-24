@@ -36,17 +36,18 @@
 		<section id="logInBox">
 			<aside id="logInBox">
 				<div class="login">
-					<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8> 
-					<input type="text" name="userNameTextField" id="userNameTextField" value="Username"><br>
-					<input name="username" id="username" value="" type = "hidden">
-					<p></p>
-					<p></p> 
-					<input type="submit" name="submit" value="Log in"> 
-					<input name="operation"  value="findAccount"  type="hidden">
-					</form>
+				<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8> 
+				<input type="text" name="userNameTextField" id="userNameTextField" value="Username"><br>
+				<p></p>
+				<p></p> 
+				<input type="submit" name="submit" value="Log in"> 
+				<input name="operation"  value="findAccount"  type="hidden">
+				</form>
 				</div>
 				<div class="create"> 
+				<a href="/SavingAppWebProject/register.jsp">
 				<input type="button" name="submitBtn" value="Register" id="CreateBtn">
+				</a>
 				</div>
 			</aside>
 		</section>

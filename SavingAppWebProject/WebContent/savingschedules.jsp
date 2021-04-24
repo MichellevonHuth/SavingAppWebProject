@@ -49,7 +49,7 @@
       		<br>
       		Goal: <%=s.get(i).getSavingGoal()%> 
       		<br>
-      		Budget: <%=s.get(i).getBudget()%> / each month
+      		Budget: <%=s.get(i).getBudget() %> / each month
  
       		<input type="button" name="submitBtn" value="Show information" id="showInformation">
       		

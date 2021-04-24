@@ -2,7 +2,6 @@ package org.ics.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -11,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.ics.ejb.Account;
 import org.ics.ejb.SavingSchedule;
@@ -25,6 +25,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 
 	@EJB
 	FacadeLocal facade;
+	HttpSession session;
     public SavingAppControllerServlet() {
         super();
         // TODO Auto-generated constructor stub
@@ -38,13 +39,14 @@ public class SavingAppControllerServlet extends HttpServlet {
 		
 		String url = null;
 		String operation = request.getParameter("operation");
+		session = request.getSession();
 		
 		if(operation.equals("getSavingSchedules")) {
 			ArrayList<SavingSchedule> savings = new ArrayList<SavingSchedule>();
-				Account a = facade.findByAccountUsername("michellev");
-					if(a!= null) {
-						for(SavingSchedule s : a.getSavingschedules()) {
-								savings.add(s);
+				Account account = facade.findByAccountUsername((String)session.getAttribute("getUsername"));
+					if(account != null) {
+						for(SavingSchedule savingSchedule : account.getSavingschedules()) {
+								savings.add(savingSchedule);
 								
 								url = "/savingschedules.jsp";		
 								request.setAttribute("getSavingSchedules", savings);
@@ -53,7 +55,8 @@ public class SavingAppControllerServlet extends HttpServlet {
 		}
 		
 		if(operation.equals("createAnSavingSchedule")) {
-			Account a = facade.findByAccountUsername("michellev");
+			
+			Account a = facade.findByAccountUsername((String)session.getAttribute("getUsername"));
 			
 			int savingDuration = 0;
 			
@@ -114,9 +117,24 @@ public class SavingAppControllerServlet extends HttpServlet {
 		}
 		
 		if(operation.equals("getUsername")) {
-			String username = request.getParameter("userNameTextField");
+			String username = (String)session.getAttribute("getUsername");
+			Account account = facade.findByAccountUsername(username);
+			if(account != null) {
+				
+				String firstname = account.getFirstName();
+				String surname = account.getSurname();
+				String totalIncome = Double.toString(account.getTotalIncome());
+				String variableCost = Double.toString(account.getVariableCost());
+				String fixedCost = Double.toString(account.getFixedCost());
+				
+				session.setAttribute("getFirstname", firstname);
+				session.setAttribute("getSurname", surname);
+				session.setAttribute("getTotalIncome", totalIncome);
+				session.setAttribute("getVariableCost", variableCost);
+				session.setAttribute("getFixedCost", fixedCost);
+			}
 			url="/settings.jsp";
-			request.setAttribute("getUsername",username);	
+				
 		}
 		
 		if(operation.equals("findAccount")) {
@@ -126,7 +144,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 				if(a !=null) {
 					String user = a.getUsername();
 					url ="/home.jsp";
-					request.setAttribute("getUsername", user);
+					session.setAttribute("getUsername", user);
 				}
 				else {			
 					url ="/start.jsp";
@@ -138,15 +156,8 @@ public class SavingAppControllerServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
-		
-		 // TODO Auto-generated method stub
-        //doGet(request, response);
         
         String operation = request.getParameter("operation");
         String url = null;
@@ -171,8 +182,8 @@ public class SavingAppControllerServlet extends HttpServlet {
             
             facade.createAccount(a);
             String user = a.getUsername();
+            session.setAttribute("getUsername", user);
 			url ="/home.jsp";
-			request.setAttribute("getUsername", user);
             
         }
         
@@ -181,9 +192,7 @@ public class SavingAppControllerServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-	/**
-	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
-	 */
+
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		 String url = "";
@@ -216,7 +225,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("I am in doDelete");
+
 	    	 String username = request.getParameter("usernameTextBox");
 	    	 Account a = facade.findByAccountUsername(username);
 	    	 String url="";

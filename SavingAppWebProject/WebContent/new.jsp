@@ -48,10 +48,6 @@
 			<div class="newBox">
 			<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8>
 			
-			<div class="textBoxStyle">
-			<p>Username</p>
-			<input type="text" name="savingScheduleUsernameTextBox" id="savingScheduleUsernameTextBox" value="">
-			</div>
 			<br>
 			<div class="textBoxStyle">
 			<p>Saving schedule name</p>

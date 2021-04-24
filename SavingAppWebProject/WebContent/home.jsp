@@ -36,9 +36,9 @@
 			<a href="SavingAppControllerServlet?operation=getUsername" id="settings"><img src="https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg" onmouseover="this.src='https://i.postimg.cc/Hkdk9N9j/Sk-rmavbild-2021-04-20-kl-23-00-10-3-1.jpg'" onmouseout="this.src='https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg'"/></a>
         	</div>
       	</section>
-      	<%String s = (String)request.getAttribute("getUsername");%>
+      	<%String s = (String)request.getSession().getAttribute("getUsername");%>
       	<div class="header">
-			<p>Welcome </p> <label><%=s%> </label>
+			<p>Welcome  <label><%=s%> </label></p>
 		</div>
 		<input name="username" id="username" value="<%=s%>" type = "hidden">
 		<section id = "mainbody">

@@ -46,14 +46,21 @@
 			<div class="settingsBox">
 			<br>
 			<div class="textBoxStyle">
-				<p>Username</p>
-				<label> </label>
-				<input type="text" name="usernameTextBox" id="usernameTextBox" value="">
+				
+				<%String username = (String)request.getSession().getAttribute("getUsername");%>
+				<%String firstname = (String)request.getSession().getAttribute("getFirstname");%>
+				<%String surname = (String)request.getSession().getAttribute("getSurname");%>
+				<%String totalIncome = (String)request.getSession().getAttribute("getTotalIncome");%>
+				<%String variableCost = (String)request.getSession().getAttribute("getVariableCost");%>
+				<%String fixedCost = (String)request.getSession().getAttribute("getFixedCost");%>
+				<p>Username </p>
+				<label><b> <%=username%></b></label>
+			
 			</div>
 			<br>
 			<div class="textBoxStyle">
 				<p>First name</p>
-				<input type="text" name="firstnameTextBox" id="firstnameTextBox" value="">
+				<input type="text" name="firstnameTextBox" id="firstnameTextBox" value="<%=firstname%>">
 			</div>
 			<br>
 			<div class="textBoxStyle">
