@@ -22,6 +22,15 @@ public class Account implements Serializable{
 	private double variableCost;
 	private Set<SavingSchedule> savingschedules;
 	
+	public Account(String username, String firstName, String surname, double totalIncome, double fixedCost, double variableCost){
+		this.username = username;
+		this.firstName = firstName;
+		this.surname = surname;
+		this.totalIncome = totalIncome;
+		this.fixedCost = fixedCost;
+		this.variableCost = variableCost;
+	}
+	
 	@Id
 	@Column(name="username")
 	public String getUsername() {

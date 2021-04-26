@@ -1,75 +1,114 @@
 package org.ics.test;
 
+import java.util.Set;
+
+import org.ics.ejb.Account;
+import org.ics.ejb.SavingSchedule;
+
 import junit.framework.TestCase;
 
 public class AccountTest extends TestCase {
-
+	
+	String expectedUsername;
+	String expectedFirstName;
+	String expectedSurname;
+	double expectedTotalIncome;
+	double expectedFixedCost;
+	double expectedVariableCost;
+	
+	Account a1;
+	Account a2;
+	
 	public AccountTest(String name) {
 		super(name);
 	}
 
 	protected void setUp() throws Exception {
 		super.setUp();
+		
+		expectedUsername = "idacarlsson";
+		expectedFirstName = "Ida";
+		expectedSurname = "Carlsson";
+		expectedTotalIncome = 10000;
+		expectedFixedCost = 4000;
+		expectedVariableCost = 1000;
+		
+		Account a1= new Account(expectedUsername, expectedFirstName, expectedSurname, expectedTotalIncome, expectedFixedCost, expectedVariableCost);		
+		Account a2 = new Account("michellevonhuth", "Michelle", "Von Huth", 10000, 30000, 1000);
+
 	}
 
 	protected void tearDown() throws Exception {
-		super.tearDown();
+		a1 = null;
+		a2 = null;
 	}
 
 	public void testGetUsername() {
-		fail("Not yet implemented");
+		assertNotNull(a1);
+		assertEquals(expectedUsername, a1.getUsername());
 	}
 
 	public void testSetUsername() {
-		fail("Not yet implemented");
+		
+		String expectedUsername2 = "TestUsername";
+		a1.setUsername(expectedUsername2);
+		assertEquals(expectedUsername2, a1.getUsername());
+	
 	}
 
 	public void testGetFirstName() {
-		fail("Not yet implemented");
+		assertEquals(expectedFirstName, a1.getFirstName());
 	}
 
 	public void testSetFirstName() {
-		fail("Not yet implemented");
+		String expectedFirstName2 = "Test";
+		a1.setFirstName(expectedFirstName2);
+		assertEquals(expectedFirstName2, a1.getFirstName());
 	}
 
 	public void testGetSurname() {
-		fail("Not yet implemented");
+		assertEquals(expectedSurname, a1.getSurname());
 	}
 
 	public void testSetSurname() {
-		fail("Not yet implemented");
+		String expectedSurname2 = "Test";
+		a1.setSurname(expectedSurname2);
+		assertEquals(expectedSurname2, a1.getSurname());
 	}
 
 	public void testGetTotalIncome() {
-		fail("Not yet implemented");
+		assertEquals(expectedTotalIncome, a1.getTotalIncome());
 	}
 
 	public void testSetTotalIncome() {
-		fail("Not yet implemented");
+		double expectedTotalIncome2 = 10000;
+		a1.setTotalIncome(expectedTotalIncome2);
+		assertEquals(expectedTotalIncome2, a1.getTotalIncome());
 	}
 
 	public void testGetFixedCost() {
-		fail("Not yet implemented");
+		assertEquals(expectedFixedCost, a1.getFixedCost());
 	}
 
 	public void testSetFixedCost() {
-		fail("Not yet implemented");
+		double expectedFixedCost2 = 5000;
+		a1.setFixedCost(expectedFixedCost2);
+		assertEquals(expectedFixedCost2, a1.getFixedCost());
 	}
 
 	public void testGetVariableCost() {
-		fail("Not yet implemented");
+		assertEquals(expectedVariableCost, a1.getVariableCost());
 	}
 
 	public void testSetVariableCost() {
-		fail("Not yet implemented");
+		double expectedVariable2 = 1000;
+		a1.setFixedCost(expectedVariable2);
+		assertEquals(expectedVariable2, a1.getVariableCost());
 	}
-
-	public void testGetSavingschedules() {
-		fail("Not yet implemented");
-	}
-
-	public void testSetSavingschedules() {
-		fail("Not yet implemented");
-	}
-
+	
+	public void testEquals(){
+		assertTrue(!a1.equals(null));
+		assertEquals(a1, a1);
+	//	assertEquals(a1, new Account(expectedUsername, expectedFirstName, expectedSurname, expectedTotalIncome, expectedFixedCost, expectedVariableCost));
+		assertTrue(!a1.equals(a2));}
 }
