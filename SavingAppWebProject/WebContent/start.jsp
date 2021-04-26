@@ -22,7 +22,7 @@
 <body>
 
 	<section id="body">
-
+			
 			<h1>
 				<p>Welcome to MySavingApp</p>
 			</h1>
@@ -33,16 +33,17 @@
 			</h2>
 		
 
-		
 			<div class="logInBox">
 				
 					<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8> 
 						<input type="text" name="userNameTextField" id="userNameTextField" value="Username"><br>
-						<br><br> 
+						<br>
+						<label>errorMessage</label>
+						<br> 
 						<input type="submit" name="submit" value="Log in" id="findBtn"> 
 						<input name="operation"  value="findAccount"  type="hidden">
 					</form>
-					<br><br>
+					<br><hr id="line"><br> 
 					<a href="/SavingAppWebProject/register.jsp">
 					<input type="button" name="submitBtn" value="Register" id="createBtn">
 					</a>

@@ -42,6 +42,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 		String operation = request.getParameter("operation");
 		session = request.getSession();
 		
+		
 		if(operation.equals("getSavingSchedules")) {
 			ArrayList<SavingSchedule> savings = new ArrayList<SavingSchedule>();
 			Account a = (Account)session.getAttribute("account");
@@ -146,6 +147,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 		if(operation.equals("findAccount")) {
 			
 			String username = request.getParameter("userNameTextField");
+		
 			Account a = facade.findByAccountUsername(username);
 				if(a !=null) {
 					url ="/home.jsp";
@@ -153,6 +155,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 				}
 				else {			
 					url ="/start.jsp";
+					
 					
 				}
 		}
@@ -167,6 +170,7 @@ public class SavingAppControllerServlet extends HttpServlet {
         String operation = request.getParameter("operation");
         String url = null;
         session = request.getSession();
+        session.setAttribute("errorMessage", "");
         
         if(operation.equals("addAccount")){
             

@@ -21,26 +21,37 @@ section#footer{
 	background-color: #222122;
 	color: white;
 	border: none;
-	padding: 7px 70px;
+	padding: 7px 50px;
 	border-radius: 10px;
     font-weight: bold;
 	font-family: Arial;
+	margin-left: 60px;
 }
 
 #createBtn{
 	background-color: #71F69A;
 	color: #171717;
 	border: none;
-	padding: 7px 70px;
+	padding: 5px 43px;
 	font: bold;
 	font-family: Arial;
 	border-radius: 10px;
     font-weight: bold;
+    margin-left: 60px;
 }
 
 #userNameTextField{
 	border-radius: 10px;
 	padding: 4px 30px;
+	margin-top: 25px;
+	margin-left: 30px;
+}
+
+#line{
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 100%;
+	border-top: 1px solid #383939;
 }
 
 
@@ -106,14 +117,14 @@ section#body{
 }	
 
 .logInBox{
-	padding: 0px 100px 70px 0px;
+	padding: 0px 35px 50px 0px;
 	float: left;
 	align-items: center;
 	background-color: #383939;
 	border-radius: 20px;
 	margin-left: 450px;
-	justify-content: center;
-	align-items: center;
-	justify-items: center;
+	word-wrap: break-word;
+	font-family: Arial;
+	font-size: 13px;
+	color: red;
 }	
-

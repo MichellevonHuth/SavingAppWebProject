@@ -199,7 +199,7 @@ section#mainbodyNew{
 
 #saveUserSettingsBtn{
 	background-color: #71F69A;
-	padding: 2px 35px;
+	padding: 2px 25px;
     color: #171717;
     font-family: Arial;
     border-radius: 10px;
@@ -209,7 +209,7 @@ section#mainbodyNew{
 
 #deleteUserBtn{
 	background-color: #222122;
-	padding: 6px 40px;
+	padding: 6px 30px;
     color: white;
     font-family: Arial;
     border-radius: 10px;
@@ -233,8 +233,18 @@ section#mainbodyNew{
     color: #171717;
     font-family: Arial;
     border-radius: 10px;
+    font-weight: bold;	
+    border: none; 
+}
+#logOut{
+	background-color: #222122;
+	padding: 6px 30px;
+    color: white;
+    font-family: Arial;
+    border-radius: 10px;
     font-weight: bold;
     border: none;
+
 }
 
 #showInformation{
@@ -252,6 +262,7 @@ section#mainbodyNew{
 section#buttonSettings{
 	display: flex;
 	justify-content: space-around;
+	align-items: center;
 }
 
 

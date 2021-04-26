@@ -79,11 +79,14 @@
 				</div>
 			<br><br><br>
 			<section id="buttonSettings">
-				 <input type="submit"  name="operation" value="Save changes" id="saveUserSettingsBtn"> 
-						<input value="updateAccount" type = "hidden">
-
-			<input type="submit"  name="operation" value="Delete user" id="deleteUserBtn">
+				<input type="submit"  name="operation" value="Delete user" id="deleteUserBtn">
 						<input value="deleteAccount" type = "hidden">
+						
+				<a href="/SavingAppWebProject/start.jsp">
+					<input type="button" name="submitBtn" value="Log out" id="logOut">
+						
+				 <input type="submit"  name="operation" value="Save changes" id="saveUserSettingsBtn"> 
+						<input value="updateAccount" type = "hidden">			
 						 
 			</section>
 			</div>
