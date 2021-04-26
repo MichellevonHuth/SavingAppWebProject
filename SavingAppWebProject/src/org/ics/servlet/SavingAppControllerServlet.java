@@ -59,7 +59,10 @@ public class SavingAppControllerServlet extends HttpServlet {
 		
 		if(operation.equals("createAnSavingSchedule")) {
 			
-			Account a = facade.findByAccountUsername((String)session.getAttribute("getUsername"));
+			
+			Account account = (Account)session.getAttribute("account");
+			String username = account.getUsername();
+			Account a =	facade.findByAccountUsername(username);
 			
 			int savingDuration = 0;
 			
