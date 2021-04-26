@@ -33,18 +33,18 @@
 			<a href="http://localhost:8080/SavingAppWebProject/new.jsp" id="new"><img src="https://i.postimg.cc/Prf7czY6/Sk-rmavbild-2021-04-20-kl-23-00-10-2.jpg" onmouseover="this.src='https://i.postimg.cc/pTmcn7nX/Namnl-s-7.jpg'" onmouseout="this.src='https://i.postimg.cc/Prf7czY6/Sk-rmavbild-2021-04-20-kl-23-00-10-2.jpg'"/></a>
         	</div>
         	<div class="settings">
-			<a href="SavingAppControllerServlet?operation=getUsername" id="settings"><img src="https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg" onmouseover="this.src='https://i.postimg.cc/Hkdk9N9j/Sk-rmavbild-2021-04-20-kl-23-00-10-3-1.jpg'" onmouseout="this.src='https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg'"/></a>
+			<a href="http://localhost:8080/SavingAppWebProject/settings.jsp" id="settings"><img src="https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg" onmouseover="this.src='https://i.postimg.cc/Hkdk9N9j/Sk-rmavbild-2021-04-20-kl-23-00-10-3-1.jpg'" onmouseout="this.src='https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg'"/></a>
         	</div>
       	</section>
-      	<%String s = (String)request.getSession().getAttribute("getUsername");%>
-      	<div class="header">
-			<p>Welcome  <label><%=s%> </label></p>
+      	<%Account account = (Account)request.getSession().getAttribute("account");%>
+      	<div class="welcomeHeader">
+			<p>Hello  <%=account.getFirstName()%>!</p>
 		</div>
-		<input name="username" id="username" value="<%=s%>" type = "hidden">
+		
 		<section id = "mainbody">
-			<div class="newBox">
+			<div class="welcomeTextBox">
 			<br><br>
-			blablablablablablablabablabblablablablablabablablablablablablablablalablablablablablablablablalablablablablablablalablablablablablablablablablablablabablablablablablablablablalablablablablablablablabla
+			We are so happy to see you. Here you can see your saving goals that you want to reach and check them out so that you can keep track that you are following your saving schedules so you can achieve your dreams. Or even better - you can register new goals to always challenge yourself.
 			</div>
 		</section>
 
@@ -54,7 +54,7 @@
         <section id = "footer">
         	<div class="leftdiv">
         	<br>
-        	© 2021 MySavingApp Company
+        	Â© 2021 MySavingApp Company
         	</div>
         	<div class="leftcenterdiv">
         	<br>

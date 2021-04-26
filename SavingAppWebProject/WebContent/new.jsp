@@ -70,7 +70,7 @@
 			</div>
 			<br><br><br>
 			<section id="buttonSettings">
-			<input type="submit" name="submit" value="Make a saving schedule"> 
+			<input type="submit" name="submit" value="Make a saving schedule" id="saveSavingScheduleBtn"> 
 			<input name="operation"  value="createAnSavingSchedule"  type="hidden">		
 			</section>
 			

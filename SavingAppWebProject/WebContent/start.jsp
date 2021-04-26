@@ -31,25 +31,24 @@
 			<h2>
 				<p>Achieve your dreams</p>
 			</h2>
-		</section>
+		
 
-		<section id="logInBox">
-			<aside id="logInBox">
-				<div class="login">
-				<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8> 
-				<input type="text" name="userNameTextField" id="userNameTextField" value="Username"><br>
-				<p></p>
-				<p></p> 
-				<input type="submit" name="submit" value="Log in"> 
-				<input name="operation"  value="findAccount"  type="hidden">
-				</form>
-				</div>
-				<div class="create"> 
-				<a href="/SavingAppWebProject/register.jsp">
-				<input type="button" name="submitBtn" value="Register" id="CreateBtn">
-				</a>
-				</div>
-			</aside>
+		
+			<div class="logInBox">
+				
+					<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8> 
+						<input type="text" name="userNameTextField" id="userNameTextField" value="Username"><br>
+						<br><br> 
+						<input type="submit" name="submit" value="Log in" id="findBtn"> 
+						<input name="operation"  value="findAccount"  type="hidden">
+					</form>
+					<br><br>
+					<a href="/SavingAppWebProject/register.jsp">
+					<input type="button" name="submitBtn" value="Register" id="createBtn">
+					</a>
+				
+			</div>
+		
 		</section>
 		
 	</section>
@@ -57,28 +56,29 @@
     <footer> 
         <section id = "footer">
         	<div class="leftdiv">
+        		<br>
         	© 2021 MySavingApp Company
         	</div>
         	<div class="leftcenterdiv">
+        		<br>
 	        	<b>Contact</b>
-	        	<p> </p>
-	        	<p></p>
+	        	<br><br>
 	        	<p>contact@mySavingApp.com</p>
 	        	<p>Stora Tomegatan 32B</p>
 	        	<p>223 51, Lund</p>
         	</div>
         	<div class="rightcenterdiv">
+        		<br>
 	        	<b>Social</b>
-	        	<p> </p>
-	        	<p></p>
+	        	<br><br>
 	        	<p>Facebook</p>
 	        	<p>LinkedIn</p>
 	        	<p>Instagram</p>
         	</div>
         	<div class="rightdiv">
+        		<br>
 	        	<b>About</b>
-	        	<p></p>
-	        	<p></p>
+	        	<br><br>
 	        	<p>Our story</p>
         	</div>
       	</section> 

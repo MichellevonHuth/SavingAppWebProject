@@ -61,7 +61,7 @@
 			</div>
 			<br><br><br>
 			<section id="buttonSettings">
-			<input type="submit" name="submit" value="Register"> 
+			<input type="submit" name="submit" value="Register" id="#registerBtn"> 
 						<input name="operation"  value="addAccount"  type="hidden">
 			</section>
 			</div>	

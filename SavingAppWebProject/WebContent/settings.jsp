@@ -45,49 +45,44 @@
 			
 			<div class="settingsBox">
 			<br>
-			<div class="textBoxStyle">
-				
-				<%String username = (String)request.getSession().getAttribute("getUsername");%>
-				<%String firstname = (String)request.getSession().getAttribute("getFirstname");%>
-				<%String surname = (String)request.getSession().getAttribute("getSurname");%>
-				<%String totalIncome = (String)request.getSession().getAttribute("getTotalIncome");%>
-				<%String variableCost = (String)request.getSession().getAttribute("getVariableCost");%>
-				<%String fixedCost = (String)request.getSession().getAttribute("getFixedCost");%>
-				<p>Username </p>
-				<label><b> <%=username%></b></label>
 			
+				<%Account account = (Account)request.getSession().getAttribute("account");%>
+				
+			<div class="textBoxStyle">
+				<p>Username </p>
+				<input type="text" name="usernameTextBox" id="usernameTextBox" value="<%=account.getUsername()%>" disabled>	
 			</div>
 			<br>
 			<div class="textBoxStyle">
 				<p>First name</p>
-				<input type="text" name="firstnameTextBox" id="firstnameTextBox" value="<%=firstname%>">
+				<input type="text" name="firstnameTextBox" id="firstnameTextBox" value="<%=account.getFirstName()%>">
 			</div>
 			<br>
 			<div class="textBoxStyle">
 				<p>Surname</p>
-				<input type="text" name="surnameTextBox" id="surnameTextBox" value="">
+				<input type="text" name="surnameTextBox" id="surnameTextBox" value="<%=account.getSurname()%>">
 			</div>
 			<br>
 			<div class="textBoxStyle">
 				<p>Income</p>
-				<input type="text" name="incomeTextBox" id="incomeTextBox" value="">
+				<input type="text" name="incomeTextBox" id="incomeTextBox" value="<%=account.getTotalIncome()%>">
 			</div>
 			<br>
 			<div class="textBoxStyle">
 				<p>Fixed cost</p>
-				<input type="text" name="fixedCostTextBox" id="fixedCostTextBox" value="">
+				<input type="text" name="fixedCostTextBox" id="fixedCostTextBox" value="<%=account.getFixedCost()%>">
 			</div>
 			<br>
 				<div class="textBoxStyle">
 				<p>Variable cost</p>
-			<input type="text" name="variableCostTextBox" id="variableCostTextBox" value="">
+			<input type="text" name="variableCostTextBox" id="variableCostTextBox" value="<%=account.getVariableCost()%>">
 				</div>
 			<br><br><br>
 			<section id="buttonSettings">
-				 <input type="submit"  name="operation" value="Save changes"> 
+				 <input type="submit"  name="operation" value="Save changes" id="saveUserSettingsBtn"> 
 						<input value="updateAccount" type = "hidden">
 
-			<input type="submit"  name="operation" value="Delete user">
+			<input type="submit"  name="operation" value="Delete user" id="deleteUserBtn">
 						<input value="deleteAccount" type = "hidden">
 						 
 			</section>
@@ -131,11 +126,6 @@
 	</footer>   
 <script>
 
-$(function () {
-	var x = document.getElementById("username").value;
-	console.log(x);
-	
-});
 </script>
 </body>
 </html>

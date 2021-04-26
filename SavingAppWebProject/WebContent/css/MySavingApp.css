@@ -17,33 +17,30 @@ section#footer{
 	border-top: 1px solid #383939;
 }
 
-.login{
-	border-bottom: 2px solid #white;
-}
-.create {
-	height: 20px;
-}
-
-#Username {
-	width: 90%;
-}
-
-#FindBtn{
+#findBtn{
 	background-color: #222122;
 	color: white;
 	border: none;
-	width: 90%;
-	font: bold;
+	padding: 7px 70px;
+	border-radius: 10px;
+    font-weight: bold;
 	font-family: Arial;
 }
 
-#CreateBtn{
+#createBtn{
 	background-color: #71F69A;
 	color: #171717;
 	border: none;
-	width: 90%;
+	padding: 7px 70px;
 	font: bold;
 	font-family: Arial;
+	border-radius: 10px;
+    font-weight: bold;
+}
+
+#userNameTextField{
+	border-radius: 10px;
+	padding: 4px 30px;
 }
 
 
@@ -88,6 +85,7 @@ h1{
 	font-size: 60px;
 
 }
+
 h2{
 	padding: 0px 0px 0px 130px;
 	text-align: left;
@@ -97,36 +95,25 @@ h2{
 
 }
 
-
-
-input[type=text] {
-  border: 20px 
-  border-radius: 4px;
-}
-button#FindBtn {
-  border: 4000px 
-  border-radius: 4px;
-}
-
-section#underHeader{
+.underHeader{
 	padding: 0px 200px 0px 0px;
 	float: left;
 
 }
 
 section#body{
-	padding: 0px 0px 400px 0px;
-}	
-section#logInBox{
-	padding: 30px 250px 100px 0px;
-	float: left;
-		
+	padding: 0px 0px 330px 0px;
 }	
 
-aside#logInBox {
-	padding: 20px 20px 180px 20px;
-	width: 150%;
+.logInBox{
+	padding: 0px 100px 70px 0px;
+	float: left;
+	align-items: center;
 	background-color: #383939;
-	color: #383939;
 	border-radius: 20px;
-}
+	margin-left: 450px;
+	justify-content: center;
+	align-items: center;
+	justify-items: center;
+}	
+
