@@ -64,6 +64,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 			Account account = (Account)session.getAttribute("account");
 			String username = account.getUsername();
 			Account a =	facade.findByAccountUsername(username);
+			System.out.println(username);
 			
 			int savingDuration = 0;
 			
