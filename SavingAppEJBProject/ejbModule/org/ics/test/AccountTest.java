@@ -33,8 +33,8 @@ public class AccountTest extends TestCase {
 		expectedFixedCost = 4000;
 		expectedVariableCost = 1000;
 		
-		Account a1= new Account(expectedUsername, expectedFirstName, expectedSurname, expectedTotalIncome, expectedFixedCost, expectedVariableCost);		
-		Account a2 = new Account("michellevonhuth", "Michelle", "Von Huth", 10000, 30000, 1000);
+		//Account a1= new Account(expectedUsername, expectedFirstName, expectedSurname, expectedTotalIncome, expectedFixedCost, expectedVariableCost);		
+		//Account a2 = new Account("michellevonhuth", "Michelle", "Von Huth", 10000, 30000, 1000);
 
 	}
 

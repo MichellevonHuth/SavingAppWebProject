@@ -121,7 +121,7 @@ public class SavingAppServlet extends HttpServlet {
 		}		
 	}
 
-	private void sendAsJson(HttpServletResponse response, Account account) throws IOException {
+ private void sendAsJson(HttpServletResponse response, Account account) throws IOException {
 		
 		PrintWriter out = response.getWriter();
 		response.setContentType("application/json"); 
@@ -195,7 +195,7 @@ public class SavingAppServlet extends HttpServlet {
 		jsonReader = Json.createReader(br);
 		jsonRoot = jsonReader.readObject();
 
-		System.out.println("JsonRoot: "+jsonRoot);
+	//	System.out.println("JsonRoot: "+jsonRoot);
 
 		Account account = new Account();
 		account.setUsername(jsonRoot.getString("id"));
@@ -213,21 +213,52 @@ public class SavingAppServlet extends HttpServlet {
 
 		JsonReader jsonReader = null;
 		JsonObject jsonRoot = null;
-
 		jsonReader = Json.createReader(br);
 		jsonRoot = jsonReader.readObject();
-
-		System.out.println("JsonRoot: "+jsonRoot);
 		
+		Account a = facade.findByAccountUsername(jsonRoot.getString("usernameS"));
 		SavingSchedule savingSchedule = new SavingSchedule();
-		Account a = facade.findByAccountUsername(jsonRoot.getString("username"));
-		savingSchedule.setAccount(a);
-		savingSchedule.setSavingScheduleName(jsonRoot.getString("name"));
-		savingSchedule.setSavingGoal(Double.parseDouble(jsonRoot.getString("goal")));
-		savingSchedule.setSavingDurationYear(Integer.parseInt(jsonRoot.getString("year")));
-		savingSchedule.setSavingDurationYear(Integer.parseInt(jsonRoot.getString("month")));
+
+		int savingDuration = 0;
+		
+		double fixedCost = a.getFixedCost();
+		double income = a.getTotalIncome();
+		double variableCost = a.getVariableCost();
+		
+		double costs = fixedCost - variableCost;
+        double moneyLeft = income - costs;
+        
+    	double goal = Double.parseDouble(jsonRoot.getString("goal"));
+    	int year = Integer.parseInt(jsonRoot.getString("year"));
+    	int month = Integer.parseInt(jsonRoot.getString("month"));
+    	
+        if(year!= 0 && month!=0) {
+        	savingDuration = (year*12)+month;
+        }
+        else if(year!= 0 && month==0) {
+        	savingDuration = year*12;
+        }
+        else if(year== 0 && month!=0) {
+        	savingDuration = month;
+        }
+        
+        double moneySaving = goal/savingDuration;
+        double howManyMonths = 0;
+        
+        	if(moneySaving<moneyLeft) {
+        		savingSchedule.setAccount(a);
+        		savingSchedule.setSavingScheduleName(jsonRoot.getString("name"));
+        		savingSchedule.setSavingGoal(goal);
+        		savingSchedule.setSavingDurationYear(year);
+        		savingSchedule.setSavingDurationMonth(month);
+        		savingSchedule.setBudget(moneySaving);
+        		
+        	}
+        	
+        	else {
+        		howManyMonths=goal/moneyLeft;
+        	}
 
 		return savingSchedule;
-
 		}
 	}

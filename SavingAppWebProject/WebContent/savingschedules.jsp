@@ -63,12 +63,6 @@
       	
 </section>
 
-
-
-
-
-
-
 	<footer> 
         <section id = "footer">
         	<div class="leftdiv">
