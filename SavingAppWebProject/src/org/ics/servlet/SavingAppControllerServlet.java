@@ -50,11 +50,15 @@ public class SavingAppControllerServlet extends HttpServlet {
 				Account account = facade.findByAccountUsername(username);
 					if(account != null) {
 						for(SavingSchedule savingSchedule : account.getSavingschedules()) {
+							if(savingSchedule!= null) {
 								savings.add(savingSchedule);
 								
-								url = "/savingschedules.jsp";		
-								request.setAttribute("getSavingSchedules", savings);
+							}
+								
+								
 				}
+						url = "/savingschedules.jsp";		
+						request.setAttribute("getSavingSchedules", savings);
 			}
 		}
 		
@@ -71,10 +75,20 @@ public class SavingAppControllerServlet extends HttpServlet {
 			double fixedCost = a.getFixedCost();
 			double income = a.getTotalIncome();
 			double variableCost = a.getVariableCost();
+			String stringMonth = request.getParameter("savingDurationMonthTextBox");
+			int savingDurationMonth; 
+			
+			if(stringMonth == null || stringMonth.equals("")) {
+				savingDurationMonth = 0; 				
+			} 
+		
+			else {
+				savingDurationMonth = Integer.parseInt(stringMonth);
+			}
 			
 	        double savingGoal = Double.parseDouble(request.getParameter("savingGoalTextBox"));
-	        int savingDurationYear = Integer.parseInt(request.getParameter("savingDurationYearTextBox"));
-	        int savingDurationMonth = Integer.parseInt(request.getParameter("savingDurationMonthTextBox"));
+	        int savingDurationYear = Integer.parseInt(request.getParameter("savingDurationYearTextBox"));     
+	      
 	        String savingScheduleName = request.getParameter("savingScheduleNameTextBox");
 	        
 	        double costs = fixedCost - variableCost;
@@ -110,6 +124,8 @@ public class SavingAppControllerServlet extends HttpServlet {
 	        	
 	        	else {
 	        		howManyMonths=savingGoal/moneyLeft;
+	        		url = "/new.jsp";		
+					request.setAttribute("howManyMonths", howManyMonths);
 	        	}
 			
 		}
@@ -154,7 +170,9 @@ public class SavingAppControllerServlet extends HttpServlet {
 					url ="/home.jsp";
 					session.setAttribute("account", a);
 				}
-				else {			
+				else {	
+					String s = "The user doesn't exist";
+					request.setAttribute("ErrorLogIn", s);
 					url ="/start.jsp";
 					
 					
