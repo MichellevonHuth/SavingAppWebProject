@@ -148,7 +148,7 @@
 				<article class="Content">
 				<ul>
 				
-					<li>Dubai - 10.0000kr</li><br>
+					<li></li><br>
 					<li>Bali - 40.0000kr</li><br>
 					<li>Hallooooo - 40.0000kr</li><br>
 					<li>Best - 40.0000kr</li><br>

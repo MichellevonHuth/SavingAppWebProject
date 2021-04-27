@@ -1,2 +1,3 @@
 module JUnitTestProject {
+	requires junit;
 }

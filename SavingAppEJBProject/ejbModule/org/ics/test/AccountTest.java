@@ -1,9 +1,9 @@
 package org.ics.test;
 
-import java.util.Set;
+
 
 import org.ics.ejb.Account;
-import org.ics.ejb.SavingSchedule;
+
 
 import junit.framework.TestCase;
 
@@ -33,8 +33,8 @@ public class AccountTest extends TestCase {
 		expectedFixedCost = 4000;
 		expectedVariableCost = 1000;
 		
-		//Account a1= new Account(expectedUsername, expectedFirstName, expectedSurname, expectedTotalIncome, expectedFixedCost, expectedVariableCost);		
-		//Account a2 = new Account("michellevonhuth", "Michelle", "Von Huth", 10000, 30000, 1000);
+		//a1= new Account(expectedUsername, expectedFirstName, expectedSurname, expectedTotalIncome, expectedFixedCost, expectedVariableCost);		
+		//a2 = new Account("michellevonhuth", "Michelle", "Von Huth", 10000, 30000, 1000);
 
 	}
 
