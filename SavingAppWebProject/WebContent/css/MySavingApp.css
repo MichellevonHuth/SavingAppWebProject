@@ -27,6 +27,12 @@ section#footer{
 	font-family: Arial;
 	margin-left: 60px;
 }
+#errorText{
+	word-wrap: break-word;
+	color: red;
+	margin-left: 2px;
+	padding: 3px 5px;
+}
 
 #createBtn{
 	background-color: #71F69A;
@@ -126,5 +132,4 @@ section#body{
 	word-wrap: break-word;
 	font-family: Arial;
 	font-size: 13px;
-	color: red;
 }	

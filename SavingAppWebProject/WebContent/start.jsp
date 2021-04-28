@@ -41,10 +41,13 @@
 						<%String error =(String)request.getAttribute("ErrorLogIn");
 							if(error==null){
 								error = "";
-							}							
+							}
 						%>
 						
+						<div id="errorText">
 						<label><%=error%></label>
+						</div>
+						
 						<br> 
 						<input type="submit" name="submit" value="Log in" id="findBtn"> 
 						<input name="operation"  value="findAccount"  type="hidden">

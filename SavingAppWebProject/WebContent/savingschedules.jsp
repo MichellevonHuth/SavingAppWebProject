@@ -57,8 +57,7 @@
       			<br>
       			Budget: <%=s.get(i).getBudget() %> / each month
  				</div>
-      			<input type="button" name="submitBtn" value="Delete" id="showInformation">
-      			
+
 				</div>
 				
 			<%} else if (i % 5 == 0) {%> 		
@@ -71,8 +70,7 @@
       			Budget: <%=s.get(i).getBudget() %> / each month
  				</div>
  				<br>
-      			<input type="button" name="submitBtn" value="Delete" id="showInformation">
-      				
+	
 				</div>		
 			<%} else if (i % 4 == 0) {%> 
 				<div class="savingschedulecontainer3">
@@ -84,8 +82,7 @@
       			Budget: <%=s.get(i).getBudget() %> / each month
  				</div>
  				<br>
-      			<input type="button" name="submitBtn" value="Delete" id="showInformation">
-      			
+
 				</div>
 			<%} else if (i %  3 == 0) {%> 
 				<div class="savingschedulecontainer4">
@@ -97,8 +94,7 @@
       			Budget: <%=s.get(i).getBudget() %> / each month
  				</div>
  				<br>
-      			<input type="button" name="submitBtn" value="Delete" id="showInformation">
-      			
+ 				
 				</div>
 			<%} else if (i % 2  == 0) {%> 
 				<div class="savingschedulecontainer5">
@@ -110,8 +106,7 @@
       			Budget: <%=s.get(i).getBudget() %> / each month
  				</div>
  				<br>
-      			<input type="button" name="submitBtn" value="Delete" id="showInformation">
-      			
+ 				
 				</div>
 			<%} else {%> 
 				<div class="savingschedulecontainer6">
@@ -123,10 +118,6 @@
       			Budget: <%=s.get(i).getBudget() %> / each month
  				</div>
  				<br>
- 				
- 				
- 				<input type="submit"  name="operation" value="Delete" id="deleteUserBtn">
-						<input value="deleteSaving" type = "hidden">
 				</div>
 			<%} %>
 			

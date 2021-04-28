@@ -52,6 +52,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 						for(SavingSchedule savingSchedule : account.getSavingschedules()) {
 							if(savingSchedule!= null) {
 								savings.add(savingSchedule);
+								savingSchedule.getSavingScheduleNbr();
 								
 							}
 								
@@ -148,9 +149,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 		if(operation.equals("Delete user")) {
 			doDelete(request,response);
 		}
-		if(operation.equals("deleteSaving")){
-			doDelete(request,response);
-		}
+
 		
 		if(operation.equals("getUsername")) {
 			String username = (String)session.getAttribute("getUsername");
@@ -184,7 +183,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 					session.setAttribute("account", a);
 				}
 				
-				else if (username == null) {
+				else if (username == null || username.equals("")){
 					String s = "Please fill in username";
 					request.setAttribute("ErrorLogIn", s);
 				}
@@ -279,8 +278,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 		String username = account.getUsername();
 		Account a = facade.findByAccountUsername(username);
    	 	String url="";
-   	 	
-		if(operation.equals("Delete user")) {	 
+   	 		 
 	    	 if(a!= null) {
 	    		 for(SavingSchedule s : a.getSavingschedules()) {
 	    			 facade.deleteSavingSchedule(s.getSavingScheduleNbr());
@@ -292,11 +290,8 @@ public class SavingAppControllerServlet extends HttpServlet {
 	    	 else {
 	    		 url="/settings.jsp";
 	    	 }
-		}
-	    if(operation.equals("deleteSaving")) {
-	    	url="savingschedules";
-	    }
-	    	
+		
+
 	  
 	    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
