@@ -9,14 +9,17 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-   <servlet-name>SavingAppWebProject</servlet-name>
-   <servlet-class>org.ics.servlet.SavingAppControllerServlet</servlet-class>
-   </servlet>
-   
-   <servlet-mapping>
-   	<servlet-name>SavingAppControllerServlet</servlet-name>
-   	<url-pattern>/SavingAppControllerServlet</url-pattern></servlet-mapping>
+  
+<servlet>
+<servlet-name>JUnitEETestServlet</servlet-name>
+<servlet-class>org.junitee.servlet.JUnitEEServlet</servlet-class>
+ </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>JUnitEETestServlet</servlet-name>
+  <url-pattern>/TestServlet/*</url-pattern>
+  </servlet-mapping> 
+ 
 </web-app>
 
 
