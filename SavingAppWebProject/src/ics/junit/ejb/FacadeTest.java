@@ -11,16 +11,16 @@ import junit.framework.TestCase;
 public class FacadeTest extends TestCase {
 
 	FacadeLocal facade;
-
-	 String expectedUsername;
-	 String expectedFirstName;
-	 String expectedSurname;
-	 double expectedTotalIncome;
-	 double expectedFixedCost;
-	 double expectedVariableCost;
-
+	
 	Account a1;
 	Account a2;
+
+	String expectedUsername;
+	String expectedFirstName;
+	String expectedSurname;
+	double expectedTotalIncome;
+	double expectedFixedCost;
+	double expectedVariableCost;
 
 	public FacadeTest(String name) {
 		super(name);
@@ -29,7 +29,7 @@ public class FacadeTest extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 
-		 expectedUsername = "Idac";
+		 expectedUsername = "Idacarlsson1234";
 		 expectedFirstName = "Ida";
 		 expectedSurname = "Carlsson";
 		 expectedTotalIncome = 10000;
@@ -37,23 +37,16 @@ public class FacadeTest extends TestCase {
 		 expectedVariableCost = 1000;
 
 		Context context = new InitialContext();
-		facade = (FacadeLocal) context.lookup("java:app/MakePizzaEJBProject/Facade!facade.FacadeLocal");
+		facade = (FacadeLocal) context.lookup("java:app/SavingAppEJBProject/Facade!org.ics.facade.FacadeLocal");
 
-		a1 = new Account( expectedUsername,
-		  expectedFirstName,
-		  expectedSurname,
-		  expectedTotalIncome,
-		  expectedFixedCost,
-		  expectedVariableCost);
 
 	}
 
 	protected void tearDown() throws Exception {
 		super.tearDown();
 
-		facade.deleteAccount(expectedUsername);
+		//facade.deleteAccount(expectedUsername);
 		facade = null;
-
 		a1 = null;
 		a2 = null;
 	}
@@ -63,16 +56,28 @@ public class FacadeTest extends TestCase {
 	 * public void testFacadeHighestId() { facadeLocal.getHighestId();
 	 * assertSame(facadeLocal.getHighestId(), 110); }
 	 */
+	public void testFacadeAccountFind() {
+		
+	}
+	
 	public void testFacadeAccount() {
 
-		a1 = facade.createAccount(a1);
-		a2 = facade.findByAccountUsername(expectedUsername);
+		//a1 = facade.createAccount(a1);
+		
+		//assertEquals(a1.getUsername(), expectedUsername);
+		//assertEquals(a1.getFirstName(), expectedFirstName);
+		
+		Account a = new Account();
+		a.setUsername(expectedUsername);
+		facade.createAccount(a);
+		
+		a1 = facade.findByAccountUsername(expectedUsername);
 		assertEquals(a1.getUsername(), expectedUsername);
-		assertEquals(a1.getFirstName(), expectedFirstName);
-		assertEquals(a2.getUsername(), expectedUsername);
-		assertEquals(a2.getFirstName(), expectedFirstName);
+		facade.deleteAccount(expectedUsername);
 
 	}
+	
+	
 
 }
 

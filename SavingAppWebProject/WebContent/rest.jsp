@@ -193,7 +193,7 @@
 	}
 
 	function ajaxFindReturnError(result, status, xhr) {
-		alert("Error");
+		alert("Username doesn't exists");
 		console.log("Ajax-find account: "+status);
 
 	 	}
@@ -226,13 +226,12 @@
 
 	function ajaxAddReturnSuccess(result, status, xhr) {
 		clearFieldsCreateAccount();
-		$("<p>"+ "Acconut added."+ "</p>").insertAfter("#errormessage");
 		
 
 	}
 
 	function ajaxAddReturnError(result, status, xhr) {
-		$("<p>"+ "Account already exists."+ "</p>").insertAfter("#errormessage");
+		alert("User already exists");
 		console.log("Ajax-find account: "+status);
 
 	}
@@ -263,12 +262,12 @@
 
 	function ajaxAddReturnSuccess(result, status, xhr) {
 		clearCreateSchedule();
-		$("#usernameS").attr("placeholder","Savingschedule added" );
 
 	}
 
 	function ajaxAddReturnError(result, status, xhr) {
-	alert("Error Add");
+	alert("Username doesn't exists");
+	clearCreateSchedule();
 	console.log("Ajax-find account: "+status);
 
 	}
@@ -292,13 +291,12 @@
 
 
 	function ajaxDelReturnSuccess(result, status, xhr) {
-		alert("Account deleted");
 		clearFieldAccountDeleted();
 	
 	}
 
 	function ajaxDelReturnError(result, status, xhr) {
-		alert("Error: The account you are trying to delete does not exist");
+		alert("Username doesn't exists");
 		console.log("Ajax-find account: "+status);
 
 	}
@@ -329,7 +327,7 @@
 	  
 	  $.ajax({
 	 		method: "GET",
-	 		url: "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+ long +"&units=metric"+ "&APPID=0aebca8155519cd776fe771d32a41872",
+	 		url: "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long +"&units=metric"+ "&APPID=0aebca8155519cd776fe771d32a41872",
 	  		error: ajaxWeatherReturn_Error,
 	  		success: ajaxWeatherReturn_Success
 	})

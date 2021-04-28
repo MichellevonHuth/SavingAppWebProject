@@ -56,7 +56,6 @@ public class SavingAppServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String pathInfo = request.getPathInfo();
-		System.out.println(request.getPathInfo());
 
 		if(pathInfo == null || pathInfo.equals("")){
 
@@ -114,12 +113,20 @@ public class SavingAppServlet extends HttpServlet {
 		String id = splits[1];
 		Account account = facade.findByAccountUsername(id);
 		
-		if (account != null) {
-			for(SavingSchedule s : account.getSavingschedules()) {
-				facade.deleteSavingSchedule(s.getSavingScheduleNbr());
+		try {
+			if (account != null) {
+				for(SavingSchedule s : account.getSavingschedules()) {
+					facade.deleteSavingSchedule(s.getSavingScheduleNbr());
+				}
+				facade.deleteAccount(id);
 			}
-			facade.deleteAccount(id);
-		}		
+			
+		} catch (Exception e) {
+			throw e; 
+		}
+		
+		
+				
 	}
 
  private void sendAsJson(HttpServletResponse response, Account account) throws IOException {
@@ -243,22 +250,15 @@ public class SavingAppServlet extends HttpServlet {
         }
         
         double moneySaving = goal/savingDuration;
-        double howManyMonths = 0;
-        
-        	if(moneySaving<moneyLeft) {
+  
+ 
         		savingSchedule.setAccount(a);
         		savingSchedule.setSavingScheduleName(jsonRoot.getString("name"));
         		savingSchedule.setSavingGoal(goal);
         		savingSchedule.setSavingDurationYear(year);
         		savingSchedule.setSavingDurationMonth(month);
         		savingSchedule.setBudget(moneySaving);
-        		
-        	}
-        	
-        	else {
-        		howManyMonths=goal/moneyLeft;
-        	}
-
+        
 		return savingSchedule;
 		}
 	}
