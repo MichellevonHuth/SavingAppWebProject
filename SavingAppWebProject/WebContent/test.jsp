@@ -28,7 +28,7 @@
         	<a href="SavingAppControllerServlet?operation=getSavingSchedules" id="savingschedules"><img src="https://i.postimg.cc/SQf5Dt22/Sk-rmavbild-2021-04-20-kl-23-00-10-1.jpg" onmouseover="this.src='https://i.postimg.cc/bvXzcSSN/Sk-rmavbild-2021-04-20-kl-23-00-10-1-6.jpg'" onmouseout="this.src='https://i.postimg.cc/SQf5Dt22/Sk-rmavbild-2021-04-20-kl-23-00-10-1.jpg'"/></a>
         	</div>
         	<div class="new">
-			<a href="http://localhost:8080/SavingAppWebProject/new.jsp" id="new"><img src="https://i.postimg.cc/B6VBgZX4/Sk-rmavbild-2021-04-20-kl-23-00-10-2-1.jpg" ></a>
+			<a href="http://localhost:8080/SavingAppWebProject/new.jsp" id="new"><img src="https://i.postimg.cc/Prf7czY6/Sk-rmavbild-2021-04-20-kl-23-00-10-2.jpg" onmouseover="this.src='https://i.postimg.cc/pTmcn7nX/Namnl-s-7.jpg'" onmouseout="this.src='https://i.postimg.cc/Prf7czY6/Sk-rmavbild-2021-04-20-kl-23-00-10-2.jpg'"/></a>
         	</div>
         	<div class="settings">
 			<a href="http://localhost:8080/SavingAppWebProject/settings.jsp" id="settings"><img src="https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg" onmouseover="this.src='https://i.postimg.cc/Hkdk9N9j/Sk-rmavbild-2021-04-20-kl-23-00-10-3-1.jpg'" onmouseout="this.src='https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg'"/></a>
@@ -36,45 +36,30 @@
       	</section>
       	
       	<div class="header">
-     		<p>What do you dream about?</p>
+     		<p>Test our code</p>
      	</div>
-     	<section id="underheader">
-     		<p>Make a saving schedule to achieve your dreams</p>
-     	</section>
      
      	<section id = "mainbodyNew">
      	
      	
-			<div class="newBox">
-			<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8>
-			
-			<br>
-			<div class="textBoxStyle">
-			<p>Saving schedule name</p>
-			<input type="text" name="savingScheduleNameTextBox" id="savingScheduleNameTextBox" value="">
-			</div>
-			<br>
-			<div class="textBoxStyle">
-			<p>Saving goal</p>
-			<input type="text" name="savingGoalTextBox" id="savingGoalTextBox" value="">
-			</div>
-			<br>
-			<div class="textBoxStyle">
-			<p>Saving duration year</p>
-			<input type="text" name="savingDurationYearTextBox" id="savingDurationYearTextBox" value="">
-			</div>
-			<br>
-			<div class="textBoxStyle">
-			<p>Saving duration month</p>
-			<input type="text" name="savingDurationMonthTextBox" id="savingDurationMonthTextBox" value="">
-			</div>
-			<br><br><br>
-			<section id="buttonSettings">
-			<input type="submit" name="submit" value="Make a saving schedule" id="saveSavingScheduleBtn"> 
-			<input name="operation"  value="createAnSavingSchedule"  type="hidden">		
-			</section>
-			
-			</form>		
+			<div class="welcomeText">
+				<p>Här kan du skriva in ditt TestCase eller Test Suite:<br></p>
+				<form action="TestServlet" method="get" name="youTypeItForm">
+				<input type="text" name="suite" size=60value=/>
+				<input type="submit" value="Run"/>
+				</form>
+				
+				<hr>
+				
+				<p>Här kan du välja en eller flera av följande test:<br></p>
+				<form action="TestServlet" method="get" name="youPickItForm">
+				<select name="suite" size="2" multiple>
+				<option value="ics.junit.ejb.EmployeeBeanTest">ics.junit.ejb.EmployeeBeanTest</option>
+				<option value="ics.junit...">ett.annat.TestCase</option>
+				</select>
+				<input type="submit" value="Run"/>
+				</form>
+				
 			</div>
 					
 		</section>
@@ -112,19 +97,6 @@
         	<p>Test our code here</p>
         	</div>
       	</section> 
-	</footer>   
-<script>
-
-$(document).ready(function(){	
-	<%if(request.getAttribute("howManyMonths") != null){
-		double months = (double)request.getAttribute("howManyMonths");%>
-		alert(<%=months%>); 
-	<%
-	}%>
-
-});
-
-</script>	
+	</footer>  
 </body>
 </html>
-

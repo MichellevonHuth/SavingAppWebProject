@@ -67,7 +67,7 @@
         <section id = "footer">
         	<div class="leftdiv">
         	<br>
-        	© 2021 MySavingApp Company
+        	ï¿½ 2021 MySavingApp Company
         	</div>
         	<div class="leftcenterdiv">
         	<br>
@@ -87,9 +87,9 @@
         	</div>
         	<div class="rightdiv">
         	<br>
-        	<b>About</b>
+        	<b>Code</b>
 			<br><br>
-        	<p>Our story</p>
+        	<p>Test our code here</p>
         	</div>
       	</section> 
 	</footer> 

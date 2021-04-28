@@ -121,9 +121,9 @@
         	</div>
         	<div class="rightdiv">
         	<br>
-        	<b>About</b>
+        	<b>Code</b>
 			<br><br>
-        	<p>Our story</p>
+        	<p>Test our code here</p>
         	</div>
       	</section> 
 	</footer>   

@@ -72,7 +72,8 @@
         	<p>LinkedIn</p>
         	<p>Instagram</p>
         	</div>
-        	<div class="rightdiv">
+        	<br>
+       		<div class="rightdiv">
         	<br>
         	<b>About</b>
 			<br><br>
