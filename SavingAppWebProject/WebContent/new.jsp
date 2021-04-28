@@ -17,10 +17,10 @@
 <title>MySavingApp</title>
 </head>
 <body>
-
+<header>
 	<section id="body">
 		<section id = "meny">
-<input name="username" id="username" value="" type = "hidden">
+		<input name="username" id="username" value="" type = "hidden">
         	<div class="home">
         	<a href="http://localhost:8080/SavingAppWebProject/home.jsp" id="home"><img src="https://i.postimg.cc/QC7MrG23/Sk-rmavbild-2021-04-20-kl-23-00-10.jpg" onmouseover="this.src='https://i.postimg.cc/0jxzf6tc/Sk-rmavbild-2021-04-20-kl-23-00-10-7.jpg'" onmouseout="this.src='https://i.postimg.cc/QC7MrG23/Sk-rmavbild-2021-04-20-kl-23-00-10.jpg'"/></a>
         	</div>
@@ -34,7 +34,7 @@
 			<a href="http://localhost:8080/SavingAppWebProject/settings.jsp" id="settings"><img src="https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg" onmouseover="this.src='https://i.postimg.cc/Hkdk9N9j/Sk-rmavbild-2021-04-20-kl-23-00-10-3-1.jpg'" onmouseout="this.src='https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg'"/></a>
         	</div>
       	</section>
-      	
+</header>      	
       	<div class="header">
      		<p>What do you dream about?</p>
      	</div>
@@ -109,7 +109,7 @@
         	<br>
         	<b>Code</b>
 			<br><br>
-        	<p>Test our code here</p>
+        	<a href="http://localhost:8080/SavingAppWebProject/test.jsp"><p>Test our code here</p></a>
         	</div>
       	</section> 
 	</footer>   

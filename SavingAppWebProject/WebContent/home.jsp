@@ -18,7 +18,7 @@
 <title>MySavingApp</title>
 </head>
 <body>
-
+	<header>
 	<section id="body">
         <section id = "meny">
 
@@ -36,6 +36,7 @@
 			<a href="http://localhost:8080/SavingAppWebProject/settings.jsp" id="settings"><img src="https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg" onmouseover="this.src='https://i.postimg.cc/Hkdk9N9j/Sk-rmavbild-2021-04-20-kl-23-00-10-3-1.jpg'" onmouseout="this.src='https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg'"/></a>
         	</div>
       	</section>
+	</header>
       	<%Account account = (Account)request.getSession().getAttribute("account");%>
       	<div class="welcomeHeader">
 			<p>Hello  <%=account.getFirstName()%>!</p>
@@ -45,6 +46,17 @@
 			<div class="welcomeTextBox">
 			<br><br>
 			We are so happy to see you. Here you can see your saving goals that you want to reach and check them out so that you can keep track that you are following your saving schedules so you can achieve your dreams. Or even better - you can register new goals to always challenge yourself.
+			</div>
+		</section>
+		
+		<div class="aboutUsHeader">
+			<p>About us</p>
+		</div>
+		
+		<section id="mainbody">
+		<div class="welcomeTextBox">
+			<br><br>
+			We are four girls who has made this app just because we want YOU to achieve your dreams. The first idea of this app came to us when we were saving for our exchange semester i Australia. Then we realized that there is no good saving apps out there... Until now!
 			</div>
 		</section>
 
@@ -72,12 +84,11 @@
         	<p>LinkedIn</p>
         	<p>Instagram</p>
         	</div>
+        	<div class="rightdiv">
         	<br>
-       		<div class="rightdiv">
-        	<br>
-        	<b>About</b>
+        	<b>Code</b>
 			<br><br>
-        	<p>Our story</p>
+        	<a href="http://localhost:8080/SavingAppWebProject/test.jsp"><p>Test our code here</p></a>
         	</div>
       	</section> 
 	</footer>  

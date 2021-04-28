@@ -76,7 +76,9 @@ public class SavingAppControllerServlet extends HttpServlet {
 			double income = a.getTotalIncome();
 			double variableCost = a.getVariableCost();
 			String stringMonth = request.getParameter("savingDurationMonthTextBox");
-			int savingDurationMonth; 
+			int savingDurationMonth;
+			String stringYear = request.getParameter("savingDurationYearTextbox");
+			int savingDurationYear;
 			
 			if(stringMonth == null || stringMonth.equals("")) {
 				savingDurationMonth = 0; 				
@@ -86,8 +88,15 @@ public class SavingAppControllerServlet extends HttpServlet {
 				savingDurationMonth = Integer.parseInt(stringMonth);
 			}
 			
+			if(stringYear == null || stringYear.equals("")) {
+				savingDurationYear = 0;
+			}
+			else {
+				savingDurationYear = Integer.parseInt(stringYear);
+			}
+			
 	        double savingGoal = Double.parseDouble(request.getParameter("savingGoalTextBox"));
-	        int savingDurationYear = Integer.parseInt(request.getParameter("savingDurationYearTextBox"));     
+	            
 	      
 	        String savingScheduleName = request.getParameter("savingScheduleNameTextBox");
 	        
@@ -139,6 +148,9 @@ public class SavingAppControllerServlet extends HttpServlet {
 		if(operation.equals("Delete user")) {
 			doDelete(request,response);
 		}
+		if(operation.equals("deleteSaving")){
+			doDelete(request,response);
+		}
 		
 		if(operation.equals("getUsername")) {
 			String username = (String)session.getAttribute("getUsername");
@@ -164,18 +176,23 @@ public class SavingAppControllerServlet extends HttpServlet {
 		if(operation.equals("findAccount")) {
 			
 			String username = request.getParameter("userNameTextField");
-		
+			System.out.println("heeeJSDJIFSDOJFDISJFOISJDeHFISDHFUDSI");
+			System.out.println(username);
 			Account a = facade.findByAccountUsername(username);
 				if(a !=null) {
 					url ="/home.jsp";
 					session.setAttribute("account", a);
 				}
+				
+				else if (username == null) {
+					String s = "Please fill in username";
+					request.setAttribute("ErrorLogIn", s);
+				}
 				else {	
-					String s = "The user doesn't exist";
+					String s = "The user doesn't exist, please register";
 					request.setAttribute("ErrorLogIn", s);
 					url ="/start.jsp";
-					
-					
+								
 				}
 		}
 		
@@ -257,11 +274,13 @@ public class SavingAppControllerServlet extends HttpServlet {
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	    	 Account account = (Account)request.getSession().getAttribute("account");
-	    	 String username = account.getUsername();
-	    	 Account a = facade.findByAccountUsername(username);
-	    	 String url="";
-	    	 
+		String operation = request.getParameter("operation");
+		Account account = (Account)request.getSession().getAttribute("account");
+		String username = account.getUsername();
+		Account a = facade.findByAccountUsername(username);
+   	 	String url="";
+   	 	
+		if(operation.equals("Delete user")) {	 
 	    	 if(a!= null) {
 	    		 for(SavingSchedule s : a.getSavingschedules()) {
 	    			 facade.deleteSavingSchedule(s.getSavingScheduleNbr());
@@ -273,6 +292,10 @@ public class SavingAppControllerServlet extends HttpServlet {
 	    	 else {
 	    		 url="/settings.jsp";
 	    	 }
+		}
+	    if(operation.equals("deleteSaving")) {
+	    	url="savingschedules";
+	    }
 	    	
 	  
 	    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);

@@ -18,6 +18,7 @@
 <title>MySavingApp</title>
 </head>
 <body>
+<header>
 <input name="username" id="username" value="" type = "hidden">
 	<section id="body">
         <section id = "meny">
@@ -35,7 +36,7 @@
 			<a href="http://localhost:8080/SavingAppWebProject/settings.jsp" id="settings"><img src="https://i.postimg.cc/QMc2wPc2/Sk-rmavbild-2021-04-20-kl-23-00-10-5.jpg" ></a>
         	</div>
       	</section>
-     	  	
+   </header>  	  	
       	    <div class="header">
      		<p>User settings</p>
      		</div>
@@ -123,7 +124,7 @@
         	<br>
         	<b>Code</b>
 			<br><br>
-        	<p>Test our code here</p>
+        	<a href="http://localhost:8080/SavingAppWebProject/test.jsp"><p>Test our code here</p></a>
         	</div>
       	</section> 
 	</footer>   

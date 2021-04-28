@@ -20,16 +20,87 @@ section#meny{
 	align-content: flex-start;
 }
 
-.savingschedulecontainer{
+.savingschedulecontainer1{
 	margin-top: 50px;
 	margin-bottom: 60px;
 	color: white;
-	padding: 100px 100px;
+	width: 350px;
+	height: 350px;
 	border-radius: 50% !important;
-	background-image: url('https://i.postimg.cc/0jTddLbd/Stars-1.jpg');
+	background-image: url('https://i.postimg.cc/hvdrM2P4/Sk-rmavbild-2021-04-28-kl-10-17-04.jpg');
 	font-family: Arial;
 	word-wrap: break-word;
+	box-shadow: 0 0 50px #7CB6B8;
 }
+.savingschedulecontainer2{
+	margin-top: 50px;
+	margin-bottom: 60px;
+	color: white;
+	width: 350px;
+	height: 350px;
+	border-radius: 50% !important;
+	background-image: url('https://i.postimg.cc/CKBmdrCM/Sk-rmavbild-2021-04-28-kl-10-17-42-3.jpg');
+	font-family: Arial;
+	word-wrap: break-word;
+	box-shadow: 0 0 50px #56555A;
+}
+.savingschedulecontainer3{
+	margin-top: 50px;
+	margin-bottom: 60px;
+	color: white;
+	width: 350px;
+	height: 350px;
+	border-radius: 50% !important;
+	background-image: url('https://i.postimg.cc/DZWdyxGQ/Sk-rmavbild-2021-04-28-kl-10-18-04.jpg');
+	font-family: Arial;
+	word-wrap: break-word;
+	box-shadow: 0 0 50px #F4A69E;
+}
+.savingschedulecontainer4{
+	margin-top: 50px;
+	margin-bottom: 60px;
+	color: white;
+	width: 350px;
+	height: 350px;
+	border-radius: 50% !important;
+	background-image: url('https://i.postimg.cc/j2HfLmSf/Sk-rmavbild-2021-04-28-kl-10-16-51.jpg');
+	font-family: Arial;
+	word-wrap: break-word;
+	box-shadow: 0 0 50px #7EA83D;
+}
+.savingschedulecontainer5{
+	margin-top: 50px;
+	margin-bottom: 60px;
+	color: white;
+	width: 350px;
+	height: 350px;
+	border-radius: 50% !important;
+	background-image: url('https://i.postimg.cc/CMGnHywB/Sk-rmavbild-2021-04-28-kl-10-17-51.jpg');
+	font-family: Arial;
+	word-wrap: break-word;
+	box-shadow: 0 0 50px #DCB4CE;
+}
+.savingschedulecontainer6{
+	margin-top: 50px;
+	margin-bottom: 60px;
+	width: 350px;
+	height: 350px;
+	border-radius: 50% !important;
+	background-image: url('https://i.postimg.cc/tRN7nhzF/Sk-rmavbild-2021-04-28-kl-10-16-26.jpg');	
+	box-shadow: 0 0 50px #C6CAD6;
+	align-items: center;
+}
+
+.textContainer{
+	color: white;
+	font-family: Arial;
+	padding 200px 200px;
+	margin-top: 150px;
+	margin-left: 50px;
+	font-weight: bold;
+	word-wrap: break-word;
+}
+
 
 .home{
 	width: 120px;
@@ -55,7 +126,7 @@ section#meny{
 }
 
 section#mainbody{
-	height:500px;
+	height:250px;
 	display: flex;
 	justify-content: center;
 }
@@ -68,6 +139,10 @@ section#mainbodyNew{
 	height:480px;
 	display: flex;
 	justify-content: center;
+}
+
+#errorLblStart{
+	margin-left: 100px;
 }
 
 
@@ -95,6 +170,14 @@ section#mainbodyNew{
     font-family: Arial; 
     font-size: 35px;
     line-height: 0.5%;
+}
+.aboutUsHeader{
+	padding: 30px 0px 0px 250px;
+	color: #fff;
+    font-family: Arial; 
+    font-size: 35px;
+    line-height: 0.5%;
+    margin-top: -150px;
 }
 
 #underheader{
@@ -142,14 +225,6 @@ section#mainbodyNew{
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
-}
-
-.savingschedulecontainer{
-	color: white;
-	height: 100px;
-	width: 100px;
-	border-radius: 30px;
-	box-shadow: 0 0 50px #063352;
 }
 
 .textBoxStyle{

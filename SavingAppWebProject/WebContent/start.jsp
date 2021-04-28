@@ -36,13 +36,12 @@
 			<div class="logInBox">
 				
 					<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8> 
-						<input type="text" name="userNameTextField" id="userNameTextField" value="" placeholder="Username: "><br>
+						<input type="text" name="userNameTextField" id="userNameTextField" value="" placeholder="Username"><br>
 						<br>
 						<%String error =(String)request.getAttribute("ErrorLogIn");
 							if(error==null){
 								error = "";
-							}
-							
+							}							
 						%>
 						
 						<label><%=error%></label>
