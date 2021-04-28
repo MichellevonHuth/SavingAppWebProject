@@ -113,6 +113,18 @@
         	</div>
       	</section> 
 	</footer>   
-	
+<script>
+
+$(document).ready(function(){	
+	<%if(request.getAttribute("howManyMonths") != null){
+		double months = (double)request.getAttribute("howManyMonths");%>
+		alert(<%=months%>); 
+	<%
+	}%>
+
+});
+
+</script>	
 </body>
 </html>
+

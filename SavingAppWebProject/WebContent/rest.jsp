@@ -17,31 +17,29 @@
 
 			<table id="asideTable">
 
-				<tbody><tr>
+				<tbody>
+				
+					<tr><td><span id="city"></span></td>
+					<td><span id="ipNbr"></span></td>
+					
+					</tr> 
 
-					<th><span id="city"></span></th>
-
-					<th><span></span></th>
-
-					<th><span></span></th>
-
-					<th><span id="ipNbr"></span></th>
-
-				</tr>
-
-				<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
-
-				<tr>
-
-					<td><span id="degree"></span></td>
+					<tr><td></td></tr>
+					<tr><td></td></tr>
+					<tr><td></td></tr>
+					<tr><td></td></tr>
+					<tr><td></td></tr>
+					
+					<tr><td><span id="degree"></span></td>
 
 					<td><span id="weather"></span></td>
-
+					
+					
 					<td><span></span></td>
 
 					<td><span></span></td>
 
-				</tr>
+				
 
 				<tr>
 
@@ -82,7 +80,7 @@
 						
 						<br> <input type="text" name="variableCost" id="variableCost" value="" placeholder="Variable costs:"> <br>
 						
-						<br> <br>
+						<br> 
 						<input type="button" name="submitBtn" value="Create" id="AddBtn">				
 
 			</div>			
@@ -107,11 +105,11 @@
 
 				<div>
 
-				<strong id="text">Create new saving schedule</strong><br><br>
+				<strong id="text">Create new <br> saving schedule</strong><br><br>
 
 					
 						
-						<br> <input type="text" name="username" id="username" value="" placeholder="Your username:"><br>
+						<input type="text" name="username" id="username" value="" placeholder="Your username:"><br>
 
 						<br> <input type="text" name="name" id="name" value="" placeholder="Saving schedule name:"><br>
 
@@ -121,7 +119,7 @@
 						<br> 
 						<br> <input type="text" name="month" id="month" value="" placeholder="Saving duration (months):"> <br>
 						
-						<br> <br><br>
+						<br> <br>
 						 <input type="button" name="submitBtn" value="Create" id="AddBtnSavingSchedule">
 
 					</div>
@@ -131,7 +129,7 @@
 			<section id="FindSavingsBox">
 			<div>
 
-				<strong id="text">Show saving schedules for:</strong><br>
+				<strong id="text">Show schedules:</strong><br>
 							
 						<br> <input type="text" name="id" id="id" value="" placeholder="Username:"><br>
 
@@ -146,22 +144,8 @@
 			<article class="dot2">
 				<article class="Container Flipped">
 				<article class="Content">
-				<ul>
-				
-					<li></li><br>
-					<li>Bali - 40.0000kr</li><br>
-					<li>Hallooooo - 40.0000kr</li><br>
-					<li>Best - 40.0000kr</li><br>
-					<li>LOL - 40.0000kr</li><br>
-					<li>Australiaa - 40.0000kr</li><br>
-					<li>whohooo - 40.0000kr</li>
-					<li>YEEEEESSSSS - 40.0000kr</li>
-					<li>YEEEEESSSSS - 40.0000kr</li>
-					<li>YEEEEESSSSS - 40.0000kr</li>
-					<li>Bali - 40.0000kr</li>
-					<li>Hallooooo - 40.0000kr</li>
-					<li>Best - 40.0000kr</li>
-					<li>LOL - 40.0000kr</li>
+				<ul  id= "list">
+			
 				</ul>
 			</article>
 		</article>
@@ -262,7 +246,6 @@
 		var strYear = $("#year").val();
 		var strMonth = $("#month").val();
 		
-		var budget 
 		
 		var obj = {username: strId, name: strName, goal: strGoal, year: strYear, month: strMonth};
 		var jsonString = JSON.stringify(obj);
@@ -329,7 +312,10 @@
 
 	function ParseJsonFileAccount(result) {
 		console.log(result);
-		$("<p>" + result + "</p>").insertAfter("#id");
+		for(var i=0; i<result.length; i++){
+			$("<p>" + result[i].Name + result[i].SavingScheduleNumber + result[i].SavingGoal+ "</p>").insertAfter("#list");
+		}
+		
 
 	}
 

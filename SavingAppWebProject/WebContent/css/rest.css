@@ -2,55 +2,60 @@
 
 body{
  
-    background-image: url('file:///Users/Michelle/Documents/LUND/Termin%204/Mjukvaruarkitektur/Eclipse_workspace/SavingApp/SavingAppWebProject/WebContent/160-1600491_autodesk-wallpaper-website-background.jpeg');
+    background-image: url('https://i1.wp.com/www.wisesecurity.net/wp-content/uploads/2019/11/160-1600491_autodesk-wallpaper-website-background.jpg?ssl=1&fbclid=IwAR0qmq9L47SFiUHDjU8mE8ZBpMPCkbU6x5jG3lk5oNtuGDQRgTc70wdwHe0');
     background-size: 110%;
    
+}
+
+#city, #ipNbr {
+	font-style: bold;
+	
 }
 
 input[type=text] {
    background-color: #7ba4b5;
    border-radius:10px;
-   width: 225px;
-   height: 20px; 
+   width: 190px;
+   height: 18px; 
    outline: none;
 }
 
 section#SavingScheduleBox{
 	background-color: #c3f5fd;
 	border-radius: 60px;
-	padding: 40px 50px 48px 50px;
-	margin: -695px 500px 20px 30px;
+	padding: 27px 50px 25px 40px;
+	margin: -554px 500px 20px 30px;
 	float: right;    
-	width: 20%; 
-	height: 100%;
+	width: 18%; 
+
 }
 
 section#CreateAccountBox{
 	background-color: #c3f5fd;
-	border-radius: 60px;
-	padding: 40px 50px 45px 50px;
+	border-radius: 50px;
+	padding: 32px 50px 25px 40px;
 	margin: -180px  0% 0% 5%;
 	float: left; 
-	width: 20%;  
+	width: 18%;  
 
 }
 
 section#DeleteAccountBox {
 	background-color: #c3f5fd;
-	border-radius: 60px; 
-	width: 20%; 
-	padding: 40px 50px 45px 50px;
+	border-radius: 50px; 
+	width: 17%; 
+	padding: 20px 50px 25px 50px;
 	margin-left: 5%;
-	margin-top: 22%;
+	margin-top: 18%;
 }
 
 section#FindSavingsBox{
 	background-color: #c3f5fd;
-	border-radius: 60px; 
-	width: 20%;
-	padding: 40px 50px 45px 50px;
-	margin-left: 38%;
-	margin-top: -14.7%;
+	border-radius: 50px; 
+	width: 17%;
+	padding: 20px 50px 25px 50px;
+	margin-left: 34%;
+	margin-top: -13.2%;
 
 }
 
@@ -91,10 +96,10 @@ div {
 	font-style: bold;
     font-family: Helvetica;
     font-size: 14px;
-	padding: 10px 40px;
+	padding: 7px 35px;
     border: none;
     border-radius: 10px;
-    width: 100%;
+    width: 95%;
 
 }
 
@@ -105,7 +110,7 @@ div {
     font-family: Helvetica;
     font-size: 14px;
     margin-left: 40%;
-    margin-top: 5%;
+    margin-top: 3%;
     border: none;
     border-radius: 10px;
     width: 20%
@@ -126,43 +131,42 @@ div {
   font-family: Helvetica;
   float: right;
   color: white;
-  margin-top: -420px;
-  height: 350px;
-  width: 350px;
+  margin-top: -360px;
+  margin-right: 50px; 
+  height: 310px;
+  width: 305px;
   background-color: #2f4455;
   border-radius: 50%;
 
 }
 
 .Container{
-	width: 280px; 
+	width: 235px; 
 	height: 200px; 
 	overflow-y: auto;
 	margin-top: 21%;
-	margin-left: 10%;
+	margin-left: 7%;
 
 }
 .Content{
 	height: 200px;
     color: white;
-    padding-left: 7px;
-    direction: ltr; 
+    padding-left: 5px;
+   
 }
 
 
 ::-webkit-scrollbar {
-            width: 6px;
-            color: ;
+           
         }
 
 
          ::-webkit-scrollbar-track {
-            border-radius: 4px;
+            border-radius: 1px;
         }
 
         ::-webkit-scrollbar-thumb {
-            border-radius: 5px;
-            background-color: #737272;
+           
         }
       
 footer{

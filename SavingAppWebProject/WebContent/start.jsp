@@ -38,7 +38,14 @@
 					<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8> 
 						<input type="text" name="userNameTextField" id="userNameTextField" value="Username"><br>
 						<br>
-						<label>errorMessage</label>
+						<%String error =(String)request.getAttribute("ErrorLogIn");
+							if(error==null){
+								error = "";
+							}
+							
+						%>
+						
+						<label><%=error%></label>
 						<br> 
 						<input type="submit" name="submit" value="Log in" id="findBtn"> 
 						<input name="operation"  value="findAccount"  type="hidden">
