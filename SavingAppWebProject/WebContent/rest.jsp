@@ -39,8 +39,6 @@
 
 					<td><span></span></td>
 
-				
-
 				<tr>
 
 					<td colspan="4"><span id="sunrise"></span></td>
@@ -81,7 +79,8 @@
 						<br> <input type="text" name="variableCost" id="variableCost" value="" placeholder="Variable costs:"> <br>
 						
 						<br> 
-						<input type="button" name="submitBtn" value="Create" id="AddBtn">				
+						<input type="button" name="submitBtn" value="Create" id="AddBtn">
+						<label id="errormessage"> </label>				
 
 			</div>			
 
@@ -109,7 +108,7 @@
 
 					
 						
-						<input type="text" name="username" id="username" value="" placeholder="Your username:"><br>
+						<input type="text" name="usernameS" id="usernameS" value="" placeholder="Your username:"><br>
 
 						<br> <input type="text" name="name" id="name" value="" placeholder="Saving schedule name:"><br>
 
@@ -131,7 +130,7 @@
 
 				<strong id="text">Show schedules:</strong><br>
 							
-						<br> <input type="text" name="id" id="id" value="" placeholder="Username:"><br>
+						<br> <input type="text" name="findUsername" id="findUsername" value="" placeholder="Username:"><br>
 
 						<br>
 
@@ -144,8 +143,7 @@
 			<article class="dot2">
 				<article class="Container Flipped">
 				<article class="Content">
-				<ul  id= "list">
-			
+				<ul  id= "list">	
 				</ul>
 			</article>
 		</article>
@@ -179,7 +177,7 @@
 	}
 
 	$("#ShowBtn").click(function() {
-	  var strValue = $("#id").val();
+	  var strValue = $("#findUsername").val();
 	  if (strValue != "") {
 		$.ajax({
 		 method: "GET",
@@ -191,6 +189,7 @@
 
 	function ajaxFindReturnSuccess(result, status, xhr) {
 		ParseJsonFileAccount(result);
+		clearFieldShow();
 	}
 
 	function ajaxFindReturnError(result, status, xhr) {
@@ -210,8 +209,8 @@
 		var strFixedCost = $("#fixedCost").val();
 		var strTotalIncome = $("#totalIncome").val();
 		var strVariableCost = $("#variableCost").val();
+		
 		var obj = { id: strId, firstName: strFirstName, surname: strSurname, fixedCost: strFixedCost, totalIncome: strTotalIncome, variableCost: strVariableCost};
-
 		var jsonString = JSON.stringify(obj);
 		if (strId != "") {
 			$.ajax({
@@ -227,27 +226,27 @@
 
 	function ajaxAddReturnSuccess(result, status, xhr) {
 		clearFieldsCreateAccount();
-		$("#username").attr("placeholder","Account added" );
+		$("<p>"+ "Acconut added."+ "</p>").insertAfter("#errormessage");
+		
 
 	}
 
 	function ajaxAddReturnError(result, status, xhr) {
-	alert("Username already exists");
-	console.log("Ajax-find account: "+status);
+		$("<p>"+ "Account already exists."+ "</p>").insertAfter("#errormessage");
+		console.log("Ajax-find account: "+status);
 
 	}
 	}
 	})//btn add account 
 
 	$("#AddBtnSavingSchedule").click( function() {
-		var strId = $("#username").val();
+		var strId = $("#usernameS").val();
 		var strName = $("#name").val();
 		var strGoal = $("#goal").val();
 		var strYear = $("#year").val();
 		var strMonth = $("#month").val();
-		
-		
-		var obj = {username: strId, name: strName, goal: strGoal, year: strYear, month: strMonth};
+
+		var obj = {usernameS: strId, name: strName, goal: strGoal, year: strYear, month: strMonth};
 		var jsonString = JSON.stringify(obj);
 
 		if (strId != "") {
@@ -263,8 +262,8 @@
 	})
 
 	function ajaxAddReturnSuccess(result, status, xhr) {
-		clearFields();
-		$("#id").attr("placeholder","Savingschedule added" );
+		clearCreateSchedule();
+		$("#usernameS").attr("placeholder","Savingschedule added" );
 
 	}
 
@@ -313,10 +312,9 @@
 	function ParseJsonFileAccount(result) {
 		console.log(result);
 		for(var i=0; i<result.length; i++){
-			$("<p>" + result[i].Name + result[i].SavingScheduleNumber + result[i].SavingGoal+ "</p>").insertAfter("#list");
+			$("<p>"  + "- " + result[i].Name + ": " + result[i].SavingGoal + "kr"+ "</p>").insertAfter("#list");
 		}
-		
-
+	
 	}
 
 	function ParseJsonFile(result) {
@@ -376,6 +374,24 @@
 	
 	function clearFieldAccountDeleted() {
 		$("#usernameDelete").val("");
+	}
+	
+	function clearFieldShow(){
+		$("#findUsername").val("");
+			
+	}
+	
+	function clearCreateSchedule() {
+		$("#usernameS").val("");
+		$("#name").val("");
+		$("#goal").val("");
+		$("#month").val("");
+		$("#year").val("");
+		
+	}
+	
+	function pleaseFillInAllTheFields() {
+		alert("Please fill in all the fields");
 	}
 	
 
