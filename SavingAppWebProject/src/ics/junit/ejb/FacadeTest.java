@@ -29,7 +29,7 @@ public class FacadeTest extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 
-		 expectedUsername = "Idacarlsson1234";
+		 expectedUsername = "Idacarlsson12345";
 		 expectedFirstName = "Ida";
 		 expectedSurname = "Carlsson";
 		 expectedTotalIncome = 10000;
@@ -45,27 +45,18 @@ public class FacadeTest extends TestCase {
 	protected void tearDown() throws Exception {
 		super.tearDown();
 
-		//facade.deleteAccount(expectedUsername);
+		facade.deleteAccount(expectedUsername);
 		facade = null;
 		a1 = null;
 		a2 = null;
 	}
 	
 
-	/*
-	 * public void testFacadeHighestId() { facadeLocal.getHighestId();
-	 * assertSame(facadeLocal.getHighestId(), 110); }
-	 */
 	public void testFacadeAccountFind() {
 		
 	}
 	
 	public void testFacadeAccount() {
-
-		//a1 = facade.createAccount(a1);
-		
-		//assertEquals(a1.getUsername(), expectedUsername);
-		//assertEquals(a1.getFirstName(), expectedFirstName);
 		
 		Account a = new Account();
 		a.setUsername(expectedUsername);
@@ -73,7 +64,6 @@ public class FacadeTest extends TestCase {
 		
 		a1 = facade.findByAccountUsername(expectedUsername);
 		assertEquals(a1.getUsername(), expectedUsername);
-		facade.deleteAccount(expectedUsername);
 
 	}
 	
