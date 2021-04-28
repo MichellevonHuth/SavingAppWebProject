@@ -82,7 +82,8 @@ public class SavingAppServlet extends HttpServlet {
 				a = facade.createAccount(a);
 
 			}catch(Exception e) {
-				System.out.println("duplicate key");
+				
+				throw e;
 			}
 
 			sendAsJson(response, a);
@@ -170,7 +171,6 @@ public class SavingAppServlet extends HttpServlet {
 
 				for (org.ics.ejb.SavingSchedule s : accounts) {
 					JsonObjectBuilder o = Json.createObjectBuilder();
-					o.add("SavingscheduleNumber", s.getSavingScheduleNbr());
 					o.add("Name", s.getSavingScheduleName());
 					o.add("SavingGoal",String.valueOf(s.getSavingGoal()));
 					array.add(o);

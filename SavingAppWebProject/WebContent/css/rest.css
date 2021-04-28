@@ -134,7 +134,7 @@ div {
   margin-top: -360px;
   margin-right: 50px; 
   height: 310px;
-  width: 305px;
+  width: 310px;
   background-color: #2f4455;
   border-radius: 50%;
 
@@ -149,10 +149,18 @@ div {
 
 }
 .Content{
-	height: 200px;
+	height: 180px;
     color: white;
-    padding-left: 5px;
+    size: 12px;
+    padding-left: 20%;
+  
    
+}
+
+#list {
+	margin-left: 10%;
+	margin-bottom: 13%;
+	margin-top: -10%;
 }
 
 
