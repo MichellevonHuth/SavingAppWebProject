@@ -146,26 +146,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 		}
 
 		
-		if(operation.equals("getUsername")) {
-			String username = (String)session.getAttribute("getUsername");
-			Account account = facade.findByAccountUsername(username);
-			if(account != null) {
-				
-				String firstname = account.getFirstName();
-				String surname = account.getSurname();
-				String totalIncome = Double.toString(account.getTotalIncome());
-				String variableCost = Double.toString(account.getVariableCost());
-				String fixedCost = Double.toString(account.getFixedCost());
-				
-				session.setAttribute("getFirstname", firstname);
-				session.setAttribute("getSurname", surname);
-				session.setAttribute("getTotalIncome", totalIncome);
-				session.setAttribute("getVariableCost", variableCost);
-				session.setAttribute("getFixedCost", fixedCost);
-			}
-			url="/settings.jsp";
-				
-		}
+		
 		
 		if(operation.equals("findAccount")) {
 			
