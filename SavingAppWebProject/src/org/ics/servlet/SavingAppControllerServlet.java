@@ -52,9 +52,8 @@ public class SavingAppControllerServlet extends HttpServlet {
 						for(SavingSchedule savingSchedule : account.getSavingschedules()) {
 							if(savingSchedule!= null) {
 								savings.add(savingSchedule);
-								savingSchedule.getSavingScheduleNbr();
 								
-							}
+							}	
 								
 								
 				}

@@ -188,7 +188,28 @@ section#mainbodyNew{
     font-family: Arial; 
     font-size: 14px;
     line-height: 0.5%;
-}    
+}   
+.errorNoSavings{
+	color: #fff;
+	font-family: Arial;
+	font-size: 18px;
+	word-wrap: break-word;
+	margin-top: 150px;
+	margin-bottom: 340px
+} 
+.testHeader{
+	color: #fff;
+	font-family: Arial;
+	font-size:35px;
+	word-wrap: break-word;
+	margin-top: 70px;
+	margin-left: 380px;
+}
+.testing{
+	justify-content: center;
+	align-items: center; 
+	
+}
 
 .settingsBox{
 	height: 550px;

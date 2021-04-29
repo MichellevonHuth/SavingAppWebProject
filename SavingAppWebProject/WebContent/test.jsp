@@ -35,20 +35,20 @@
         	</div>
       	</section>
   </header>    	
-      	<div class="header">
+      	<div class="testHeader">
      		<p>Test our code</p>
      	</div>
      
      	<section id = "mainbodyNew">
      	
      	
-			<div class="Testning">
+			<div class="testing">
 				
 				<form action="TestServlet" method="get" name="youPickItForm">
 				<select name="suite" id="comboBox" size="2" multiple>
 				<option value="ics.junit.ejb.FacadeTest">ics.junit.ejb.FacadeTest</option>
 				</select>
-				<br>
+				<br><br>
 				<input type="submit" value="Run" id="runBtn"/>
 				</form>
 				
