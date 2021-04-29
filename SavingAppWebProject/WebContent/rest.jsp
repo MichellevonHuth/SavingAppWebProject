@@ -225,14 +225,14 @@
 	})
 
 	function ajaxAddReturnSuccess(result, status, xhr) {
+		var message = result;
+		$("#username").attr("placeholder", result);
 		clearFieldsCreateAccount();
 		
-
 	}
 
 	function ajaxAddReturnError(result, status, xhr) {
-		alert("User already exists");
-		console.log("Ajax-find account: "+status);
+		alert("the user you are trying to add already exists");
 
 	}
 	}
@@ -261,6 +261,9 @@
 	})
 
 	function ajaxAddReturnSuccess(result, status, xhr) {
+		var message = result;
+		$("#usernameS").attr("placeholder", result);
+		
 		clearCreateSchedule();
 
 	}
@@ -308,7 +311,6 @@
 
 
 	function ParseJsonFileAccount(result) {
-		console.log(result);
 		for(var i=0; i<result.length; i++){
 			$("<p>"  + "- " + result[i].Name + ": " + result[i].SavingGoal + "kr"+ "</p>").insertAfter("#list");
 		}

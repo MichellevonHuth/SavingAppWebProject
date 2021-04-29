@@ -65,8 +65,9 @@ public class SavingAppServlet extends HttpServlet {
 			try {
 				s = facade.createSavingSchedule(s);
 			}
-			catch(Exception e) {
-				System.out.println("duplicate key");
+			catch(Exception ex) {
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+				return;
 			}
 
 			sendAsJson(response, s);
@@ -79,13 +80,13 @@ public class SavingAppServlet extends HttpServlet {
 			
 			try {
 				a = facade.createAccount(a);
+				sendAsJson(response, a);
 
 			}catch(Exception e) {
-				
-				throw e;
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+				return;
 			}
-
-			sendAsJson(response, a);
+			
 		}
 
 	}
@@ -135,15 +136,12 @@ public class SavingAppServlet extends HttpServlet {
 		response.setContentType("application/json"); 
 
 		if (account != null) {
-			out.print("{\"title\":");
-			out.print("\"" + account.getUsername() + "\"");
-			out.print(",\"id\":");
-			out.print("\"" +account.getSurname()+"\"");
-			out.print(",\"price\":");
-			out.print("\"" +account.getFirstName()+"\"}");
+			
+			out.print("\"" + "Account added"+ "\"");
+		
 
 		} else {
-			out.print("{ }");
+			out.print("The user you are trying to add already exists");
 		}
 		out.flush();
 
@@ -155,12 +153,7 @@ public class SavingAppServlet extends HttpServlet {
 		response.setContentType("application/json"); 
 
 		if (savingschedule != null) {
-			out.print("{\"title\":");
-			out.print("\"" +savingschedule.getSavingScheduleName()+ "\"");
-			out.print(",\"id\":");
-			out.print("\"" +savingschedule.getSavingGoal()+"\"");
-			out.print(",\"price\":");
-			out.print("\"" +savingschedule.getAccount()+"\"}");
+			out.print("\"" +"SavingSchedule added"+ "\"");
 
 		} else {
 			out.print("{ }");
@@ -202,7 +195,7 @@ public class SavingAppServlet extends HttpServlet {
 		jsonReader = Json.createReader(br);
 		jsonRoot = jsonReader.readObject();
 
-	//	System.out.println("JsonRoot: "+jsonRoot);
+	
 
 		Account account = new Account();
 		account.setUsername(jsonRoot.getString("id"));
@@ -232,7 +225,7 @@ public class SavingAppServlet extends HttpServlet {
 		double income = a.getTotalIncome();
 		double variableCost = a.getVariableCost();
 		
-		double costs = fixedCost - variableCost;
+		double costs = fixedCost + variableCost;
         double moneyLeft = income - costs;
         
     	double goal = Double.parseDouble(jsonRoot.getString("goal"));
