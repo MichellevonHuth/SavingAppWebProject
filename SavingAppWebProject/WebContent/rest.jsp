@@ -232,7 +232,9 @@
 	}
 
 	function ajaxAddReturnError(result, status, xhr) {
-		alert("the user you are trying to add already exists");
+		var message = result;
+		console.log(result);
+		alert("The user you are trying to add already exists");
 
 	}
 	}
@@ -307,10 +309,20 @@
 	}
 
 	})//Delete button account 
+	
+	$("#clearBtn").click(function(){
+		alert("hej");
+		
+	})
+	
+	
+	
+	
 	});//End ready function
 
 
 	function ParseJsonFileAccount(result) {
+		
 		for(var i=0; i<result.length; i++){
 			$("<p>"  + "- " + result[i].Name + ": " + result[i].SavingGoal + "kr"+ "</p>").insertAfter("#list");
 		}
@@ -329,7 +341,7 @@
 	  
 	  $.ajax({
 	 		method: "GET",
-	 		url: "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+ long +"&units=metric"+ "&APPID=0aebca8155519cd776fe771d32a41872",
+	 		url: "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long +"&units=metric"+ "&APPID=0aebca8155519cd776fe771d32a41872",
 	  		error: ajaxWeatherReturn_Error,
 	  		success: ajaxWeatherReturn_Success
 	})
