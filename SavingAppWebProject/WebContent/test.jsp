@@ -43,12 +43,13 @@
      	
      	
 			<div class="Testning">
-				<p>Test our data:<br></p>
+				
 				<form action="TestServlet" method="get" name="youPickItForm">
-				<select name="suite" size="2" multiple>
+				<select name="suite" id="comboBox" size="2" multiple>
 				<option value="ics.junit.ejb.FacadeTest">ics.junit.ejb.FacadeTest</option>
 				</select>
-				<input type="submit" value="Run"/>
+				<br>
+				<input type="submit" value="Run" id="runBtn"/>
 				</form>
 				
 			</div>
@@ -84,7 +85,7 @@
         	<br>
         	<b>Code</b>
 			<br><br>
-        	<a href="http://localhost:8080/SavingAppWebProject/test.jsp"><p>Test our code here</p></a>
+        	<a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink"><p>Test our code here</p></a>
         	</div>
       	</section> 
 	</footer>  

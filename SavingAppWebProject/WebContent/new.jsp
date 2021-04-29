@@ -109,7 +109,7 @@
         	<br>
         	<b>Code</b>
 			<br><br>
-        	<a href="http://localhost:8080/SavingAppWebProject/test.jsp"><p>Test our code here</p></a>
+        	<a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink"><p>Test our code here</p></a>
         	</div>
       	</section> 
 	</footer>   

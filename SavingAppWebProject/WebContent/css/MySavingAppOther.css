@@ -275,12 +275,12 @@ section#mainbodyNew{
 
 #saveUserSettingsBtn{
 	background-color: #71F69A;
-	padding: 2px 25px;
+	padding: 2px 20px;
     color: #171717;
     font-family: Arial;
     border-radius: 10px;
     font-weight: bold;
-    border: none;
+    border: #71F69A solid 3.8px;
 }
 
 #deleteUserBtn{
@@ -314,13 +314,17 @@ section#mainbodyNew{
 }
 #logOut{
 	background-color: #222122;
-	padding: 6px 30px;
+	padding: 6px 40px;
     color: white;
     font-family: Arial;
     border-radius: 10px;
     font-weight: bold;
     border: none;
 
+}
+#codeLink{
+	color: white;
+	font-family: Arial;
 }
 
 #showInformation{
@@ -335,10 +339,30 @@ section#mainbodyNew{
     font-weight: bold;
 }
 
+#runBtn{
+	background-color: #71F69A;
+	padding: 3px 30px;
+    color: #171717;
+    font-family: Arial;
+    border-radius: 10px;
+    font-weight: bold;	
+    border: none;
+}
+
+#comboBox{
+	color: #171717;
+    font-family: Arial;
+    border-radius: 10px;
+    padding: 3px 45px;
+    font-size: 12px;
+}
+
 section#buttonSettings{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	margin-left: 40px;
+	margin-right: 40px;
 }
 
 
