@@ -43,7 +43,12 @@
 
       	<%ArrayList<SavingSchedule> s = (ArrayList<SavingSchedule>) request.getAttribute("getSavingSchedules"); %>
       	<div class="content">
-
+		
+		<%if(s.isEmpty()){ %>
+		<div class="errorNoSavings">
+			You do not have any saving goals yet, go ahead and make one!
+		</div>
+		<%} %>
       	
       	<%for(int i = 0 ; i < s.size() ; i+=1) { %>
 			
@@ -156,7 +161,7 @@
         	<br>
         	<b>Code</b>
 			<br><br>
-        	<a href="http://localhost:8080/SavingAppWebProject/test.jsp"><p>Test our code here</p></a>
+        	<a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink"><p>Test our code here</p></a>
         	</div>
       	</section> 
 	</footer> 

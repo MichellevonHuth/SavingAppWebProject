@@ -83,11 +83,13 @@
 				<input type="submit"  name="operation" value="Delete user" id="deleteUserBtn">
 						<input value="deleteAccount" type = "hidden">
 						
+				<input type="submit"  name="operation" value="Save changes" id="saveUserSettingsBtn"> 
+						<input value="updateAccount" type = "hidden">	
+								
 				<a href="/SavingAppWebProject/start.jsp">
 					<input type="button" name="submitBtn" value="Log out" id="logOut">
-						
-				 <input type="submit"  name="operation" value="Save changes" id="saveUserSettingsBtn"> 
-						<input value="updateAccount" type = "hidden">			
+				</a>		
+				 		
 						 
 			</section>
 			</div>
@@ -124,7 +126,7 @@
         	<br>
         	<b>Code</b>
 			<br><br>
-        	<a href="http://localhost:8080/SavingAppWebProject/test.jsp"><p>Test our code here</p></a>
+        	<a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink"><p>Test our code here</p></a>
         	</div>
       	</section> 
 	</footer>   

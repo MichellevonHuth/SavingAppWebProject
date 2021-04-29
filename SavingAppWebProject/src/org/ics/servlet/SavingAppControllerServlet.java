@@ -52,9 +52,8 @@ public class SavingAppControllerServlet extends HttpServlet {
 						for(SavingSchedule savingSchedule : account.getSavingschedules()) {
 							if(savingSchedule!= null) {
 								savings.add(savingSchedule);
-								savingSchedule.getSavingScheduleNbr();
 								
-							}
+							}	
 								
 								
 				}
@@ -83,22 +82,17 @@ public class SavingAppControllerServlet extends HttpServlet {
 			
 			if(stringMonth == null || stringMonth.equals("")) {
 				savingDurationMonth = 0; 				
-			} 
-		
-			else {
+			} else {
 				savingDurationMonth = Integer.parseInt(stringMonth);
 			}
-			
+		
 			if(stringYear == null || stringYear.equals("")) {
 				savingDurationYear = 0;
-			}
-			else {
+			}else {
 				savingDurationYear = Integer.parseInt(stringYear);
 			}
 			
-	        double savingGoal = Double.parseDouble(request.getParameter("savingGoalTextBox"));
-	            
-	      
+	        double savingGoal = Double.parseDouble(request.getParameter("savingGoalTextBox")); 
 	        String savingScheduleName = request.getParameter("savingScheduleNameTextBox");
 	        
 	        double costs = fixedCost - variableCost;
@@ -109,7 +103,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 	        	savingDuration = (savingDurationYear*12)+savingDurationMonth;
 	        }
 	        else if(savingDurationYear!= 0 && savingDurationMonth==0) {
-	        	savingDuration = savingDurationYear*12;
+	        	savingDuration = (savingDurationYear*12);
 	        }
 	        else if(savingDurationYear== 0 && savingDurationMonth!=0) {
 	        	savingDuration = savingDurationMonth;
@@ -175,18 +169,12 @@ public class SavingAppControllerServlet extends HttpServlet {
 		if(operation.equals("findAccount")) {
 			
 			String username = request.getParameter("userNameTextField");
-			System.out.println("heeeJSDJIFSDOJFDISJFOISJDeHFISDHFUDSI");
-			System.out.println(username);
 			Account a = facade.findByAccountUsername(username);
 				if(a !=null) {
 					url ="/home.jsp";
 					session.setAttribute("account", a);
 				}
 				
-				else if (username == null || username.equals("")){
-					String s = "Please fill in username";
-					request.setAttribute("ErrorLogIn", s);
-				}
 				else {	
 					String s = "The user doesn't exist, please register";
 					request.setAttribute("ErrorLogIn", s);

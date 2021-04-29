@@ -6,11 +6,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script
-
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
-
-</script>
+<script src="js/SavingApp.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/MySavingApp.css">
 
@@ -35,7 +31,7 @@
 
 			<div class="logInBox">
 				
-					<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8> 
+					<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8 id="logInForm"> 
 						<input type="text" name="userNameTextField" id="userNameTextField" value="" placeholder="Username"><br>
 						<br>
 						<%String error =(String)request.getAttribute("ErrorLogIn");
@@ -46,10 +42,9 @@
 						
 						<div id="errorText">
 						<label><%=error%></label>
-						</div>
-						
+						</div>						
 						<br> 
-						<input type="submit" name="submit" value="Log in" id="findBtn"> 
+						<input type="submit" name="submit" value="Log in" id="findBtn" onClick="checkLogIn()"> 
 						<input name="operation"  value="findAccount"  type="hidden">
 					</form>
 					<br><hr id="line"><br> 
@@ -93,8 +88,6 @@
         	</div>
       	</section> 
 	</footer>	
-<script>
 
-</script>
 </body>
 </html>

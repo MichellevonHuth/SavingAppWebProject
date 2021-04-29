@@ -56,7 +56,7 @@
 		<section id="mainbody">
 		<div class="welcomeTextBox">
 			<br><br>
-			We are four girls who has made this app just because we want YOU to achieve your dreams. The first idea of this app came to us when we were saving for our exchange semester i Australia. Then we realized that there is no good saving apps out there... Until now!
+			We are four girls who has made this app just because we want YOU to achieve your dreams. The first idea of this app came to us when we were saving for our exchange semester in Australia. Then we realized that there is no good saving apps out there... Until now!
 			</div>
 		</section>
 
@@ -88,7 +88,7 @@
         	<br>
         	<b>Code</b>
 			<br><br>
-        	<a href="http://localhost:8080/SavingAppWebProject/test.jsp"><p>Test our code here</p></a>
+        	<a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink"><p>Test our code here</p></a>
         	</div>
       	</section> 
 	</footer>  
