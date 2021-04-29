@@ -118,7 +118,7 @@
 $(document).ready(function(){	
 	<%if(request.getAttribute("howManyMonths") != null){
 		double months = (double)request.getAttribute("howManyMonths");%>
-		alert(<%=months%>); 
+		alert(<%=months%> + "<p>" + "this many months" + "</p>"); 
 	<%
 	}%>
 

@@ -1,15 +1,28 @@
 function checkLogIn(){
-	var username = document.getElementById("userNameTextField").value;
+	var username = $("#userNameTextField").val();
 	if(username == null || username == ""){	
-		document.getElementById("userNameTextField").setAttribute("placeholder","Please fill in username");
-		document.getElementById("errorText").style.color="#171717";
+		$("#errorLbl").text("Please fill in username");		
+		return false
 	}
-	return false;
+	return true;
+}
+
+function checkRegisterFields(){
+	var username = $("#usernameTextBox").val();
+	var firstname = $("#firstnameTextBox").val();
+	var surname = $("#surnameTextBox").val();
+	var income = $("#incomeTextBox").val();
+	var fixedCost = $("#fixedCostTextBox").val();
+	var variableCost = $("#variableCostTextBox").val();
+	
+	if(username == null || username == "" || firstname == null || firstname == "" || surname == null || surname == "" || income == null || income == "" || fixedCost == null || fixedCost == "" || variableCost == null || variableCost == ""){	
+		$("#errorLbl").text("Please fill in all the fields");		
+		return false
+	}
+	return true;
 }
 
 function checkRegister(){
-
-
 
 	resetBorders();
 	var username = document.getElementById("usernameTextBox").value;

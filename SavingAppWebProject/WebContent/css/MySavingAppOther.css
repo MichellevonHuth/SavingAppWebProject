@@ -141,10 +141,11 @@ section#mainbodyNew{
 	justify-content: center;
 }
 
-#errorLblStart{
-	margin-left: 100px;
+#errorLbl{
+	color: red;
+	margin-left: 200px;
+	position: absolut;	
 }
-
 
 .welcomeText{
     height: 400px;
@@ -385,8 +386,6 @@ section#buttonSettings{
 	margin-left: 40px;
 	margin-right: 40px;
 }
-
-
 
 section#footer{
 	border-top: 1px solid #383939;

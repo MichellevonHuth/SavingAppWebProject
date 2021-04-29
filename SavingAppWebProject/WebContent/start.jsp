@@ -6,12 +6,15 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+</script>
+
 <script src="js/SavingApp.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/MySavingApp.css">
 
 <meta charset="ISO-8859-1">
-
 
 <title>MySavingApp</title>
 </head>
@@ -31,26 +34,25 @@
 
 			<div class="logInBox">
 				
-					<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8 id="logInForm"> 
+					<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8 onsubmit="return checkLogIn()"> 
 						<input type="text" name="userNameTextField" id="userNameTextField" value="" placeholder="Username"><br>
-						<br>
 						<%String error =(String)request.getAttribute("ErrorLogIn");
 							if(error==null){
 								error = "";
 							}
-						%>
+						%>	
+						<br>
+					
 						
-						<div id="errorText">
-						<label><%=error%></label>
-						</div>						
-						<br> 
-						<input type="submit" name="submit" value="Log in" id="findBtn" onClick="checkLogIn()"> 
+						<input type="submit" name="submit" value="Log in" id="findBtn"> 
 						<input name="operation"  value="findAccount"  type="hidden">
+					<br>
 					</form>
-					<br><hr id="line"><br> 
+					<hr id="line"><br> 
 					<a href="/SavingAppWebProject/register.jsp">
-					<input type="button" name="submitBtn" value="Register" id="createBtn">
+					<input type="button" value="Register" id="createBtn">
 					</a>
+					<p id ="errorLbl"><%=error %></p>	
 				
 			</div>
 		

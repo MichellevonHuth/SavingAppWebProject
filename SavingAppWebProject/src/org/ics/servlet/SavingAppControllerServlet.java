@@ -27,6 +27,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 	@EJB
 	FacadeLocal facade;
 	HttpSession session;
+	
     public SavingAppControllerServlet() {
         super();
         // TODO Auto-generated constructor stub
@@ -196,7 +197,7 @@ public class SavingAppControllerServlet extends HttpServlet {
         session.setAttribute("errorMessage", "");
         
         if(operation.equals("addAccount")){
-            
+           try { 
             String username = request.getParameter("usernameTextBox");
             String firstName = request.getParameter("firstnameTextBox");
             String surname = request.getParameter("surnameTextBox");
@@ -217,6 +218,12 @@ public class SavingAppControllerServlet extends HttpServlet {
             facade.createAccount(a);
             session.setAttribute("account", a);
 			url ="/home.jsp";
+			
+           }catch(Exception e) {
+        	  session.setAttribute("errorMessage", "There is already an account with this username, please select another");
+        	  url ="/register.jsp";
+           }
+           
             
         }
         
@@ -229,6 +236,9 @@ public class SavingAppControllerServlet extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		 String url = "";
+		 session.setAttribute("errorMessage", "");
+		 
+		try {
 		 Account account = (Account)session.getAttribute("account");
 		 String username = account.getUsername();
          String firstName = request.getParameter("firstnameTextBox");
@@ -250,6 +260,11 @@ public class SavingAppControllerServlet extends HttpServlet {
                  
                  url = "/settings.jsp";
          	}
+		}
+		catch(Exception e) {
+		session.setAttribute("errorMessage", "A unexpexted error has occured, try again later");
+       	  url ="/settings.jsp";
+		}
          
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
             dispatcher.forward(request, response);
