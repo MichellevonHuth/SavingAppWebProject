@@ -40,16 +40,20 @@ public class SavingAppServlet extends HttpServlet {
 		String pathInfo = request.getPathInfo();
 		String[] splits = pathInfo.split("/");
 		
-
-		if(splits.length != 2) {
+		try {
+			String id = splits[1];
+			Account account = facade.findByAccountUsername(id);
+			if(account!= null) {
+				sendAsJson(response, account.getSavingschedules());
+			}
+			else {
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+				return;
+			}
+		} catch(Exception e) {
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			return;
-
 		}
-
-		String id = splits[1];
-		Account account = facade.findByAccountUsername(id);
-		sendAsJson(response, account.getSavingschedules()); 
 
 	}
 
@@ -99,18 +103,8 @@ public class SavingAppServlet extends HttpServlet {
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String pathInfo = request.getPathInfo();
-		if(pathInfo == null || pathInfo.equals("/")){
-			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-			return;
-		}
-
 		String[] splits = pathInfo.split("/");
-		if(splits.length != 2) {
-			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-			return;
-
-		}
-
+		
 		String id = splits[1];
 		Account account = facade.findByAccountUsername(id);
 		
@@ -121,12 +115,15 @@ public class SavingAppServlet extends HttpServlet {
 				}
 				facade.deleteAccount(id);
 			}
+			else {
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+				return;
+			}
 			
 		} catch (Exception e) {
-			throw e; 
-		}
-		
-		
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+			return;
+		}	
 				
 	}
 
@@ -141,7 +138,8 @@ public class SavingAppServlet extends HttpServlet {
 		
 
 		} else {
-			out.print("The user you are trying to add already exists");
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+			return;
 		}
 		out.flush();
 
@@ -178,7 +176,6 @@ public class SavingAppServlet extends HttpServlet {
 
 			JsonArray jsonArray = array.build();
 			out.print(jsonArray.toString());
-			System.out.println("Accounts rest: "+jsonArray.toString());
 
 		} else {
 			out.print("[]");

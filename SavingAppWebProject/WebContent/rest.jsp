@@ -141,14 +141,14 @@
 
 
 			<article class="dot2">
-				<article class="Container Flipped">
+				<article id="clear" class="Container Flipped">
 				<article class="Content">
 				<ul  id= "list">	
 				</ul>
 			</article>
 		</article>
 
-				<input type="button" name="clearBtn" value="Clear" id="ClearBtn"><br>
+				<input type="button" name="ClearBtn" value="Clear" id="ClearBtn"><br>
 			</article>
 
 	<footer> 
@@ -178,6 +178,11 @@
 
 	$("#ShowBtn").click(function() {
 	  var strValue = $("#findUsername").val();
+	  
+	  if(strValue == ""){
+		  pleaseFillInAllTheFields();
+	  }
+	  
 	  if (strValue != "") {
 		$.ajax({
 		 method: "GET",
@@ -196,11 +201,17 @@
 		alert("Username doesn't exists");
 		console.log("Ajax-find account: "+status);
 
-	 	}
+	 		}
 
-	 }
+		 }
+	  
 
 	})//btn find accounts savingschedules
+	
+	$("#ClearBtn").click(function() {
+		document.getElementById("clear").innerHTML="";
+		
+	})
 
 	$("#AddBtn").click( function() {
 		var strId = $("#username").val();
@@ -209,9 +220,12 @@
 		var strFixedCost = $("#fixedCost").val();
 		var strTotalIncome = $("#totalIncome").val();
 		var strVariableCost = $("#variableCost").val();
+	
 		
 		var obj = { id: strId, firstName: strFirstName, surname: strSurname, fixedCost: strFixedCost, totalIncome: strTotalIncome, variableCost: strVariableCost};
 		var jsonString = JSON.stringify(obj);
+		
+		
 		if (strId != "") {
 			$.ajax({
 
@@ -229,15 +243,16 @@
 		$("#username").attr("placeholder", result);
 		clearFieldsCreateAccount();
 		
-	}
+		}
 
 	function ajaxAddReturnError(result, status, xhr) {
-		var message = result;
-		console.log(result);
 		alert("The user you are trying to add already exists");
 
-	}
-	}
+			}
+		}
+		
+	
+		
 	})//btn add account 
 
 	$("#AddBtnSavingSchedule").click( function() {
@@ -246,9 +261,10 @@
 		var strGoal = $("#goal").val();
 		var strYear = $("#year").val();
 		var strMonth = $("#month").val();
-
+		
 		var obj = {usernameS: strId, name: strName, goal: strGoal, year: strYear, month: strMonth};
 		var jsonString = JSON.stringify(obj);
+			
 
 		if (strId != "") {
 			$.ajax({
@@ -265,7 +281,6 @@
 	function ajaxAddReturnSuccess(result, status, xhr) {
 		var message = result;
 		$("#usernameS").attr("placeholder", result);
-		
 		clearCreateSchedule();
 
 	}
@@ -275,14 +290,20 @@
 	clearCreateSchedule();
 	console.log("Ajax-find account: "+status);
 
-	}
+				}
 
-	}
-
+			}
 	})//btn add Savingschedule
 
 	$("#DeleteBtn").click( function() {
 		var strValue = $("#usernameDelete").val();
+		
+		if(strValue == ""){
+			pleaseFillInAllTheFields();
+		}
+		
+		else {	
+		
 		if (strValue != "") {
 			
 		$.ajax({
@@ -293,9 +314,8 @@
 
 	})
 
-
-
 	function ajaxDelReturnSuccess(result, status, xhr) {
+		$("#usernameDelete").attr("placeholder", "Account deleted");
 		clearFieldAccountDeleted();
 	
 	}
@@ -304,20 +324,12 @@
 		alert("Username doesn't exists");
 		console.log("Ajax-find account: "+status);
 
-	}
+			}
 
+		}
 	}
 
 	})//Delete button account 
-	
-	$("#clearBtn").click(function(){
-		alert("hej");
-		
-	})
-	
-	
-	
-	
 	});//End ready function
 
 
@@ -341,7 +353,7 @@
 	  
 	  $.ajax({
 	 		method: "GET",
-	 		url: "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long +"&units=metric"+ "&APPID=0aebca8155519cd776fe771d32a41872",
+	 		url: "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+ long +"&units=metric"+ "&APPID=0aebca8155519cd776fe771d32a41872",
 	  		error: ajaxWeatherReturn_Error,
 	  		success: ajaxWeatherReturn_Success
 	})
@@ -372,7 +384,7 @@
 		}
 
 	}//End of document ready
-
+	
 	function clearFieldsCreateAccount() {
 
 		$("#username").val("");
@@ -403,7 +415,7 @@
 	}
 	
 	function pleaseFillInAllTheFields() {
-		alert("Please fill in all the fields");
+		alert("Please fill in all the field/fields");
 	}
 	
 
