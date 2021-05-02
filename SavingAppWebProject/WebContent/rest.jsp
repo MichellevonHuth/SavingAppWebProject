@@ -13,6 +13,10 @@
 <title>SavingApp</title>
 </head>
 <body>
+	<header> 
+		<img src ="https://i.postimg.cc/7YJC3N9j/MY-SAVING-APP.png"  width="70" height="70">
+	
+	</header>
 		<aside>
 
 			<table id="asideTable">
@@ -209,7 +213,9 @@
 	})//btn find accounts savingschedules
 	
 	$("#ClearBtn").click(function() {
-		document.getElementById("clear").innerHTML="";
+		console.log("in here");
+		$('#list').empty();
+		//document.getElementById("list").empty();
 		
 	})
 
@@ -334,9 +340,10 @@
 
 
 	function ParseJsonFileAccount(result) {
-		
+		console.log(result);
 		for(var i=0; i<result.length; i++){
-			$("<p>"  + "- " + result[i].Name + ": " + result[i].SavingGoal + "kr"+ "</p>").insertAfter("#list");
+			$("#list").append("<li>" + result[i].Name + ": " + result[i].SavingGoal + "kr" + "</li>")
+			//$("<p>"  + "- " + result[i].Name + ": " + result[i].SavingGoal + "kr"+ "</p>").insertAfter("#list");
 		}
 	
 	}
@@ -380,7 +387,6 @@
 
 	function ajaxWeatherReturn_Error(result, status, xhr) {
 		alert("Error i OpenWeaterMap Ajax");
-		console.log("Ajax-find movie: "+status);
 		}
 
 	}//End of document ready

@@ -7,6 +7,12 @@ body{
    
 }
 
+img {
+	float: left; 
+	margin-top: 70px; 
+	margin-left: 4px; 
+}
+
 #city, #ipNbr {
 	font-style: bold;
 	
@@ -149,7 +155,7 @@ div {
 
 }
 .Content{
-	height: 180px;
+	height: 150px;
     color: white;
     size: 12px;
     padding-left: 20%;
@@ -158,9 +164,7 @@ div {
 }
 
 #list {
-	margin-left: 10%;
 	margin-bottom: 13%;
-	margin-top: -10%;
 }
 
 
