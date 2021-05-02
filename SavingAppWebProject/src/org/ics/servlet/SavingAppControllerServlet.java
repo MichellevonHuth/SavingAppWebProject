@@ -226,7 +226,6 @@ public class SavingAppControllerServlet extends HttpServlet {
 		 
 		try {
 		 Account account = (Account)session.getAttribute("account");
-		 String username = account.getUsername();
          String firstName = request.getParameter("firstnameTextBox");
          String surname = request.getParameter("surnameTextBox");
          double totalIncome = Double.parseDouble(request.getParameter("incomeTextBox"));
@@ -234,7 +233,7 @@ public class SavingAppControllerServlet extends HttpServlet {
          double variableCost = Double.parseDouble(request.getParameter("variableCostTextBox"));
          
  
-         Account a = facade.findByAccountUsername(username);
+         Account a = facade.findByAccountUsername(account.getUsername());
          	if(a!=null) {
          	     a.setFirstName(firstName);
                  a.setSurname(surname);
@@ -264,7 +263,8 @@ public class SavingAppControllerServlet extends HttpServlet {
 		
 		String url="";
 		
-		try {		
+		try {
+		
 		Account account = (Account)request.getSession().getAttribute("account");
 		String username = account.getUsername();
 		Account a = facade.findByAccountUsername(username);
