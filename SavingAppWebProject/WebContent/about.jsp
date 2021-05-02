@@ -35,26 +35,17 @@
         	</div>
       	</section>
   </header>    	
-      	<div class="testHeader">
-     		<p>Test our code</p>
+      	<div class="welcomeHeader">
+     		<p>Our story</p>
      	</div>
      
-     	<section id = "mainbodyNew">
-     	
-     	
-			<div class="testing">
-				
-				<form action="TestServlet" method="get" name="youPickItForm">
-				<select name="suite" id="comboBox" size="2" multiple>
-				<option value="ics.junit.ejb.FacadeTest">ics.junit.ejb.FacadeTest</option>
-				</select>
-				<br><br>
-				<input type="submit" value="Run" id="runBtn"/>
-				</form>
-				
+		<section id="mainbody">
+		<div class="welcomeTextBox">
+			<br><br>
+			We are four girls who has made this app just because we want YOU to achieve your dreams. The first idea of this app came to us when we were saving for our exchange semester in Australia. Then we realized that there is no good saving apps out there... Until now!
 			</div>
-					
 		</section>
+					
 			
 
 	<footer> 

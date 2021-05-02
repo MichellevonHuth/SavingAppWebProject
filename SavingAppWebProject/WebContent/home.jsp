@@ -48,51 +48,33 @@
 			We are so happy to see you. Here you can see your saving goals that you want to reach and check them out so that you can keep track that you are following your saving schedules so you can achieve your dreams. Or even better - you can register new goals to always challenge yourself.
 			</div>
 		</section>
-		
-		<div class="aboutUsHeader">
-			<p>About us</p>
-		</div>
-		
-		<section id="mainbody">
-		<div class="welcomeTextBox">
-			<br><br>
-			We are four girls who has made this app just because we want YOU to achieve your dreams. The first idea of this app came to us when we were saving for our exchange semester in Australia. Then we realized that there is no good saving apps out there... Until now!
-			</div>
-		</section>
 
 
 			
 	<footer> 
         <section id = "footer">
-        	<div class="leftdiv">
-        	<br>
-        	© 2021 MySavingApp Company
+        	<div class="leftdiv"><br>
+        		© 2021 MySavingApp Company
         	</div>
-        	<div class="leftcenterdiv">
-        	<br>
-        	<b>Contact</b>
-			<br><br>
-        	<p>contact@mySavingApp.com</p>
-        	<p>Stora Tomegatan 32B</p>
-        	<p>223 51, Lund</p>
+        	<div class="leftcenterdiv"><br>
+        		<b>Contact</b><br><br>
+        		<p>contact@mySavingApp.com</p>
+        		<p>Stora Tomegatan 32B</p>
+        		<p>223 51, Lund</p>
         	</div>
-        	<div class="rightcenterdiv">
-        	<br>
-        	<b>Social</b>
-			<br><br>
-        	<p>Facebook</p>
-        	<p>LinkedIn</p>
-        	<p>Instagram</p>
+        	<div class="rightcenterdiv"><br>
+        		<b>Social</b><br><br>
+        		<p>Facebook</p>
+        		<p>LinkedIn</p>
+        		<p>Instagram</p>
         	</div>
-        	<div class="rightdiv">
-        	<br>
-        	<b>Code</b>
-			<br><br>
-        	<a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink"><p>Test our code here</p></a>
+        	<div class="rightdiv"><br>
+        		<b>About</b><br><br>
+				<a href="http://localhost:8080/SavingAppWebProject/about.jsp" id="codeLink"><p>Our story</p></a>
+        		<a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink"><p>Test our code</p></a>
         	</div>
       	</section> 
-	</footer>  
-
+	</footer> 
            
  
 

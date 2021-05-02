@@ -87,6 +87,7 @@
 	        	<b>About</b>
 	        	<br><br>
 	        	<p>Our story</p>
+	        	<p>Test our code</p>
         	</div>
       	</section> 
 	</footer>	

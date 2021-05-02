@@ -42,7 +42,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 		String url = null;
 		String operation = request.getParameter("operation");
 		session = request.getSession();
-		
+		session.setAttribute("errorMessage", "");
 		
 		if(operation.equals("getSavingSchedules")) {
 			ArrayList<SavingSchedule> savings = new ArrayList<SavingSchedule>();
@@ -64,54 +64,53 @@ public class SavingAppControllerServlet extends HttpServlet {
 		}
 		
 		if(operation.equals("createAnSavingSchedule")) {
+			try{
 			
+				Account account = (Account)session.getAttribute("account");
+				String username = account.getUsername();
+				Account a =	facade.findByAccountUsername(username);
 			
-			Account account = (Account)session.getAttribute("account");
-			String username = account.getUsername();
-			Account a =	facade.findByAccountUsername(username);
-			System.out.println(username);
+				int savingDuration = 0;
 			
-			int savingDuration = 0;
+				double fixedCost = a.getFixedCost();
+				double income = a.getTotalIncome();
+				double variableCost = a.getVariableCost();
+				String stringMonth = request.getParameter("savingDurationMonthTextBox");
+				int savingDurationMonth;
+				String stringYear = request.getParameter("savingDurationYearTextbox");
+				int savingDurationYear;
 			
-			double fixedCost = a.getFixedCost();
-			double income = a.getTotalIncome();
-			double variableCost = a.getVariableCost();
-			String stringMonth = request.getParameter("savingDurationMonthTextBox");
-			int savingDurationMonth;
-			String stringYear = request.getParameter("savingDurationYearTextbox");
-			int savingDurationYear;
-			
-			if(stringMonth == null || stringMonth.equals("")) {
-				savingDurationMonth = 0; 				
-			} else {
-				savingDurationMonth = Integer.parseInt(stringMonth);
-			}
+				if(stringMonth == null || stringMonth.equals("")) {
+					savingDurationMonth = 0; 				
+				} else {
+					savingDurationMonth = Integer.parseInt(stringMonth);
+				}
 		
-			if(stringYear == null || stringYear.equals("")) {
-				savingDurationYear = 0;
-			}else {
-				savingDurationYear = Integer.parseInt(stringYear);
-			}
+				if(stringYear == null || stringYear.equals("")) {
+					savingDurationYear = 0;
+				}else {
+					savingDurationYear = Integer.parseInt(stringYear);
+				}
 			
-	        double savingGoal = Double.parseDouble(request.getParameter("savingGoalTextBox")); 
-	        String savingScheduleName = request.getParameter("savingScheduleNameTextBox");
+				double savingGoal = Double.parseDouble(request.getParameter("savingGoalTextBox")); 
+				String savingScheduleName = request.getParameter("savingScheduleNameTextBox");
 	        
-	        double costs = fixedCost - variableCost;
-	        double moneyLeft = income - costs;
+				double costs = fixedCost - variableCost;
+				double moneyLeft = income - costs;
 	        
 	       
-	        if(savingDurationYear!= 0 && savingDurationMonth!=0) {
-	        	savingDuration = (savingDurationYear*12)+savingDurationMonth;
-	        }
-	        else if(savingDurationYear!= 0 && savingDurationMonth==0) {
-	        	savingDuration = (savingDurationYear*12);
-	        }
-	        else if(savingDurationYear== 0 && savingDurationMonth!=0) {
-	        	savingDuration = savingDurationMonth;
-	        }
+				if(savingDurationYear!= 0 && savingDurationMonth!=0) {
+					savingDuration = (savingDurationYear*12)+savingDurationMonth;
+				}
+				else if(savingDurationYear!= 0 && savingDurationMonth==0) {
+					savingDuration = (savingDurationYear*12);
+				}
+				else if(savingDurationYear== 0 && savingDurationMonth!=0) {
+					savingDuration = savingDurationMonth;
+				}
 	        
-	        double moneySaving = savingGoal/savingDuration;
-	        double howManyMonths = 0;
+				double moneySaving = savingGoal/savingDuration;
+				double howManyMonths = 0;
 	        
 	        	if(moneySaving<moneyLeft) {
 	        		SavingSchedule s = new SavingSchedule();
@@ -126,12 +125,17 @@ public class SavingAppControllerServlet extends HttpServlet {
 	 	            url="/new.jsp";
 	        		
 	        	}
-	        	
 	        	else {
 	        		howManyMonths=savingGoal/moneyLeft;
 	        		url = "/new.jsp";		
-					request.setAttribute("howManyMonths", howManyMonths);
+					request.setAttribute("errorMessage", "You cant reach your goal within this duration, try " + howManyMonths + " month");
 	        	}
+			}catch(Exception e) {
+					url = "/new.jsp";		
+					request.setAttribute("errorMessage", "Something went wrong, try again later");
+			}
+	        	
+	        	
 			
 		}
 		
@@ -217,7 +221,8 @@ public class SavingAppControllerServlet extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		 String url = "";
-		 session.setAttribute("errorMessage", "");
+		 session = request.getSession();
+		 session.setAttribute("errorMessage", "");	 
 		 
 		try {
 		 Account account = (Account)session.getAttribute("account");
@@ -227,7 +232,7 @@ public class SavingAppControllerServlet extends HttpServlet {
          double totalIncome = Double.parseDouble(request.getParameter("incomeTextBox"));
          double fixedCost = Double.parseDouble(request.getParameter("fixedCostTextBox"));
          double variableCost = Double.parseDouble(request.getParameter("variableCostTextBox"));
-         session = request.getSession();
+         
  
          Account a = facade.findByAccountUsername(username);
          	if(a!=null) {
@@ -256,7 +261,8 @@ public class SavingAppControllerServlet extends HttpServlet {
 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		try {
 		String operation = request.getParameter("operation");
 		Account account = (Account)request.getSession().getAttribute("account");
 		String username = account.getUsername();
@@ -274,6 +280,9 @@ public class SavingAppControllerServlet extends HttpServlet {
 	    	 else {
 	    		 url="/settings.jsp";
 	    	 }
+		} catch(Exception e) {
+			
+		}
 		
 
 	  

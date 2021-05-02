@@ -10,6 +10,9 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
 </script>
 
+<script src="js/SavingApp.js"></script>
+
+
 <link rel="stylesheet" type="text/css" href="css/MySavingAppOther.css">
 
 <meta charset=ISO-8859-1>
@@ -18,7 +21,10 @@
 </head>
 <body>
 <header>
-	<section id="body">
+ 	<%String error =(String)request.getSession().getAttribute("errorMessage");
+	if(error==null){
+	error = "";
+	}%>
 		<section id = "meny">
 		<input name="username" id="username" value="" type = "hidden">
         	<div class="home">
@@ -44,9 +50,8 @@
      
      	<section id = "mainbodyNew">
      	
-     	
 			<div class="newBox">
-			<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8>
+			<form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8 onsubmit="return checkGoal()">
 			
 			<br>
 			<div class="textBoxStyle">
@@ -73,14 +78,11 @@
 			<input type="submit" name="submit" value="Make a saving schedule" id="saveSavingScheduleBtn"> 
 			<input name="operation"  value="createAnSavingSchedule"  type="hidden">		
 			</section>
-			
+			<p id = "errorLbl"><%=error%></p>
 			</form>		
 			</div>
 					
 		</section>
-			
-	</section>
-
 
 
 	<footer> 
@@ -107,24 +109,15 @@
         	</div>
         	<div class="rightdiv">
         	<br>
-        	<b>Code</b>
+        	<b>About</b>
 			<br><br>
-        	<a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink"><p>Test our code here</p></a>
+			<a href="http://localhost:8080/SavingAppWebProject/about.jsp" id="codeLink"><p>Our story</p></a>
+        	<a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink"><p>Test our code</p></a>
+        	
         	</div>
       	</section> 
 	</footer>   
-<script>
-
-$(document).ready(function(){	
-	<%if(request.getAttribute("howManyMonths") != null){
-		double months = (double)request.getAttribute("howManyMonths");%>
-		alert(<%=months%> + "<p>" + "this many months" + "</p>"); 
-	<%
-	}%>
-
-});
-
-</script>	
+	
 </body>
 </html>
 

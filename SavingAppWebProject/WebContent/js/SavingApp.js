@@ -17,98 +17,52 @@ function checkRegisterFields(){
 	
 	if(username == null || username == "" || firstname == null || firstname == "" || surname == null || surname == "" || income == null || income == "" || fixedCost == null || fixedCost == "" || variableCost == null || variableCost == ""){	
 		$("#errorLbl").text("Please fill in all the fields");		
-		return false
+		return false;
+	}else if(!income.match(/^([0-9])/) || !fixedCost.match(/^([0-9])/) || !variableCost.match(/^([0-9])/)){	
+		$("#errorLbl").text("Income, fixed cost and variable cost can only be a number");		
+		return false;
+	}else if(firstname.match(/[^0-9]/) || surname.match(/[^0-9]/)){	
+		$("#errorLbl").text("First name and surname can only be written with letters");		
+		return false;
 	}
 	return true;
 }
 
-function checkRegister(){
-
-	resetBorders();
-	var username = document.getElementById("usernameTextBox").value;
-	var firstName = document.getElementById("firstnameTextBox").value;
-	var surname = document.getElementById("surnameTextBox").value;
-	var income = document.getElementById("incomeTextBox").value;
-	var fixedCost = document.getElementById("fixedCostTextBox").value;
-	var variableCost = document.getElementById("variableCostTextBox").value;
-
-	let fields = [document.getElementById("usernameTextBox"), document.getElementById("firstnameTextBox"), document.getElementById("surnameTextBox"), document.getElementById("incomeTextBox"), document.getElementById("fixedCostTextBox"), document.getElementById("variableCostTextBox") ];
-
-	let errorMessage =["Only numbers between 0-9", "Write letters only", "Address", "0-9"];
-
+function checkGoal(){
+	var savingGoal = $("#savingGoalTextBox").val();
+	var durationYear = $("#savingDurationYearTextBox").val();
+	var durationMonth = $("#savingDurationMonthTextBox").val();
+	var savingName = $("#savingScheduleNameTextBox").val();
 	
-
-	if(ssn == null || ssn == "" || fullName == null || fullName == "" || address == null || address == "" || phoneNumber == null || phoneNumber == "" || !ssn.match(/^([0-9])/) || !fullName.match(/^[a-zA-Z\s]+$/) || !phoneNumber.match(/^([0-9])/)){
-
-
-		for(let field of fields){
-
-			if(field.value == ssn){
-
-				if(!ssn.match(/^([0-9])/)) {
-
-					var tmp = fields.indexOf(field);
-
-					field.style.border = "1px solid red";
-
-					field.value = "";
-
-					field.placeholder = errorMessage[tmp];
-
-				}
-
-			}
-
-			if(field.value == fullName) {
-
-				if(!fullName.match(/^[a-zA-Z\s]+$/)) {
-
-					var tmp = fields.indexOf(field);
-
-					field.style.border = "1px solid red";
-
-					field.value = "";
-
-					field.placeholder = errorMessage[tmp];
-
-				}
-
-			}			
-
-			if(field.value == phoneNumber){
-
-				if(!phoneNumber.match(/^([0-9])/)){
-
-					var tmp = fields.indexOf(field);
-
-					field.style.border = "1px solid red";
-
-					field.value = "";
-
-					field.placeholder = errorMessage[tmp];
-
-				}			
-
-			}			
-
-			if(field.value == null || field.value == ""){
-
-				var tmp = fields.indexOf(field);
-
-				field.style.border = "1px solid red";			
-
-				field.placeholder = errorMessage[tmp];
-
-			}		
-
-		}
-
+	
+	if(savingGoal == "" || savingGoal == null){
+		$("#errorLbl").text("Please fill in a saving goal name");		
 		return false;
-
+	}	
+	else if(!savingGoal.match(/^([0-9])/)){	
+		$("#errorLbl").text("Saving goal must be a number");		
+		return false;
 	}
-
-	
-
+	else if(!durationYear.match(/^([0-9])/)){	
+		$("#errorLbl").text("Saving goal must be a number");		
+		return false;
+	}
+	else if(!durationMonth.match(/^([0-9])/)){	
+		$("#errorLbl").text("Saving goal must be a number");		
+		return false;
+	}
+	return true;
 }
-	
+
+
+
+
+
+
+
+
+
+
+
+
 

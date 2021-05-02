@@ -105,38 +105,30 @@
 
 
 			
-    <footer> 
+	<footer> 
         <section id = "footer">
-        	<div class="leftdiv">
-        	<br>
-        	© 2021 MySavingApp Company
+        	<div class="leftdiv"><br>
+        		© 2021 MySavingApp Company
         	</div>
-        	<div class="leftcenterdiv">
-        	<br>
-        	<b>Contact</b>
-			<br><br>
-        	<p>contact@mySavingApp.com</p>
-        	<p>Stora Tomegatan 32B</p>
-        	<p>223 51, Lund</p>
+        	<div class="leftcenterdiv"><br>
+        		<b>Contact</b><br><br>
+        		<p>contact@mySavingApp.com</p>
+        		<p>Stora Tomegatan 32B</p>
+        		<p>223 51, Lund</p>
         	</div>
-        	<div class="rightcenterdiv">
-        	<br>
-        	<b>Social</b>
-			<br><br>
-        	<p>Facebook</p>
-        	<p>LinkedIn</p>
-        	<p>Instagram</p>
+        	<div class="rightcenterdiv"><br>
+        		<b>Social</b><br><br>
+        		<p>Facebook</p>
+        		<p>LinkedIn</p>
+        		<p>Instagram</p>
         	</div>
-        	<div class="rightdiv">
-        	<br>
-        	<b>Code</b>
-			<br><br>
-        	<a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink"><p>Test our code here</p></a>
+        	<div class="rightdiv"><br>
+        		<b>About</b><br><br>
+				<a href="http://localhost:8080/SavingAppWebProject/about.jsp" id="codeLink"><p>Our story</p></a>
+        		<a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink"><p>Test our code</p></a>
         	</div>
       	</section> 
 	</footer>   
-<script>
 
-</script>
 </body>
 </html>
