@@ -262,12 +262,13 @@ public class SavingAppControllerServlet extends HttpServlet {
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		try {
-		String operation = request.getParameter("operation");
+		String url="";
+		
+		try {		
 		Account account = (Account)request.getSession().getAttribute("account");
 		String username = account.getUsername();
 		Account a = facade.findByAccountUsername(username);
-   	 	String url="";
+   	 	
    	 		 
 	    	 if(a!= null) {
 	    		 for(SavingSchedule s : a.getSavingschedules()) {
@@ -281,7 +282,8 @@ public class SavingAppControllerServlet extends HttpServlet {
 	    		 url="/settings.jsp";
 	    	 }
 		} catch(Exception e) {
-			
+			session.setAttribute("errorMessage", "A unexpexted error has occured, try again later");
+	       	  url = "/settings.jsp";
 		}
 		
 
