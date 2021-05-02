@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1 accept-charset=UTF-8"
 
 	pageEncoding="ISO-8859-1"%>
 
@@ -7,7 +7,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<meta charset="ISO-8859-1">
+<meta charset="ISO-8859-1" accept-charset=UTF-8>
 <link rel="stylesheet" type="text/css" href="css/rest.css">
 
 <title>SavingApp</title>
@@ -156,7 +156,9 @@
 			</article>
 
 	<footer> 
+	<div>
         	© 2021 MySavingApp Company
+    </div>
    
 	</footer>   
 
@@ -213,9 +215,8 @@
 	})//btn find accounts savingschedules
 	
 	$("#ClearBtn").click(function() {
-		console.log("in here");
 		$('#list').empty();
-		//document.getElementById("list").empty();
+	
 		
 	})
 
@@ -343,7 +344,6 @@
 		console.log(result);
 		for(var i=0; i<result.length; i++){
 			$("#list").append("<li>" + result[i].Name + ": " + result[i].SavingGoal + "kr" + "</li>")
-			//$("<p>"  + "- " + result[i].Name + ": " + result[i].SavingGoal + "kr"+ "</p>").insertAfter("#list");
 		}
 	
 	}

@@ -21,7 +21,7 @@ function checkRegisterFields(){
 	}else if(!income.match(/^([0-9])/) || !fixedCost.match(/^([0-9])/) || !variableCost.match(/^([0-9])/)){	
 		$("#errorLbl").text("Income, fixed cost and variable cost can only be a number");		
 		return false;
-	}else if(firstname.match(/[^0-9]/) || surname.match(/[^0-9]/)){	
+	}else if(!firstname.match(/[^0-9]/) || !surname.match(/[^0-9]/)){	
 		$("#errorLbl").text("First name and surname can only be written with letters");		
 		return false;
 	}

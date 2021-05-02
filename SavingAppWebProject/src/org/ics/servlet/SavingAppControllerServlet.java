@@ -109,7 +109,8 @@ public class SavingAppControllerServlet extends HttpServlet {
 					savingDuration = savingDurationMonth;
 				}
 	        
-				double moneySaving = savingGoal/savingDuration;
+				double moneySaving = Math.round(savingGoal/savingDuration);
+			
 				double howManyMonths = 0;
 	        
 	        	if(moneySaving<moneyLeft) {

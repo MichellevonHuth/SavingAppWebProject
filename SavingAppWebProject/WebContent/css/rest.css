@@ -151,14 +151,13 @@ div {
 	height: 200px; 
 	overflow-y: auto;
 	margin-top: 21%;
-	margin-left: 7%;
+	margin-left: 10%;
 
 }
 .Content{
 	height: 150px;
     color: white;
     size: 12px;
-    padding-left: 20%;
   
    
 }
