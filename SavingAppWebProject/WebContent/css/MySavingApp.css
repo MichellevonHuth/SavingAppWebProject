@@ -13,6 +13,16 @@
 	background-image: url('https://i.postimg.cc/wjFRDSpq/Stars-3.jpg');
 }
 
+#body {
+	margin-top: -2%; 
+}
+
+img {
+	float: left; 
+	margin-top: -18px; 
+	margin-left: 4px; 
+}
+
 section#footer{
 	border-top: 1px solid #383939;
 }

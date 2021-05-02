@@ -4,6 +4,13 @@ body{
 	background-color: #171717;
 
 }
+
+img {
+	float: left; 
+	margin-top: 4px; 
+	margin-left: 4px; 
+}
+
 section#meny{
 	height: 130px;
 	display: flex;

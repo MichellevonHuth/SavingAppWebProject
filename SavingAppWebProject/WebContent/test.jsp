@@ -18,6 +18,7 @@
 </head>
 <body>
 <header>
+	<img src ="https://i.postimg.cc/7YJC3N9j/MY-SAVING-APP.png"  width="120" height="120"><br><br>
 	<section id="body">
 		<section id = "meny">
 <input name="username" id="username" value="" type = "hidden">

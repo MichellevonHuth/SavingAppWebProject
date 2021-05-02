@@ -19,9 +19,9 @@
 </head>
 <body>
 	<header>
+	<img src ="https://i.postimg.cc/7YJC3N9j/MY-SAVING-APP.png"  width="120" height="120"><br><br>
 	<section id="body">
         <section id = "meny">
-
         	<div class="home">
         	<a href="http://localhost:8080/SavingAppWebProject/home.jsp" id="home"><img src="https://i.postimg.cc/BQxwqDjF/Sk-rmavbild-2021-04-20-kl-23-00-10-4.jpg" ></a>
         	</div>
