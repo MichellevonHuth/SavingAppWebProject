@@ -57,13 +57,13 @@
 
 		<div id="rightdiv">		
 			<div id= "portraits1">
-				<img src ="https://i.postimg.cc/XvL6LCjn/Ska-rmavbild-2021-04-29-kl-21-27-07-5.jpg"  width="160" height="200" style="border-radius: 10px;">
-				<img src ="https://i.postimg.cc/R04zwRzP/Ska-rmavbild-2021-04-29-kl-21-27-07-3.jpg" width="160" height="200" style="border-radius: 10px;">
+				<img src ="https://i.postimg.cc/XvL6LCjn/Ska-rmavbild-2021-04-29-kl-21-27-07-5.jpg"  width="160" height="200" style="border-radius: 18px;">
+				<img src ="https://i.postimg.cc/R04zwRzP/Ska-rmavbild-2021-04-29-kl-21-27-07-3.jpg" width="160" height="200" style="border-radius: 18px;">
 			</div>
 		
 			<div id= "portraits2">
-				<img src ="https://i.postimg.cc/mgQscnKz/Ska-rmavbild-2021-04-29-kl-21-27-07-2.jpg"  width="160" height="200" style="border-radius: 10px;">
-				<img src ="https://i.postimg.cc/Y9SKsC0Y/Ska-rmavbild-2021-04-29-kl-21-27-07.jpg"  width="160" height="200" style="border-radius: 10px;">	
+				<img src ="https://i.postimg.cc/mgQscnKz/Ska-rmavbild-2021-04-29-kl-21-27-07-2.jpg"  width="160" height="200" style="border-radius: 18px;">
+				<img src ="https://i.postimg.cc/Y9SKsC0Y/Ska-rmavbild-2021-04-29-kl-21-27-07.jpg"  width="160" height="200" style="border-radius: 18px;">	
 			</div>
 		</div>
 
