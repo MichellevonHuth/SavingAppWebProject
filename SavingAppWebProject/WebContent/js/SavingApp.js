@@ -35,10 +35,14 @@ function checkGoal(){
 	var savingName = $("#savingScheduleNameTextBox").val();
 	
 	
-	if(savingGoal == "" || savingGoal == null){
+	if(savingName == "" || savingName == null){
 		$("#errorLbl").text("Please fill in a saving goal name");		
 		return false;
 	}	
+	if(savingGoal == "" || savingGoal == null){
+		$("#errorLbl").text("Please fill in a saving goal");		
+		return false;
+	}
 	else if(!savingGoal.match(/^([0-9])/)){	
 		$("#errorLbl").text("Saving goal must be a number");		
 		return false;

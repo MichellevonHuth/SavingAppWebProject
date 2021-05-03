@@ -81,10 +81,11 @@
 						<br> <input type="text" name="fixedCost" id="fixedCost" value="" placeholder="Fixed costs:"> <br>
 						
 						<br> <input type="text" name="variableCost" id="variableCost" value="" placeholder="Variable costs:"> <br>
-						
+						<label id="errorAccount"></label>
 						<br> 
 						<input type="button" name="submitBtn" value="Create" id="AddBtn">
-						<label id="errormessage"> </label>				
+						<label id ="accountAdded" class="errormessageGreen"> </label>	
+						<label id = "accountError" class ="errormessageRed"> </label>				
 
 			</div>			
 
@@ -97,6 +98,8 @@
 							
 						<br> <input type="text" name="usernameDelete" id="usernameDelete" value="" placeholder="Username:"><br>
 
+						<label id="delete" class ="errormessageGreen"> </label>
+						<label id="errorDelete" class ="errormessageRed"> </label>
 						<br>
 
 						<input type="button" name="submitBtn" value="Delete" id="DeleteBtn"><br>
@@ -110,8 +113,6 @@
 
 				<strong id="text">Create new <br> saving schedule</strong><br><br>
 
-					
-						
 						<input type="text" name="usernameS" id="usernameS" value="" placeholder="Your username:"><br>
 
 						<br> <input type="text" name="name" id="name" value="" placeholder="Saving schedule name:"><br>
@@ -121,7 +122,8 @@
 						<br> <input type="text" name="year" id="year" value="" placeholder="Saving duration (years):"> 
 						<br> 
 						<br> <input type="text" name="month" id="month" value="" placeholder="Saving duration (months):"> <br>
-						
+						<label id="saving" class="errormessageGreen"> </label>
+						<label id="errorSaving" class="errormessageRed"> </label>
 						<br> <br>
 						 <input type="button" name="submitBtn" value="Create" id="AddBtnSavingSchedule">
 
@@ -135,7 +137,7 @@
 				<strong id="text">Show schedules:</strong><br>
 							
 						<br> <input type="text" name="findUsername" id="findUsername" value="" placeholder="Username:"><br>
-
+							<label id="errorFind" class="errormessageRed"></label>
 						<br>
 
 						<input type="button" name="submitBtn" value="Show" id="ShowBtn"><br>
@@ -157,7 +159,7 @@
 
 	<footer> 
 	<div>
-        	Â© 2021 MySavingApp Company
+        	© 2021 MySavingApp Company
     </div>
    
 	</footer>   
@@ -183,10 +185,12 @@
 	}
 
 	$("#ShowBtn").click(function() {
+		$("#errorFind").empty();
+		
 	  var strValue = $("#findUsername").val();
 	  
 	  if(strValue == ""){
-		  pleaseFillInAllTheFields();
+		 $("#errorFind").append("Please fill in the field")
 	  }
 	  
 	  if (strValue != "") {
@@ -204,23 +208,20 @@
 	}
 
 	function ajaxFindReturnError(result, status, xhr) {
-		alert("Username doesn't exists");
-		console.log("Ajax-find account: "+status);
+		$("#errorFind").append("This user doesn't exist")
 
 	 		}
-
 		 }
-	  
-
 	})//btn find accounts savingschedules
 	
 	$("#ClearBtn").click(function() {
-		$('#list').empty();
-	
-		
+		$('#list').empty();	
 	})
 
 	$("#AddBtn").click( function() {
+		$("#accountAdded").empty();
+		$("#accountError").empty();
+		
 		var strId = $("#username").val();
 		var strFirstName = $("#firstName").val();
 		var strSurname = $("#surname").val();
@@ -228,12 +229,16 @@
 		var strTotalIncome = $("#totalIncome").val();
 		var strVariableCost = $("#variableCost").val();
 	
+		if(strId == "" ||strFirstName == "" || strSurname == "" ||strFixedCost == "" ||strTotalIncome == "" || strTotalIncome == "" ||strVariableCost == "" ){
+			$("#accountError").append("Please fill in all the fields")
+		}
+		
 		
 		var obj = { id: strId, firstName: strFirstName, surname: strSurname, fixedCost: strFixedCost, totalIncome: strTotalIncome, variableCost: strVariableCost};
 		var jsonString = JSON.stringify(obj);
 		
 		
-		if (strId != "") {
+		if (strId != "" && strFirstName != "" && strSurname != "" && strFixedCost !="" && strTotalIncome !="" && strVariableCost!= "") {
 			$.ajax({
 
 				method: "POST",
@@ -247,13 +252,14 @@
 
 	function ajaxAddReturnSuccess(result, status, xhr) {
 		var message = result;
-		$("#username").attr("placeholder", result);
+		$("#accountAdded").append(result)
 		clearFieldsCreateAccount();
 		
 		}
 
 	function ajaxAddReturnError(result, status, xhr) {
-		alert("The user you are trying to add already exists");
+		var message = result;
+		$("#accountError").append("The user you are trying to add already exists")
 
 			}
 		}
@@ -263,17 +269,25 @@
 	})//btn add account 
 
 	$("#AddBtnSavingSchedule").click( function() {
-		var strId = $("#usernameS").val();
+		$("#errorSaving").empty();
+		$("#saving").empty();
+		
+		var strUsername = $("#usernameS").val();
 		var strName = $("#name").val();
 		var strGoal = $("#goal").val();
 		var strYear = $("#year").val();
 		var strMonth = $("#month").val();
 		
-		var obj = {usernameS: strId, name: strName, goal: strGoal, year: strYear, month: strMonth};
+		if(strUsername == "" ||strName == "" || strGoal == "" ||strYear == "" ||strMonth == "" ){
+			$("#errorSaving").append("Please fill in all the fields")
+		}
+		
+		
+		var obj = {usernameS: strUsername, name: strName, goal: strGoal, year: strYear, month: strMonth};
 		var jsonString = JSON.stringify(obj);
 			
 
-		if (strId != "") {
+		if (strUsername != "" && strName !="" && strGoal !="" && strYear !="" && strMonth !="") {
 			$.ajax({
 
 				method: "POST",
@@ -287,15 +301,14 @@
 
 	function ajaxAddReturnSuccess(result, status, xhr) {
 		var message = result;
-		$("#usernameS").attr("placeholder", result);
+		$("#saving").append(result);
 		clearCreateSchedule();
 
 	}
 
 	function ajaxAddReturnError(result, status, xhr) {
-	alert("Username doesn't exists");
-	clearCreateSchedule();
-	console.log("Ajax-find account: "+status);
+		var message = result;
+		$("#errorSaving").append(result);
 
 				}
 
@@ -303,10 +316,13 @@
 	})//btn add Savingschedule
 
 	$("#DeleteBtn").click( function() {
+		$("#delete").empty()
+		$("#errorDelete").empty()
+		
 		var strValue = $("#usernameDelete").val();
 		
 		if(strValue == ""){
-			pleaseFillInAllTheFields();
+			$("#errorDelete").append("Please fill in the field")
 		}
 		
 		else {	
@@ -322,14 +338,13 @@
 	})
 
 	function ajaxDelReturnSuccess(result, status, xhr) {
-		$("#usernameDelete").attr("placeholder", "Account deleted");
+		$("#delete").append("Account deleted")
 		clearFieldAccountDeleted();
 	
 	}
 
 	function ajaxDelReturnError(result, status, xhr) {
-		alert("Username doesn't exists");
-		console.log("Ajax-find account: "+status);
+		$("#errorDelete").append("This account doesn't exist")
 
 			}
 

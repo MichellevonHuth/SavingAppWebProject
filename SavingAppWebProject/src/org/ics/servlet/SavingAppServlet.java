@@ -43,14 +43,10 @@ public class SavingAppServlet extends HttpServlet {
 		try {
 			String id = splits[1];
 			Account account = facade.findByAccountUsername(id);
-			if(account!= null) {
-				sendAsJson(response, account.getSavingschedules());
+			sendAsJson(response, account.getSavingschedules());
 			}
-			else {
-				response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-				return;
-			}
-		} catch(Exception e) {
+			
+		 catch(Exception e) {
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			return;
 		}
@@ -84,13 +80,12 @@ public class SavingAppServlet extends HttpServlet {
 			
 			try {
 				a = facade.createAccount(a);
-				sendAsJson(response, a);
-
+				
 			}catch(Exception e) {
 				response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 				return;
 			}
-			
+			sendAsJson(response, a);
 		}
 
 	}
@@ -106,9 +101,10 @@ public class SavingAppServlet extends HttpServlet {
 		String[] splits = pathInfo.split("/");
 		
 		String id = splits[1];
-		Account account = facade.findByAccountUsername(id);
+		
 		
 		try {
+		Account account = facade.findByAccountUsername(id);
 			if (account != null) {
 				for(SavingSchedule s : account.getSavingschedules()) {
 					facade.deleteSavingSchedule(s.getSavingScheduleNbr());
@@ -119,7 +115,6 @@ public class SavingAppServlet extends HttpServlet {
 				response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 				return;
 			}
-			
 		} catch (Exception e) {
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			return;
@@ -138,8 +133,7 @@ public class SavingAppServlet extends HttpServlet {
 		
 
 		} else {
-			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-			return;
+			out.print("\"" + "The user you are trying to add already exists"+ "\"");
 		}
 		out.flush();
 
@@ -154,7 +148,7 @@ public class SavingAppServlet extends HttpServlet {
 			out.print("\"" +"SavingSchedule added"+ "\"");
 
 		} else {
-			out.print("{ }");
+			out.print("\"" +"This username doesn't exists"+ "\"");
 		}
 		out.flush();
 
@@ -178,7 +172,7 @@ public class SavingAppServlet extends HttpServlet {
 			out.print(jsonArray.toString());
 
 		} else {
-			out.print("[]");
+			out.print("This account doesn't exist");
 
 		}
 			out.flush(); 

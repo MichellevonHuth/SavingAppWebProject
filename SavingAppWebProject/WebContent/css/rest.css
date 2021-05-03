@@ -179,6 +179,16 @@ div {
         ::-webkit-scrollbar-thumb {
            
         }
+        
+.errormessageGreen {
+	color: green; 
+}
+
+.errormessageRed {
+	color: red; 	
+}
+
+
       
 footer{
 	font-style: bold;
