@@ -18,149 +18,102 @@
 	
 	</header>
 		<aside>
-
 			<table id="asideTable">
-
-				<tbody>
-				
+				<tbody>			
 					<tr><td><span id="city"></span></td>
-					<td><span id="ipNbr"></span></td>
-					
+					<td><span id="ipNbr"></span></td>				
 					</tr> 
-
 					<tr><td></td></tr>
 					<tr><td></td></tr>
 					<tr><td></td></tr>
 					<tr><td></td></tr>
-					<tr><td></td></tr>
-					
+					<tr><td></td></tr>					
 					<tr><td><span id="degree"></span></td>
-
-					<td><span id="weather"></span></td>
-					
-					
+					<td><span id="weather"></span></td>					
 					<td><span></span></td>
-
 					<td><span></span></td>
-
-				<tr>
-
+					<tr>
 					<td colspan="4"><span id="sunrise"></span></td>
-
 				</tr>
-
 				<tr>
-
 					<td colspan="4"><span id="sunset"></span></td>
-
 				</tr>
-
 			</tbody></table>
-
-		</aside>
-
-	
+		</aside>	
 
 		<article class="dot"></article>
-
+		
 		<section id="CreateAccountBox"> 
-
-			<div>
-
-						
-						<strong id="text">Create new account</strong><br>
-							
-						<br> <input type="text" name="username" id="username" value="" placeholder="Username:"><br>
-
-						<br> <input type="text" name="firstName" id="firstName" value="" placeholder="First name:"> <br> 
-							
-						<br> <input type="text" name="surname" id="surname" value="" placeholder="Surname:"> <br> 
-
-						<br> <input type="text" name="totalIncome" id="totalIncome" value="" placeholder="Total income:"> <br>
-						
-						<br> <input type="text" name="fixedCost" id="fixedCost" value="" placeholder="Fixed costs:"> <br>
-						
-						<br> <input type="text" name="variableCost" id="variableCost" value="" placeholder="Variable costs:"> <br>
-						<label id="errorAccount"></label>
-						<br> 
-						<input type="button" name="submitBtn" value="Create" id="AddBtn">
-						<label id ="accountAdded" class="errormessageGreen"> </label>	
-						<label id = "accountError" class ="errormessageRed"> </label>				
-
+			<div>						
+				<strong id="text">Create new account</strong><br>
+				<br> <input type="text" name="username" id="username" value="" placeholder="Username:"><br>
+				<br> <input type="text" name="firstName" id="firstName" value="" placeholder="First name:"> <br> 
+				<br> <input type="text" name="surname" id="surname" value="" placeholder="Surname:"> <br> 
+				<br> <input type="text" name="totalIncome" id="totalIncome" value="" placeholder="Total income:"> <br>
+				<br> <input type="text" name="fixedCost" id="fixedCost" value="" placeholder="Fixed costs:"> <br>
+				<br> <input type="text" name="variableCost" id="variableCost" value="" placeholder="Variable costs:"> <br>
+				<label id="errorAccount"></label>
+				<br> 
+				<input type="button" name="submitBtn" value="Create" id="AddBtn">
+				<label id ="accountAdded" class="errormessageGreen"> </label>	
+				<label id = "accountError" class ="errormessageRed"> </label>				
 			</div>			
-
 		</section>
 
 		<section id="DeleteAccountBox">
 			<div>
-
-				<strong id="text">Delete account</strong><br>
-							
+				<strong id="text">Delete account</strong><br>							
 						<br> <input type="text" name="usernameDelete" id="usernameDelete" value="" placeholder="Username:"><br>
-
 						<label id="delete" class ="errormessageGreen"> </label>
 						<label id="errorDelete" class ="errormessageRed"> </label>
 						<br>
-
 						<input type="button" name="submitBtn" value="Delete" id="DeleteBtn"><br>
-
 			</div>
 		</section>
 		         
-			<section id="SavingScheduleBox">
+		<section id="SavingScheduleBox">
 
-				<div>
-
+			<div>
 				<strong id="text">Create new <br> saving schedule</strong><br><br>
+				<input type="text" name="usernameS" id="usernameS" value="" placeholder="Your username:"><br>
+				<br> <input type="text" name="name" id="name" value="" placeholder="Saving schedule name:"><br>
+				<br> <input type="text" name="goal" id="goal" value="" placeholder="Saving goal (SEK):"> <br> 
+				<br> <input type="text" name="year" id="year" value="" placeholder="Saving duration (years):"> 
+				<br> 
+				<br> <input type="text" name="month" id="month" value="" placeholder="Saving duration (months):"> <br>
+				<label id="saving" class="errormessageGreen"> </label>
+				<label id="errorSaving" class="errormessageRed"> </label>
+				<br> <br>
+				<input type="button" name="submitBtn" value="Create" id="AddBtnSavingSchedule">
+			</div>
 
-						<input type="text" name="usernameS" id="usernameS" value="" placeholder="Your username:"><br>
-
-						<br> <input type="text" name="name" id="name" value="" placeholder="Saving schedule name:"><br>
-
-					 	<br> <input type="text" name="goal" id="goal" value="" placeholder="Saving goal (SEK):"> <br> 
-							
-						<br> <input type="text" name="year" id="year" value="" placeholder="Saving duration (years):"> 
-						<br> 
-						<br> <input type="text" name="month" id="month" value="" placeholder="Saving duration (months):"> <br>
-						<label id="saving" class="errormessageGreen"> </label>
-						<label id="errorSaving" class="errormessageRed"> </label>
-						<br> <br>
-						 <input type="button" name="submitBtn" value="Create" id="AddBtnSavingSchedule">
-
-					</div>
-
-			</section>
+		</section>
 
 			<section id="FindSavingsBox">
-			<div>
+				<div>
 
-				<strong id="text">Show schedules:</strong><br>
-							
-						<br> <input type="text" name="findUsername" id="findUsername" value="" placeholder="Username:"><br>
-							<label id="errorFind" class="errormessageRed"></label>
-						<br>
-
-						<input type="button" name="submitBtn" value="Show" id="ShowBtn"><br>
-
-			</div>
+					<strong id="text">Show schedules:</strong><br>
+					<br> <input type="text" name="findUsername" id="findUsername" value="" placeholder="Username:"><br>
+					<label id="errorFind" class="errormessageRed"></label>
+					<br><input type="button" name="submitBtn" value="Show" id="ShowBtn"><br>
+				</div>
 			</section>
 
 
 			<article class="dot2">
 				<article id="clear" class="Container Flipped">
-				<article class="Content">
-				<ul  id= "list">	
-				</ul>
-			</article>
-		</article>
-
+					<article class="Content">
+						<ul  id= "list">	
+						</ul>
+					</article>
+				</article>
 				<input type="button" name="ClearBtn" value="Clear" id="ClearBtn"><br>
 			</article>
 
 	<footer> 
-	<div>
+		<div>
         	© 2021 MySavingApp Company
-    </div>
+    	</div>
    
 	</footer>   
 

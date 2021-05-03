@@ -155,6 +155,12 @@ section#mainbodyNew{
 	position: absolut;	
 }
 
+#messageLbl{
+	color: #80ff80;
+	margin-left: 50px;
+	position: absolut;	
+}
+
 .welcomeText{
     height: 400px;
     width: 40%;

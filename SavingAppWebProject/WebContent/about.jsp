@@ -41,34 +41,33 @@
       </section>
   </header>  
     
-   <section id="aboutSection">
-<aside id="leftdiv">
-	<h1 style="font-size: 40px;">
-	Our story
-	</h1>
-	
-	<p>We are four girls who has made this app just because we want YOU to achieve your dreams. The first idea of this app came to us when we were saving for our exchange semester in Australia. Then we realized that there is no good saving apps out there... Until now! Call us dreamers if you like, but we want to help people feel good about money.
+  <section id="aboutSection">
+   
+		<aside id="leftdiv">
+			<h1 style="font-size: 40px;">
+				Our story
+			</h1>
+		
+			<p>We are four girls who has made this app just because we want YOU to achieve your dreams. The first idea of this app came to us when we were saving for our exchange semester in Australia. Then we realized that there is no good saving apps out there... Until now! Call us dreamers if you like, but we want to help people feel good about money.
+			In a world of overspending and easy credit, it is no surprise that money is the number one source of stress for millions of people.
+			We created Dreams to level the playing field. To give people a better chance of achieving their goals, and a simple way to take control of their finances.</p>
+		
+		</aside>
 
-In a world of overspending and easy credit, it’s no surprise that money is the number one source of stress for millions of people.
 
-We created Dreams to level the playing field. To give people a better chance of achieving their goals, and a simple way to take control of their finances.</p>
-	
-</aside>
+		<div id="rightdiv">		
+			<div id= "portraits1">
+				<img src ="https://i.postimg.cc/XvL6LCjn/Ska-rmavbild-2021-04-29-kl-21-27-07-5.jpg"  width="160" height="200" style="border-radius: 10px;">
+				<img src ="https://i.postimg.cc/R04zwRzP/Ska-rmavbild-2021-04-29-kl-21-27-07-3.jpg" width="160" height="200" style="border-radius: 10px;">
+			</div>
+		
+			<div id= "portraits2">
+				<img src ="https://i.postimg.cc/mgQscnKz/Ska-rmavbild-2021-04-29-kl-21-27-07-2.jpg"  width="160" height="200" style="border-radius: 10px;">
+				<img src ="https://i.postimg.cc/Y9SKsC0Y/Ska-rmavbild-2021-04-29-kl-21-27-07.jpg"  width="160" height="200" style="border-radius: 10px;">	
+			</div>
+		</div>
 
-
-<div id="rightdiv">		
-	<div id= "portraits1">
-	<img src ="https://i.postimg.cc/XvL6LCjn/Ska-rmavbild-2021-04-29-kl-21-27-07-5.jpg"  width="160" height="200" style="border-radius: 10px;">
-	<img src ="https://i.postimg.cc/R04zwRzP/Ska-rmavbild-2021-04-29-kl-21-27-07-3.jpg" width="160" height="200" style="border-radius: 10px;">
-	</div>
-	
-	<div id= "portraits2">
-	<img src ="https://i.postimg.cc/mgQscnKz/Ska-rmavbild-2021-04-29-kl-21-27-07-2.jpg"  width="160" height="200" style="border-radius: 10px;">
-	<img src ="https://i.postimg.cc/Y9SKsC0Y/Ska-rmavbild-2021-04-29-kl-21-27-07.jpg"  width="160" height="200" style="border-radius: 10px;">	
-	</div>
-</div>
-
- </section>	
+	</section>	
 
 
 	<footer> 
@@ -90,8 +89,8 @@ We created Dreams to level the playing field. To give people a better chance of 
         	</div>
         	<div class="rightdiv"><br>
         		<b>About</b><br><br>
-				<a href="http://localhost:8080/SavingAppWebProject/about.jsp" id="codeLink"><p>Our story</p></a>
-        		<a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink"><p>Test our code</p></a>
+				<p><a href="http://localhost:8080/SavingAppWebProject/about.jsp" id="codeLink">Our story</a></p>
+        		<p><a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink">Test our code</a></p>
         	</div>
       	</section> 
 	</footer> 

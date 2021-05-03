@@ -17,19 +17,20 @@
 <title>MySavingApp</title>
 </head>
 <body>
-<header>
-	<img src ="https://i.postimg.cc/7YJC3N9j/MY-SAVING-APP.png"  width="120" height="120"><br><br>
-	<section id="body">
+
+	<header>
+		<img src ="https://i.postimg.cc/7YJC3N9j/MY-SAVING-APP.png"  width="120" height="120"><br><br>
+	
 		<section id = "meny">
-<input name="username" id="username" value="" type = "hidden">
+			<input name="username" id="username" value="" type = "hidden">
         	<div class="home">
-        	<a href="http://localhost:8080/SavingAppWebProject/home.jsp" id="home"><img src="https://i.postimg.cc/QC7MrG23/Sk-rmavbild-2021-04-20-kl-23-00-10.jpg" onmouseover="this.src='https://i.postimg.cc/0jxzf6tc/Sk-rmavbild-2021-04-20-kl-23-00-10-7.jpg'" onmouseout="this.src='https://i.postimg.cc/QC7MrG23/Sk-rmavbild-2021-04-20-kl-23-00-10.jpg'"/></a>
+        		<a href="http://localhost:8080/SavingAppWebProject/home.jsp" id="home"><img src="https://i.postimg.cc/QC7MrG23/Sk-rmavbild-2021-04-20-kl-23-00-10.jpg" onmouseover="this.src='https://i.postimg.cc/0jxzf6tc/Sk-rmavbild-2021-04-20-kl-23-00-10-7.jpg'" onmouseout="this.src='https://i.postimg.cc/QC7MrG23/Sk-rmavbild-2021-04-20-kl-23-00-10.jpg'"/></a>
         	</div>
         	<div class="savingschedules">
-        	<a href="SavingAppControllerServlet?operation=getSavingSchedules" id="savingschedules"><img src="https://i.postimg.cc/SQf5Dt22/Sk-rmavbild-2021-04-20-kl-23-00-10-1.jpg" onmouseover="this.src='https://i.postimg.cc/bvXzcSSN/Sk-rmavbild-2021-04-20-kl-23-00-10-1-6.jpg'" onmouseout="this.src='https://i.postimg.cc/SQf5Dt22/Sk-rmavbild-2021-04-20-kl-23-00-10-1.jpg'"/></a>
+        		<a href="SavingAppControllerServlet?operation=getSavingSchedules" id="savingschedules"><img src="https://i.postimg.cc/SQf5Dt22/Sk-rmavbild-2021-04-20-kl-23-00-10-1.jpg" onmouseover="this.src='https://i.postimg.cc/bvXzcSSN/Sk-rmavbild-2021-04-20-kl-23-00-10-1-6.jpg'" onmouseout="this.src='https://i.postimg.cc/SQf5Dt22/Sk-rmavbild-2021-04-20-kl-23-00-10-1.jpg'"/></a>
         	</div>
         	<div class="new">
-			<a href="http://localhost:8080/SavingAppWebProject/new.jsp" id="new"><img src="https://i.postimg.cc/Prf7czY6/Sk-rmavbild-2021-04-20-kl-23-00-10-2.jpg" onmouseover="this.src='https://i.postimg.cc/pTmcn7nX/Namnl-s-7.jpg'" onmouseout="this.src='https://i.postimg.cc/Prf7czY6/Sk-rmavbild-2021-04-20-kl-23-00-10-2.jpg'"/></a>
+				<a href="http://localhost:8080/SavingAppWebProject/new.jsp" id="new"><img src="https://i.postimg.cc/Prf7czY6/Sk-rmavbild-2021-04-20-kl-23-00-10-2.jpg" onmouseover="this.src='https://i.postimg.cc/pTmcn7nX/Namnl-s-7.jpg'" onmouseout="this.src='https://i.postimg.cc/Prf7czY6/Sk-rmavbild-2021-04-20-kl-23-00-10-2.jpg'"/></a>
         	</div>
         	<div class="settings">
         	    <form action="/SavingAppWebProject/SavingAppControllerServlet" method="get">
@@ -38,27 +39,23 @@
         		</form>
         	</div>
       	</section>
-  </header>    	
-      	<div class="testHeader">
-     		<p>Test our code</p>
-     	</div>
+  </header>  
+    	
+  <div class="testHeader">
+  	 <p>Test our code</p>
+  </div>
      
-     	<section id = "mainbodyNew">
-     	
-     	
-			<div class="testing">
-				
-				<form action="TestServlet" method="get" name="youPickItForm">
+  <section id = "mainbodyNew">
+	   <div class="testing">
+			<form action="TestServlet" method="get" name="youPickItForm">
 				<select name="suite" id="comboBox" size="2" multiple>
-				<option value="ics.junit.ejb.FacadeTest">ics.junit.ejb.FacadeTest</option>
+					<option value="ics.junit.ejb.FacadeTest">ics.junit.ejb.FacadeTest</option>
 				</select>
 				<br><br>
 				<input type="submit" value="Run" id="runBtn"/>
-				</form>
-				
-			</div>
-					
-		</section>
+			</form>
+		</div>
+	</section>
 			
 
 	<footer> 
@@ -80,8 +77,8 @@
         	</div>
         	<div class="rightdiv"><br>
         		<b>About</b><br><br>
-				<a href="http://localhost:8080/SavingAppWebProject/about.jsp" id="codeLink"><p>Our story</p></a>
-        		<a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink"><p>Test our code</p></a>
+				<p><a href="http://localhost:8080/SavingAppWebProject/about.jsp" id="codeLink">Our story</a></p>
+        		<p><a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink">Test our code</a></p>
         	</div>
       	</section> 
 	</footer> 

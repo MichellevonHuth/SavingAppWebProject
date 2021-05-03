@@ -18,8 +18,9 @@
 <title>MySavingApp</title>
 </head>
 <body>
+
 	<header>
-	<img src ="https://i.postimg.cc/7YJC3N9j/MY-SAVING-APP.png"  width="120" height="120"><br><br>
+		<img src ="https://i.postimg.cc/7YJC3N9j/MY-SAVING-APP.png"  width="120" height="120"><br><br>
         <section id = "meny">
         	<div class="home">
         		<a href="http://localhost:8080/SavingAppWebProject/home.jsp" id="home"><img src="https://i.postimg.cc/BQxwqDjF/Sk-rmavbild-2021-04-20-kl-23-00-10-4.jpg" ></a>
@@ -36,24 +37,23 @@
         			<input name="operation" value="toSettings" type="hidden">
         		</form>
         	</div>
-      	</section>
+      	</section>     	
 	</header>
+	
       	<%Account account = (Account)request.getSession().getAttribute("account");%>
       	<div class="welcomeHeader">
 			<p>Hello  <%=account.getFirstName()%>!</p>
 		</div>
 		<section id = "mainbody">
 			<div class="welcomeBox">	
-						We are so happy to see you. Here you can see your saving goals that you want to reach and check them out so that you can keep track that you are following your saving schedules so you can achieve your dreams. Or even better - you can register new goals to always challenge yourself.				
+				We are so happy to see you. Here you can see your saving goals that you want to reach and check them out so that you can keep track that you are following your saving schedules so you can achieve your dreams. Or even better - you can register new goals to always challenge yourself.				
 			</div>
 		</section>
-
-
-			
+		
 	<footer> 
         <section id = "footer">
         	<div class="leftdiv"><br>
-        		© 2021 MySavingApp Company
+        		Â© 2021 MySavingApp Company
         	</div>
         	<div class="leftcenterdiv"><br>
         		<b>Contact</b><br><br>
@@ -69,13 +69,11 @@
         	</div>
         	<div class="rightdiv"><br>
         		<b>About</b><br><br>
-				<a href="http://localhost:8080/SavingAppWebProject/about.jsp" id="codeLink"><p>Our story</p></a>
-        		<a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink"><p>Test our code</p></a>
+				<p><a href="http://localhost:8080/SavingAppWebProject/about.jsp" id="codeLink">Our story</a></p>
+        		<p><a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink">Test our code</a></p>
         	</div>
       	</section> 
 	</footer> 
            
- 
-
 </body>
 </html>
