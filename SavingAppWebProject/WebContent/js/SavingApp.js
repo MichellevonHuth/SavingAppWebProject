@@ -35,24 +35,20 @@ function checkGoal(){
 	var savingName = $("#savingScheduleNameTextBox").val();
 	
 	
-	if(savingName == "" || savingName == null){
-		$("#errorLbl").text("Please fill in a saving goal name");		
+	if(savingName == "" || savingName == null || savingGoal == null || savingGoal == "" || durationYear == null || durationYear == "" || durationMonth == null || durationMonth == ""){
+		$("#errorLbl").text("Please fill in all fields");		
 		return false;
 	}	
-	if(savingGoal == "" || savingGoal == null){
-		$("#errorLbl").text("Please fill in a saving goal");		
-		return false;
-	}
 	else if(!savingGoal.match(/^([0-9])/)){	
 		$("#errorLbl").text("Saving goal must be a number");		
 		return false;
 	}
 	else if(!durationYear.match(/^([0-9])/)){	
-		$("#errorLbl").text("Saving goal must be a number");		
+		$("#errorLbl").text("Saving duration year must be a number");		
 		return false;
 	}
 	else if(!durationMonth.match(/^([0-9])/)){	
-		$("#errorLbl").text("Saving goal must be a number");		
+		$("#errorLbl").text("Saving duration month must be a number");		
 		return false;
 	}
 	return true;

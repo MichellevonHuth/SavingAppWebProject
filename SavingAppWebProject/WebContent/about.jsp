@@ -44,9 +44,9 @@
   <section id="aboutSection">
    
 		<aside id="leftdiv">
-			<h1 style="font-size: 40px;">
+			<h3 style="font-size: 35px; font-family: Arial;">
 				Our story
-			</h1>
+			</h3>
 		
 			<p>We are four girls who has made this app just because we want YOU to achieve your dreams. The first idea of this app came to us when we were saving for our exchange semester in Australia. Then we realized that there is no good saving apps out there... Until now! Call us dreamers if you like, but we want to help people feel good about money.
 			In a world of overspending and easy credit, it is no surprise that money is the number one source of stress for millions of people.
