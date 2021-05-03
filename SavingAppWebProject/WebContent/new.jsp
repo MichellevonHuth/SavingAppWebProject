@@ -80,7 +80,7 @@
 			<input type="submit" name="submit" value="Make a saving schedule" id="saveSavingScheduleBtn"> 
 			<input name="operation"  value="createAnSavingSchedule"  type="hidden">		
 			</section>
-			<p id = "errorLbl"><%=error%> hello</p>
+			<p id = "errorLbl"><%=error%></p>
 			</form>		
 			</div>
 					

@@ -79,7 +79,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 				double savingGoal = Double.parseDouble(request.getParameter("savingGoalTextBox"));
 				String savingScheduleName = request.getParameter("savingScheduleNameTextBox");
 				
-				double costs = fixedCost - variableCost;
+				double costs = fixedCost + variableCost;
 				double moneyLeft = income - costs;
 	               
 				if(savingDurationYear!= 0 && savingDurationMonth!=0) {
@@ -132,10 +132,14 @@ public class SavingAppControllerServlet extends HttpServlet {
 		if(operation.equals("Delete user")) {
 			doDelete(request,response);
 		}
+		if(operation.equals("toSettings")){
+			Account a = (Account)request.getSession().getAttribute("account");
+			String username = a.getUsername();
+			Account account = facade.findByAccountUsername(username);
+			session.setAttribute("account", account);
+			
+		}
 
-		
-		
-		
 		if(operation.equals("findAccount")) {
 			
 			String username = request.getParameter("userNameTextField");
