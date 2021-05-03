@@ -56,22 +56,22 @@
 			
 			<br>
 			<div class="textBoxStyle">
-			<p>Saving schedule name</p>
+			<p>Saving schedule name *</p>
 			<input type="text" name="savingScheduleNameTextBox" id="savingScheduleNameTextBox" value="">
 			</div>
 			<br>
 			<div class="textBoxStyle">
-			<p>Saving goal</p>
+			<p>Saving goal (SEK) *</p>
 			<input type="text" name="savingGoalTextBox" id="savingGoalTextBox" value="">
 			</div>
 			<br>
 			<div class="textBoxStyle">
-			<p>Saving duration year</p>
+			<p>Saving duration year (Number) *</p>
 			<input type="text" name="savingDurationYearTextBox" id="savingDurationYearTextBox" value="">
 			</div>
 			<br>
 			<div class="textBoxStyle">
-			<p>Saving duration month</p>
+			<p>Saving duration month (Number) *</p>
 			<input type="text" name="savingDurationMonthTextBox" id="savingDurationMonthTextBox" value="">
 			</div>
 			<br><br><br>
@@ -85,39 +85,30 @@
 					
 		</section>
 
-
 	<footer> 
         <section id = "footer">
-        	<div class="leftdiv">
-        	<br>
-        	© 2021 MySavingApp Company
+        	<div class="leftdiv"><br>
+        		© 2021 MySavingApp Company
         	</div>
-        	<div class="leftcenterdiv">
-        	<br>
-        	<b>Contact</b>
-			<br><br>
-        	<p>contact@mySavingApp.com</p>
-        	<p>Stora Tomegatan 32B</p>
-        	<p>223 51, Lund</p>
+        	<div class="leftcenterdiv"><br>
+        		<b>Contact</b><br><br>
+        		<p>contact@mySavingApp.com</p>
+        		<p>Stora Tomegatan 32B</p>
+        		<p>223 51, Lund</p>
         	</div>
-        	<div class="rightcenterdiv">
-        	<br>
-        	<b>Social</b>
-			<br><br>
-        	<p>Facebook</p>
-        	<p>LinkedIn</p>
-        	<p>Instagram</p>
+        	<div class="rightcenterdiv"><br>
+        		<b>Social</b><br><br>
+        		<p>Facebook</p>
+        		<p>LinkedIn</p>
+        		<p>Instagram</p>
         	</div>
-        	<div class="rightdiv">
-        	<br>
-        	<b>About</b>
-			<br><br>
-			<a href="http://localhost:8080/SavingAppWebProject/about.jsp" id="codeLink"><p>Our story</p></a>
-        	<a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink"><p>Test our code</p></a>
-        	
+        	<div class="rightdiv"><br>
+        		<b>About</b><br><br>
+				<a href="http://localhost:8080/SavingAppWebProject/about.jsp" id="codeLink"><p>Our story</p></a>
+        		<a href="http://localhost:8080/SavingAppWebProject/test.jsp" id="codeLink"><p>Test our code</p></a>
         	</div>
       	</section> 
-	</footer>   
+	</footer>  
 	
 </body>
 </html>
