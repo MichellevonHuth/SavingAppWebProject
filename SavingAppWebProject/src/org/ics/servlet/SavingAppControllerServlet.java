@@ -64,18 +64,17 @@ public class SavingAppControllerServlet extends HttpServlet {
 		}
 		
 		if(operation.equals("createAnSavingSchedule")) {
-			try{
-			
+			try{			
 				Account account = (Account)session.getAttribute("account");
 				String username = account.getUsername();
 				Account a =	facade.findByAccountUsername(username);
 			
-				double savingDuration = 0;			
+				double month = 0;			
 				double fixedCost = a.getFixedCost();
 				double income = a.getTotalIncome();
 				double variableCost = a.getVariableCost();
 				int savingDurationMonth = Integer.parseInt(request.getParameter("savingDurationMonthTextBox"));
-				int savingDurationYear = Integer.parseInt(request.getParameter("savingDurationYearTextbox"));        
+				int savingDurationYear = Integer.parseInt(request.getParameter("savingDurationYearTextBox"));        
 				double savingGoal = Double.parseDouble(request.getParameter("savingGoalTextBox"));
 				String savingScheduleName = request.getParameter("savingScheduleNameTextBox");
 				
@@ -83,18 +82,18 @@ public class SavingAppControllerServlet extends HttpServlet {
 				double moneyLeft = income - costs;
 	               
 				if(savingDurationYear!= 0 && savingDurationMonth!=0) {
-					savingDuration = (savingDurationYear*12)+savingDurationMonth;
+					month = (savingDurationYear*12)+savingDurationMonth;
 				}
 				else if(savingDurationYear!= 0 && savingDurationMonth==0) {
-					savingDuration = (savingDurationYear*12);
+					month = (savingDurationYear*12);
 				}
 				else if(savingDurationYear== 0 && savingDurationMonth!=0) {
-					savingDuration = savingDurationMonth;
+					month = savingDurationMonth;
 				}
 	        
-				double moneySaving = savingGoal/savingDuration;
+				double moneySaving = savingGoal/month;
 			
-				double howManyMonths = 0;
+				double realisticAmountOfMonth = 0;
 	        
 	        	if(moneySaving<moneyLeft) {
 	        		SavingSchedule s = new SavingSchedule();
@@ -107,20 +106,20 @@ public class SavingAppControllerServlet extends HttpServlet {
 	 	            
 	 	            facade.createSavingSchedule(s);
 	 	            url="/new.jsp";
+	 	            session.setAttribute("errorMessage", "Hurray! You have created a saving goal");
+		        	
 	        		
 	        	}
 	        	else {
-	        		howManyMonths=savingGoal/moneyLeft;
+	        		realisticAmountOfMonth=savingGoal/moneyLeft;
 	        		url = "/new.jsp";		
-					session.setAttribute("errorMessage", "You cant reach your goal within this duration, try " + howManyMonths + " month");
+					session.setAttribute("errorMessage", "You cant reach your goal within this duration, try " + realisticAmountOfMonth + " month");
 	        	}
 			}catch(Exception e) {
 					url = "/new.jsp";		
 					session.setAttribute("errorMessage", "Something went wrong, try again later");
 			}
-	        	
-	        	
-			
+	
 		}
 		
 
@@ -137,6 +136,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 			String username = a.getUsername();
 			Account account = facade.findByAccountUsername(username);
 			session.setAttribute("account", account);
+			url = "/settings.jsp";
 			
 		}
 

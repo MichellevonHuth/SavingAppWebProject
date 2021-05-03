@@ -41,14 +41,19 @@
         	<div class="new">
 				<a href="http://localhost:8080/SavingAppWebProject/new.jsp" id="new"><img src="https://i.postimg.cc/Prf7czY6/Sk-rmavbild-2021-04-20-kl-23-00-10-2.jpg" onmouseover="this.src='https://i.postimg.cc/pTmcn7nX/Namnl-s-7.jpg'" onmouseout="this.src='https://i.postimg.cc/Prf7czY6/Sk-rmavbild-2021-04-20-kl-23-00-10-2.jpg'"/></a>
         	</div>
-        	<div class="settings">
-				<a href="http://localhost:8080/SavingAppWebProject/settings.jsp" id="settings"><img src="https://i.postimg.cc/QMc2wPc2/Sk-rmavbild-2021-04-20-kl-23-00-10-5.jpg" ></a>
+        	<div class="settings">   	
+        	    <form action="/SavingAppWebProject/SavingAppControllerServlet" method="get">
+					<input type=image src="https://i.postimg.cc/QMc2wPc2/Sk-rmavbild-2021-04-20-kl-23-00-10-5.jpg">
+        			<input name="operation" value="toSettings" type="hidden">
+        		</form>
+
         	</div>
       	</section>
    </header>  	  	
       	    <div class="header">
      		<p>User settings</p>
      		</div>
+     		<br>
 		<section id = "mainbodySettings">
 		 <form action ="/SavingAppWebProject/SavingAppControllerServlet" method="get" accept-charset=utf-8 onsubmit="return checkRegisterFields()">
 		  

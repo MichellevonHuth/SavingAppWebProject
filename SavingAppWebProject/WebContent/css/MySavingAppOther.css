@@ -24,7 +24,7 @@ section#meny{
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
-	align-content: flex-start;
+	align-content: flex-start;	
 }
 
 .savingschedulecontainer1{
@@ -133,9 +133,10 @@ section#meny{
 }
 
 section#mainbody{
-	height: 420px;
 	display: flex;
+	height: 420px;
 	justify-content: center;
+	
 }
 section#mainbodySettings{
 	height:600px;
@@ -166,14 +167,14 @@ section#mainbodyNew{
 }
 
 .header{
-	padding: 30px 0px 0px 200px;
+	padding: 30px 0px 0px 280px;
 	color: #fff;
     font-family: Arial; 
     font-size: 35px;
     line-height: 0.5%;
 }
 .welcomeHeader{
-	padding: 30px 0px 0px 250px;
+	padding: 30px 0px 0px 320px;
 	color: #fff;
     font-family: Arial; 
     font-size: 35px;
@@ -190,7 +191,7 @@ section#mainbodyNew{
 
 
 #underheader{
-    padding: 0px 0px 30px 210px;
+    padding: 0px 0px 30px 285px;
     text-align: left;
     color: #fff;
     font-family: Arial; 
@@ -232,7 +233,7 @@ section#mainbodyNew{
 }
 .newBox{
 	height: 400px;
-    width: 55%;
+    width: 45%;
     color: white;
     font-family: Arial;
     font-size: 14px;
@@ -241,15 +242,19 @@ section#mainbodyNew{
     word-wrap: break-word;
     border-radius: 40px;
 }
-.welcomeTextBox{
-	margin-top: -20px;
-    width: 40%;
+.welcomeBox{
+	height: 105px;
+    width: 35%;
+    background-color: #383939;
+    float: left;
+    padding: 20px 30px 10px 30px;
     color: white;
     font-family: Arial;
-    font-size: 14px;
-    float: left;
-    word-wrap: break-word;
+    border-radius: 40px;
+    text-align: justify;
+    font-size: 15px;
 }
+
 #content{
 	display: flex;
 	justify-content: center;
@@ -429,3 +434,40 @@ section#footer{
 	font-size: 11px;
 	
 }
+
+#aboutSection {
+	height: 500px;
+	width: 100%; 
+}
+
+#leftdiv {
+	float: left; 
+    float: left;
+    color: white;
+    font-family: Arial;
+    text-align: justify;
+    font-size: 15px;
+    width: 20%;
+    margin-left: 20%;
+    margin-top: 1%;
+	word-wrap: break-word;
+}
+
+#rightdiv {
+	float:left; 
+	margin-left: 3%; 
+	margin-top: 3%; 
+	width: 40%;
+}
+#portraits1{
+	display: flex;
+	justify-content: space-evenly;
+	width: 100%;
+}
+#portraits2{
+	display: flex;
+	justify-content: space-evenly;
+	width: 100%;
+	margin-top: 8%;
+}
+

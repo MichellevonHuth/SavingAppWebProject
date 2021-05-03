@@ -37,19 +37,22 @@
 				<a href="http://localhost:8080/SavingAppWebProject/new.jsp" id="new"><img src="https://i.postimg.cc/Prf7czY6/Sk-rmavbild-2021-04-20-kl-23-00-10-2.jpg" onmouseover="this.src='https://i.postimg.cc/pTmcn7nX/Namnl-s-7.jpg'" onmouseout="this.src='https://i.postimg.cc/Prf7czY6/Sk-rmavbild-2021-04-20-kl-23-00-10-2.jpg'"/></a>
         	</div>
         	<div class="settings">
-				<a href="http://localhost:8080/SavingAppWebProject/settings.jsp" id="settings"><img src="https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg" onmouseover="this.src='https://i.postimg.cc/Hkdk9N9j/Sk-rmavbild-2021-04-20-kl-23-00-10-3-1.jpg'" onmouseout="this.src='https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg'"/></a>
+        	    <form action="/SavingAppWebProject/SavingAppControllerServlet" method="get">
+					<input type=image src="https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg" onmouseover="this.src='https://i.postimg.cc/Hkdk9N9j/Sk-rmavbild-2021-04-20-kl-23-00-10-3-1.jpg'" onmouseout="this.src='https://i.postimg.cc/kgzhB0ZZ/Sk-rmavbild-2021-04-20-kl-23-00-10-3.jpg'"/>
+        			<input name="operation" value="toSettings" type="hidden">
+        		</form>
         	</div>
       	</section>
 </header>
 
+<div class="content">
       	<%ArrayList<SavingSchedule> s = (ArrayList<SavingSchedule>) request.getAttribute("getSavingSchedules"); %>
-      	<div class="content">
-		
-			<%if(s.isEmpty()){ %>
-			<div class="errorNoSavings">
-				You do not have any saving goals yet, go ahead and make one!
-			</div>
-			<%} %>
+     
+				<%if(s.isEmpty()){ %>
+				<div class="errorNoSavings">
+					You do not have any saving goals yet, go ahead and make one!
+				</div>
+				<%} %>
       	
       		<%for(int i = 0 ; i < s.size() ; i+=1) { %>
 			
@@ -57,9 +60,9 @@
  					<div class="savingschedulecontainer1">	
  						<div class="textContainer">
 			 				Name : <%=s.get(i).getSavingScheduleName()%><br>
-      						Goal: <%=s.get(i).getSavingGoal()%> KR<br>
+      						Goal: <%=s.get(i).getSavingGoal()%> kr<br>
       						<%double budget = s.get(i).getBudget();%>
-      						Budget: <%=Math.round(budget)%> KR / each month
+      						Budget: <%=Math.round(budget)%> kr each month
  						</div>
 					</div>
 				
@@ -67,56 +70,50 @@
 					<div class="savingschedulecontainer2">
 						<div class="textContainer">
 							Name : <%=s.get(i).getSavingScheduleName()%><br>
-      						Goal: <%=s.get(i).getSavingGoal()%> KR<br>
+      						Goal: <%=s.get(i).getSavingGoal()%> kr<br>
       						<%double budget = s.get(i).getBudget();%>
-      						Budget: <%=Math.round(budget)%> KR / each month
+      						Budget: <%=Math.round(budget)%> kr each month
  						</div>
 					</div>		
 				<%} else if (i % 4 == 0) {%> 
 					<div class="savingschedulecontainer3">
 						<div class="textContainer">
 							Name : <%=s.get(i).getSavingScheduleName()%><br>
-      						Goal: <%=s.get(i).getSavingGoal()%> KR<br>
+      						Goal: <%=s.get(i).getSavingGoal()%> kr<br>
       						<%double budget = s.get(i).getBudget();%>
-      						Budget: <%=Math.round(budget)%> KR / each month 				</div>
+      						Budget: <%=Math.round(budget)%> kr each month 				
 						</div>
 					</div>
 				<%} else if (i %  3 == 0) {%> 
 					<div class="savingschedulecontainer4">
 						<div class="textContainer">
 							Name : <%=s.get(i).getSavingScheduleName()%><br>
-      						Goal: <%=s.get(i).getSavingGoal()%> KR<br>
+      						Goal: <%=s.get(i).getSavingGoal()%> kr<br>
       						<%double budget = s.get(i).getBudget();%>
-      						Budget: <%=Math.round(budget)%> KR / each month
+      						Budget: <%=Math.round(budget)%> kr each month
  						</div>
  					</div>
 				<%} else if (i % 2  == 0) {%> 
 					<div class="savingschedulecontainer5">
 						<div class="textContainer">
 							Name : <%=s.get(i).getSavingScheduleName()%><br>
-      						Goal: <%=s.get(i).getSavingGoal()%> KR<br>
+      						Goal: <%=s.get(i).getSavingGoal()%> kr<br>
       						<%double budget = s.get(i).getBudget();%>
-      						Budget: <%=Math.round(budget)%> KR / each month
+      						Budget: <%=Math.round(budget)%> kr each month
  						</div>
 					</div>
 				<%} else {%> 
 					<div class="savingschedulecontainer6">
 						<div class="textContainer">
 							Name : <%=s.get(i).getSavingScheduleName()%><br>
-      						Goal: <%=s.get(i).getSavingGoal()%> KR<br>
+      						Goal: <%=s.get(i).getSavingGoal()%> kr<br>
       						<%double budget = s.get(i).getBudget();%>
-      						Budget: <%=Math.round(budget)%> KR / each month
+      						Budget: <%=Math.round(budget)%> kr each month
  						</div>
 					</div>
-				<%} %>
-			
-      		<%} %>
-      	
-      	
-      	</div>
-      	
-            	
-      	
+				<%} %>		
+      		<%} %>      		
+      	</div>     	         	 	
 </section>
 
 	<footer> 
