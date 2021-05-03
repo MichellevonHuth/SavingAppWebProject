@@ -28,7 +28,6 @@
 	}%>
 	
 <%Account account = (Account)request.getSession().getAttribute("account");%>
-<%String surname = account.getSurname(); %>
 
 <input name="username" id="username" value="" type = "hidden">
 	<section id="body">
@@ -69,7 +68,7 @@
 			<br>
 			<div class="textBoxStyle">
 				<p>Surname *</p>
-				<input type="text" name="surnameTextBox" id="surnameTextBox" value="<%=surname%>">
+				<input type="text" name="surnameTextBox" id="surnameTextBox" value="<%=account.getSurname()%>">
 			</div>
 			<br>
 			<div class="textBoxStyle">

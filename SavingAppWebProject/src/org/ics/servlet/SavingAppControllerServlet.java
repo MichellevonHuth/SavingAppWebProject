@@ -70,35 +70,18 @@ public class SavingAppControllerServlet extends HttpServlet {
 				String username = account.getUsername();
 				Account a =	facade.findByAccountUsername(username);
 			
-				int savingDuration = 0;
-			
+				double savingDuration = 0;			
 				double fixedCost = a.getFixedCost();
 				double income = a.getTotalIncome();
 				double variableCost = a.getVariableCost();
-				String stringMonth = request.getParameter("savingDurationMonthTextBox");
-				int savingDurationMonth;
-				String stringYear = request.getParameter("savingDurationYearTextbox");
-				int savingDurationYear;
-			
-				if(stringMonth == null || stringMonth.equals("")) {
-					savingDurationMonth = 0; 				
-				} else {
-					savingDurationMonth = Integer.parseInt(stringMonth);
-				}
-		
-				if(stringYear == null || stringYear.equals("")) {
-					savingDurationYear = 0;
-				}else {
-					savingDurationYear = Integer.parseInt(stringYear);
-				}
-			
-				double savingGoal = Double.parseDouble(request.getParameter("savingGoalTextBox")); 
+				int savingDurationMonth = Integer.parseInt(request.getParameter("savingDurationMonthTextBox"));
+				int savingDurationYear = Integer.parseInt(request.getParameter("savingDurationYearTextbox"));        
+				double savingGoal = Double.parseDouble(request.getParameter("savingGoalTextBox"));
 				String savingScheduleName = request.getParameter("savingScheduleNameTextBox");
-	        
+				
 				double costs = fixedCost - variableCost;
 				double moneyLeft = income - costs;
-	        
-	       
+	               
 				if(savingDurationYear!= 0 && savingDurationMonth!=0) {
 					savingDuration = (savingDurationYear*12)+savingDurationMonth;
 				}
@@ -109,7 +92,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 					savingDuration = savingDurationMonth;
 				}
 	        
-				double moneySaving = Math.round(savingGoal/savingDuration);
+				double moneySaving = savingGoal/savingDuration;
 			
 				double howManyMonths = 0;
 	        
@@ -129,11 +112,11 @@ public class SavingAppControllerServlet extends HttpServlet {
 	        	else {
 	        		howManyMonths=savingGoal/moneyLeft;
 	        		url = "/new.jsp";		
-					request.setAttribute("errorMessage", "You cant reach your goal within this duration, try " + howManyMonths + " month");
+					session.setAttribute("errorMessage", "You cant reach your goal within this duration, try " + howManyMonths + " month");
 	        	}
 			}catch(Exception e) {
 					url = "/new.jsp";		
-					request.setAttribute("errorMessage", "Something went wrong, try again later");
+					session.setAttribute("errorMessage", "Something went wrong, try again later");
 			}
 	        	
 	        	
@@ -165,8 +148,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 				else {	
 					String s = "The user doesn't exist, please register";
 					request.setAttribute("ErrorLogIn", s);
-					url ="/start.jsp";
-								
+					url ="/start.jsp";								
 				}
 		}
 		
@@ -189,8 +171,7 @@ public class SavingAppControllerServlet extends HttpServlet {
             String surname = request.getParameter("surnameTextBox");
             double totalIncome = Double.parseDouble(request.getParameter("incomeTextBox"));
             double fixedCost = Double.parseDouble(request.getParameter("fixedCostTextBox"));
-            double variableCost = Double.parseDouble(request.getParameter("variableCostTextBox"));
-            
+            double variableCost = Double.parseDouble(request.getParameter("variableCostTextBox"));            
             Account a = new Account();
             
             a.setUsername(username);
