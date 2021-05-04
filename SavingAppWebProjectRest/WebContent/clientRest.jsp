@@ -149,7 +149,7 @@
 	  if (strValue != "") {
 		$.ajax({
 		 method: "GET",
-		 url: "http://localhost:8080/SavingAppWebProjectRest/RestServlet/"+strValue,
+		 url: "http://localhost:8080/SavingAppWebProjectRest/Accounts/"+strValue,
 		 error: ajaxFindReturnError,
 		 success: ajaxFindReturnSuccess
 
@@ -197,7 +197,7 @@
 			$.ajax({
 
 				method: "POST",
-				url: "http://localhost:8080/SavingAppWebProjectRest/RestServlet/",
+				url: "http://localhost:8080/SavingAppWebProjectRest/Accounts/",
 				data: jsonString,
 				dataType:'json',
 				error: ajaxAddReturnError,
@@ -218,9 +218,7 @@
 
 			}
 		}
-		
-	
-		
+				
 	})
 	
 	// btn add savingSchedule
@@ -247,7 +245,7 @@
 			$.ajax({
 
 				method: "POST",
-				url: "http://localhost:8080/SavingAppWebProjectRest/RestServlet",
+				url: "http://localhost:8080/SavingAppWebProjectRest/SavingSchedules/",
 				data: jsonString,
 				dataType:'json',
 				error: ajaxAddReturnError,
@@ -288,7 +286,7 @@
 			
 		$.ajax({
 			method: "DELETE",
-			url: "http://localhost:8080/SavingAppWebProjectRest/RestServlet/"+strValue,
+			url: "http://localhost:8080/SavingAppWebProjectRest/Accounts/"+strValue,
 			error: ajaxDelReturnError,
 			success: ajaxDelReturnSuccess
 

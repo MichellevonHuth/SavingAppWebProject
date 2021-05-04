@@ -23,16 +23,16 @@ import org.ics.ejb.SavingSchedule;
 import org.ics.facade.FacadeLocal;
 
 /**
- * Servlet implementation class RestServlet
+ * Servlet implementation class Accounts
  */
-@WebServlet("/RestServlet/*")
-public class RestServlet extends HttpServlet {
+@WebServlet("/Accounts/*")
+public class Accounts extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
 	FacadeLocal facade;
 
-	public RestServlet() {
+	public Accounts() {
 
 		super();
 	}

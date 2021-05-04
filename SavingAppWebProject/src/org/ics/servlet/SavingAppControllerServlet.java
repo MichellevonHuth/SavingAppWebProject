@@ -62,64 +62,7 @@ public class SavingAppControllerServlet extends HttpServlet {
 		}
 		
 		if(operation.equals("createAnSavingSchedule")) {
-			try{			
-				Account account = (Account)session.getAttribute("account");
-				String username = account.getUsername();
-				Account a =	facade.findByAccountUsername(username);
-			
-				double month = 0;			
-				double fixedCost = a.getFixedCost();
-				double income = a.getTotalIncome();
-				double variableCost = a.getVariableCost();
-				int savingDurationMonth = Integer.parseInt(request.getParameter("savingDurationMonthTextBox"));
-				int savingDurationYear = Integer.parseInt(request.getParameter("savingDurationYearTextBox"));        
-				double savingGoal = Double.parseDouble(request.getParameter("savingGoalTextBox"));
-				String savingScheduleName = request.getParameter("savingScheduleNameTextBox");
-				
-				double costs = fixedCost + variableCost;
-				double moneyLeft = income - costs;
-	               
-				if(savingDurationYear!= 0 && savingDurationMonth!=0) {
-					month = (savingDurationYear*12)+savingDurationMonth;
-				}
-				else if(savingDurationYear!= 0 && savingDurationMonth==0) {
-					month = (savingDurationYear*12);
-				}
-				else if(savingDurationYear== 0 && savingDurationMonth!=0) {
-					month = savingDurationMonth;
-				}
-	        
-				double moneySaving = savingGoal/month;
-			
-				double realisticAmountOfMonth = 0;
-				
-	        if(costs>income) {
-	        	url = "/new.jsp";		
-				session.setAttribute("errorMessage", "You have to many expenses, please reduce them to reach your goal");
-	        }
-	        
-	        else if(moneySaving<=moneyLeft) {
-	        		SavingSchedule s = new SavingSchedule();
-	        		s.setSavingScheduleName(savingScheduleName);
-	 	            s.setSavingGoal(savingGoal);
-	 	            s.setSavingDurationYear(savingDurationYear);
-	 	            s.setSavingDurationMonth(savingDurationMonth);
-	 	            s.setBudget(moneySaving);
-	 	            s.setAccount(a);
-	 	            
-	 	            facade.createSavingSchedule(s);
-	 	            url="/new.jsp";
-	 	            session.setAttribute("message", "Hurray! You have created a saving goal");        		
-	        	}
-	        	else {
-	        		realisticAmountOfMonth=savingGoal/moneyLeft;
-	        		url = "/new.jsp";		
-					session.setAttribute("errorMessage", "You cant reach your goal within this duration, try " + realisticAmountOfMonth + " month instead");
-	        	}
-			}catch(Exception e) {
-					url = "/new.jsp";		
-					session.setAttribute("errorMessage", "Something went wrong, try again later");
-			}	
+			doPost(request,response);	
 		}
 		
 
@@ -194,7 +137,68 @@ public class SavingAppControllerServlet extends HttpServlet {
         	  session.setAttribute("errorMessage", "There is already an account with this username, please select another");
         	  url ="/register.jsp";
            }                     
-        }       
+        } 
+        
+        if(operation.equals("createAnSavingSchedule")) {
+        	try{			
+				Account account = (Account)session.getAttribute("account");
+				String username = account.getUsername();
+				Account a =	facade.findByAccountUsername(username);
+			
+				double month = 0;			
+				double fixedCost = a.getFixedCost();
+				double income = a.getTotalIncome();
+				double variableCost = a.getVariableCost();
+				int savingDurationMonth = Integer.parseInt(request.getParameter("savingDurationMonthTextBox"));
+				int savingDurationYear = Integer.parseInt(request.getParameter("savingDurationYearTextBox"));        
+				double savingGoal = Double.parseDouble(request.getParameter("savingGoalTextBox"));
+				String savingScheduleName = request.getParameter("savingScheduleNameTextBox");
+				
+				double costs = fixedCost + variableCost;
+				double moneyLeft = income - costs;
+	               
+				if(savingDurationYear!= 0 && savingDurationMonth!=0) {
+					month = (savingDurationYear*12)+savingDurationMonth;
+				}
+				else if(savingDurationYear!= 0 && savingDurationMonth==0) {
+					month = (savingDurationYear*12);
+				}
+				else if(savingDurationYear== 0 && savingDurationMonth!=0) {
+					month = savingDurationMonth;
+				}
+	        
+				double moneySaving = savingGoal/month;
+			
+				double realisticAmountOfMonth = 0;
+				
+	        if(costs>income) {
+	        	url = "/new.jsp";		
+				session.setAttribute("errorMessage", "You have to many expenses, please reduce them to reach your goal");
+	        }
+	        
+	        else if(moneySaving<=moneyLeft) {
+	        		SavingSchedule s = new SavingSchedule();
+	        		s.setSavingScheduleName(savingScheduleName);
+	 	            s.setSavingGoal(savingGoal);
+	 	            s.setSavingDurationYear(savingDurationYear);
+	 	            s.setSavingDurationMonth(savingDurationMonth);
+	 	            s.setBudget(moneySaving);
+	 	            s.setAccount(a);
+	 	            
+	 	            facade.createSavingSchedule(s);
+	 	            url="/new.jsp";
+	 	            session.setAttribute("message", "Hurray! You have created a saving goal");        		
+	        	}
+	        	else {
+	        		realisticAmountOfMonth=savingGoal/moneyLeft;
+	        		url = "/new.jsp";		
+					session.setAttribute("errorMessage", "You cant reach your goal within this duration, try " + realisticAmountOfMonth + " month instead");
+	        	}
+			}catch(Exception e) {
+					url = "/new.jsp";		
+					session.setAttribute("errorMessage", "Something went wrong, try again later");
+			}
+        }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
