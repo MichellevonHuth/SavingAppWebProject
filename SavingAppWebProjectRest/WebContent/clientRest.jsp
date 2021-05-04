@@ -31,7 +31,7 @@
 					<td><span id="weather"></span></td>					
 					<td><span></span></td>
 					<td><span></span></td>
-					<tr>
+						<tr>
 					<td colspan="4"><span id="sunrise"></span></td>
 				</tr>
 				<tr>
@@ -135,7 +135,8 @@
 		console.log("Ajax-find weather: "+status);
 
 	}
-
+	
+	//btn find accounts savingschedules
 	$("#ShowBtn").click(function() {
 		$("#errorFind").empty();
 		
@@ -164,12 +165,14 @@
 
 	 		}
 		 }
-	})//btn find accounts savingschedules
+	})
 	
+	//clear btn
 	$("#ClearBtn").click(function() {
 		$('#list').empty();	
 	})
 
+	//Add account btn
 	$("#AddBtn").click( function() {
 		$("#accountAdded").empty();
 		$("#accountError").empty();
@@ -218,8 +221,9 @@
 		
 	
 		
-	})//btn add account 
-
+	})
+	
+	// btn add savingSchedule
 	$("#AddBtnSavingSchedule").click( function() {
 		$("#errorSaving").empty();
 		$("#saving").empty();
@@ -265,8 +269,9 @@
 				}
 
 			}
-	})//btn add Savingschedule
+	})
 
+	// btn delete account
 	$("#DeleteBtn").click( function() {
 		$("#delete").empty()
 		$("#errorDelete").empty()
@@ -303,18 +308,20 @@
 		}
 	}
 
-	})//Delete button account 
-	});//End ready function
+	})
+	});
+	
+	//End ready function
 
-
+	// print out result in list
 	function ParseJsonFileAccount(result) {
-		console.log(result);
 		for(var i=0; i<result.length; i++){
 			$("#list").append("<li>" + result[i].Name + ": " + result[i].SavingGoal + "kr" + "</li>")
 		}
 	
 	}
-
+	
+	// weather api
 	function ParseJsonFile(result) {
 
 	  var lat = result.latitude;
@@ -374,8 +381,7 @@
 	}
 	
 	function clearFieldShow(){
-		$("#findUsername").val("");
-			
+		$("#findUsername").val("");			
 	}
 	
 	function clearCreateSchedule() {
@@ -386,7 +392,6 @@
 		$("#year").val("");
 		
 	}
-
 	</script>
 </body>
 </html>
