@@ -1,4 +1,5 @@
 package org.ics.servlet;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,21 +17,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.ics.ejb.*;
-import org.ics.facade.*;
+
+import org.ics.ejb.Account;
+import org.ics.ejb.SavingSchedule;
+import org.ics.facade.FacadeLocal;
 
 /**
- * Servlet implementation class Movies
+ * Servlet implementation class RestServlet
  */
-
-@WebServlet("/SavingAppServlet/*")
-public class SavingAppServlet extends HttpServlet {
+@WebServlet("/RestServlet/*")
+public class RestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
 	FacadeLocal facade;
 
-	public SavingAppServlet() {
+	public RestServlet() {
 
 		super();
 	}
@@ -59,7 +61,7 @@ public class SavingAppServlet extends HttpServlet {
 
 		if(pathInfo == null || pathInfo.equals("")){
 
-			BufferedReader reader = request.getReader();//Läs data Json
+			BufferedReader reader = request.getReader();
 			SavingSchedule s = parseJsonSavingSchedule(reader);
 			
 			try {
@@ -110,6 +112,7 @@ public class SavingAppServlet extends HttpServlet {
 					facade.deleteSavingSchedule(s.getSavingScheduleNbr());
 				}
 				facade.deleteAccount(id);
+				sendAsJson(response, account);
 			}
 			else {
 				response.sendError(HttpServletResponse.SC_BAD_REQUEST);
@@ -118,8 +121,7 @@ public class SavingAppServlet extends HttpServlet {
 		} catch (Exception e) {
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			return;
-		}	
-				
+		}		
 	}
 
  private void sendAsJson(HttpServletResponse response, Account account) throws IOException {

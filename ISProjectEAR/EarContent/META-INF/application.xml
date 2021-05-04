@@ -10,9 +10,10 @@
       <context-root>SavingAppWebProject</context-root>
     </web>
   </module>
+  <module>
+    <web>
+      <web-uri>SavingAppWebProjectRest.war</web-uri>
+      <context-root>SavingAppWebProjectRest</context-root>
+    </web>
+  </module>
 </application>
-
-
-
-
-

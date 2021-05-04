@@ -182,10 +182,12 @@ div {
         
 .errormessageGreen {
 	color: green; 
+	font-size: 12px; 
 }
 
 .errormessageRed {
-	color: red; 	
+	color: red; 
+	font-size: 12px; 	
 }
 
 

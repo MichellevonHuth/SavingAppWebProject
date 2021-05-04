@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1 accept-charset=UTF-8"
-
 	pageEncoding="ISO-8859-1"%>
 
 <!DOCTYPE html>
@@ -8,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <meta charset="ISO-8859-1" accept-charset=UTF-8>
-<link rel="stylesheet" type="text/css" href="css/rest.css">
+<link rel="stylesheet" type="text/css" href="css/clientRest.css">
 
 <title>SavingApp</title>
 </head>
@@ -52,11 +51,11 @@
 				<br> <input type="text" name="totalIncome" id="totalIncome" value="" placeholder="Total income:"> <br>
 				<br> <input type="text" name="fixedCost" id="fixedCost" value="" placeholder="Fixed costs:"> <br>
 				<br> <input type="text" name="variableCost" id="variableCost" value="" placeholder="Variable costs:"> <br>
-				<label id="errorAccount"></label>
+				<label id ="accountAdded" class="errormessageGreen"> </label>	
+				<label id = "accountError" class ="errormessageRed"> </label>	
 				<br> 
 				<input type="button" name="submitBtn" value="Create" id="AddBtn">
-				<label id ="accountAdded" class="errormessageGreen"> </label>	
-				<label id = "accountError" class ="errormessageRed"> </label>				
+							
 			</div>			
 		</section>
 
@@ -112,7 +111,7 @@
 
 	<footer> 
 		<div>
-        	© 2021 MySavingApp Company
+        	Â© 2021 MySavingApp Company
     	</div>
    
 	</footer>   
@@ -149,7 +148,7 @@
 	  if (strValue != "") {
 		$.ajax({
 		 method: "GET",
-		 url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet/"+strValue,
+		 url: "http://localhost:8080/SavingAppWebProjectRest/RestServlet/"+strValue,
 		 error: ajaxFindReturnError,
 		 success: ajaxFindReturnSuccess
 
@@ -195,7 +194,7 @@
 			$.ajax({
 
 				method: "POST",
-				url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet/",
+				url: "http://localhost:8080/SavingAppWebProjectRest/RestServlet/",
 				data: jsonString,
 				dataType:'json',
 				error: ajaxAddReturnError,
@@ -244,7 +243,7 @@
 			$.ajax({
 
 				method: "POST",
-				url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet",
+				url: "http://localhost:8080/SavingAppWebProjectRest/RestServlet",
 				data: jsonString,
 				dataType:'json',
 				error: ajaxAddReturnError,
@@ -284,7 +283,7 @@
 			
 		$.ajax({
 			method: "DELETE",
-			url: "http://localhost:8080/SavingAppWebProject/SavingAppServlet/"+strValue,
+			url: "http://localhost:8080/SavingAppWebProjectRest/RestServlet/"+strValue,
 			error: ajaxDelReturnError,
 			success: ajaxDelReturnSuccess
 
@@ -349,7 +348,7 @@
 	  $("#weather").text(result.weather[0].main);
 	  $("#degree").text(result.main.temp+" \u2103");
 
-	}//ajaxWeatherReturn_Success
+	}
 
 
 
@@ -357,7 +356,7 @@
 		alert("Error i OpenWeaterMap Ajax");
 		}
 
-	}//End of document ready
+	}
 	
 	function clearFieldsCreateAccount() {
 
@@ -387,11 +386,6 @@
 		$("#year").val("");
 		
 	}
-	
-	function pleaseFillInAllTheFields() {
-		alert("Please fill in all the field/fields");
-	}
-	
 
 	</script>
 </body>

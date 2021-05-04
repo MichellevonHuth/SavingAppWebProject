@@ -92,8 +92,13 @@ public class SavingAppControllerServlet extends HttpServlet {
 				double moneySaving = savingGoal/month;
 			
 				double realisticAmountOfMonth = 0;
+				
+	        if(costs>income) {
+	        	url = "/new.jsp";		
+				session.setAttribute("errorMessage", "You have to many expenses, please reduce them to reach your goal");
+	        }
 	        
-	        	if(moneySaving<=moneyLeft) {
+	        else if(moneySaving<=moneyLeft) {
 	        		SavingSchedule s = new SavingSchedule();
 	        		s.setSavingScheduleName(savingScheduleName);
 	 	            s.setSavingGoal(savingGoal);
