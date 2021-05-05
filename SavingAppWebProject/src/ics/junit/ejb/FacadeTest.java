@@ -1,10 +1,10 @@
 package ics.junit.ejb;
 
-import org.ics.ejb.Account;
-import org.ics.facade.FacadeLocal;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
+
+import org.ics.ejb.Account;
+import org.ics.facade.FacadeLocal;
 
 import junit.framework.TestCase;
 
@@ -12,8 +12,7 @@ public class FacadeTest extends TestCase {
 
 	FacadeLocal facade;
 	
-	Account a1;
-	Account a2;
+	Account account;
 
 	String expectedUsername;
 	String expectedFirstName;
@@ -22,6 +21,7 @@ public class FacadeTest extends TestCase {
 	double expectedFixedCost;
 	double expectedVariableCost;
 
+
 	public FacadeTest(String name) {
 		super(name);
 	}
@@ -29,12 +29,14 @@ public class FacadeTest extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 
-		 expectedUsername = "Idacarlsson12345";
+		 expectedUsername = "Idacarlsson12345678";
 		 expectedFirstName = "Ida";
 		 expectedSurname = "Carlsson";
 		 expectedTotalIncome = 10000;
 		 expectedFixedCost = 2000;
 		 expectedVariableCost = 1000;
+
+
 
 		Context context = new InitialContext();
 		facade = (FacadeLocal) context.lookup("java:app/SavingAppEJBProject/Facade!org.ics.facade.FacadeLocal");
@@ -44,15 +46,10 @@ public class FacadeTest extends TestCase {
 
 	protected void tearDown() throws Exception {
 		super.tearDown();
-
+		
 		facade.deleteAccount(expectedUsername);
 		facade = null;
-		a1 = null;
-		a2 = null;
-	}
-	
-
-	public void testFacadeAccountFind() {
+		account = null;
 		
 	}
 	
@@ -61,13 +58,16 @@ public class FacadeTest extends TestCase {
 		Account a = new Account();
 		a.setUsername(expectedUsername);
 		facade.createAccount(a);
-		
-		a1 = facade.findByAccountUsername(expectedUsername);
-		assertEquals(a1.getUsername(), expectedUsername);
+		a.setSurname(expectedSurname);
+		facade.updateAccount(a);
 
+
+		account = facade.findByAccountUsername(expectedUsername);
+		assertEquals(account.getUsername(), expectedUsername);
+		
+		
 	}
 	
 	
 
 }
-

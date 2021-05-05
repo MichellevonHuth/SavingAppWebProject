@@ -134,7 +134,7 @@ section#meny{
 
 section#mainbody{
 	display: flex;
-	height: 420px;
+	height: 260px;
 	justify-content: center;
 	
 }
@@ -408,6 +408,7 @@ section#buttonSettings{
 section#footer{
 	border-top: 1px solid #383939;
 }
+
 
 .leftdiv{
 	float: left;

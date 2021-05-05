@@ -65,6 +65,11 @@ public class SavingAppControllerServlet extends HttpServlet {
 			doPost(request,response);	
 		}
 		
+		if(operation.equals("toNew")) {
+			session.setAttribute("message", "");
+			url = "/new.jsp";
+		}
+		
 
 		if(operation.equals("Save changes")) {
 			doPut(request,response);
@@ -234,7 +239,7 @@ public class SavingAppControllerServlet extends HttpServlet {
          	}
 		}
 		catch(Exception e) {
-		session.setAttribute("errorMessage", "A unexpexted error has occured, try again later");
+		session.setAttribute("errorMessage", "An unexpexted error has occured, try again later");
        	  url ="/settings.jsp";
 		}
          
